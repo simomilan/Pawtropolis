@@ -2,26 +2,27 @@ package model;
 
 import zoo.Animal;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class GameController {
 
     private List<Item> items;
     private List<Animal> animals;
-    private Room currentRoom;
+    private List<Room> rooms;
     private Player player;
     private Bag bag;
+   // private Map <Direction, Room> adjoiningRooms;
 
 
 
-    public GameController(Player player, Bag bag, Room currentRoom) {   //i set non dovrebbero servirmi...
-        items = new ArrayList <>();
-        animals = new ArrayList<>();
-        this.currentRoom = currentRoom;
+
+    public GameController(Player player, Bag bag/*Map<Direction, Room> adjoiningRooms*/) {   //i set non dovrebbero servirmi...
+        this.items = new ArrayList <>();
+        this.animals = new ArrayList<>();
+        this.rooms = new ArrayList <>();
         this.player = player;
         this.bag = bag;
+      //  this.adjoiningRooms = new HashMap <>();
     }
 
     public List <Item> getItems() {
@@ -49,13 +50,20 @@ public class GameController {
         this.bag = bag;
     }
 
-    public Room getCurrentRoom() {
-        return currentRoom;
+    public List<Room> getRooms() {
+        return rooms;
     }
 
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
+   /* public Map<Direction, Room> getAdjoiningRooms() {
+        return adjoiningRooms;
+    }
+
+    public void setAdjoiningRooms (Map <Direction, Room> adjoiningRooms) {
+        this.adjoiningRooms = adjoiningRooms;
+    }*/
 
 
 
@@ -73,26 +81,35 @@ public class GameController {
 
     public void removeAnimal(Animal animal) {
         animals.remove(animal);
-    }*/
-
-    public void addRoom() {
-        currentRoom.getCurrentRoom();
     }
 
+    public void addRoom() {
+        rooms.getRooms();
+    }*/
+
     public void removeRoom(Room room) {
-        // Itera sulle stanze per trovare quella da rimuovere
+       /* // Itera sulle stanze per trovare quella da rimuovere
         for (Room currentRoom : rooms) {
-            if (currentRoom.equals(room)) {
+            if (rooms.equals(room)) {
                 // Rimuovi la stanza dalle stanze adiacenti delle altre stanze
-                for (Room adjoiningRoom : currentRoom.getAdjoiningRooms().values()) {
-                    adjoiningRoom.getAdjoiningRooms().remove(getDirectionForAdjoiningRoom(adjoiningRoom, currentRoom));
+                for (Room adjoiningRoom : rooms.getDirectionRoom().values()) {
+                    adjoiningRoom.getAdjoiningRooms().remove(, rooms));
                 }
 
                 // Rimuovi la stanza dall'elenco delle stanze
                 rooms.remove(currentRoom);
                 break;
             }
+        }*/
+        // Rimuovi la stanza dalle stanze adiacenti delle altre stanze
+        for (Room currentRoom : rooms) {
+            Map<Direction, Room> adjoiningRooms = currentRoom.getAdjoiningRooms();
+            adjoiningRooms.values().remove(room);
         }
+
+        // Rimuovi la stanza dall'elenco delle stanze
+        rooms.remove(room);
+
     }
 
     public void addItemInRoom (Item item){
@@ -108,9 +125,11 @@ public class GameController {
     }
 
     public void go(Direction direction) {
-        Room nextRoom = currentRoom.getAdjoiningRoom(direction);
+
+        Room currentRoom =  getPlayer().getCurrentRoom();
+        Room nextRoom = currentRoom.getDirectionRoom(direction);
         if (nextRoom != null) {
-            setCurrentRoom(nextRoom);
+            getPlayer().setCurrentRoom(nextRoom);
             System.out.println("You moved to the " + direction + ".");
             System.out.println("Current room: " + nextRoom.getNameRoom());
         } else {
@@ -153,5 +172,12 @@ public class GameController {
         return items;
 
     }
+    /*public void addAdjoiningRoom( Direction direction, Room room) {  //aggiunge la stanza alla lista
+        adjoiningRooms.put(direction, room);
+    }
+
+    public Room getDirectionRoom (Direction direction) {
+        return adjoiningRooms.get(direction);
+    }*/
 
         }

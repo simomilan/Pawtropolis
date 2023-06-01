@@ -18,7 +18,7 @@ public enum Direction {
         return direction;
     }
 
-   /* public void setDirection (String direction) {   //non dovrebbe servire con l enum il set
+    /*public void setDirection (String direction) {   //non dovrebbe servire con l enum il set
         this.direction = direction;
     }*/
 

@@ -18,10 +18,10 @@ public class GoCommand implements GameCommand {
 
     @Override
     public void execute() {
-        Room currentRoom = gameController.getCurrentRoom();
-        Room newRoom = currentRoom.getAdjoiningRooms().get(direction);
+        Room currentRoom =  gameController.getPlayer().getCurrentRoom();
+        Room newRoom = currentRoom.getDirectionRoom(direction);
         if (newRoom != null) {
-            gameController.setCurrentRoom(newRoom);
+            gameController.setRooms((List <Room>) newRoom);
             System.out.println("You have entered the " + newRoom.getNameRoom());
         } else {
             System.out.println("There is no room in that direction.");

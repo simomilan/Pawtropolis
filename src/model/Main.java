@@ -101,11 +101,25 @@ public class Main {
         Room room2 = new Room("Room 2");
         Room room3 = new Room("Room 3");
 
+        // Creazione del giocatore
+        Bag bag = new Bag(new ArrayList<>(), Bag.SPACE_BAG);
+        Player player = new Player("Player 1", 100, room1);
+
+        // Creazione del GameController
+        GameController gameController = new GameController(player, bag);
+
+        gameController.setPlayer(player);
+
+        // imposto il player nella stanza iniziale
+        gameController.getPlayer().setCurrentRoom(room1);
+
+
+
         // Collegamento delle stanze
-        room1.addAdjoiningRoom(Direction.North, room2);
-        room2.addAdjoiningRoom(Direction.South, room1);
-        room2.addAdjoiningRoom(Direction.East, room3);
-        room3.addAdjoiningRoom(Direction.West, room2);
+        gameController.getRooms().indexOf(room1).addAdjoiningRoom(Direction.North, room2);
+        gameController.addAdjoiningRoom(Direction.South, room1);
+        gameController.addAdjoiningRoom(Direction.East, room3);
+        gameController.addAdjoiningRoom(Direction.West, room2);
 
         // Creazione degli oggetti
         Item item1 = new Item("Item 1", "osso", 1);
@@ -118,13 +132,9 @@ public class Main {
         LocalDate t1 = LocalDate.of(2021, 4, 2);
         Animal animal2 = new Eagle("Gatto", "Meat", 3, t1, 288.00, 116.00, 100.00);
 
-        // Creazione del giocatore
-        Bag bag = new Bag(new ArrayList<>(), Bag.SPACE_BAG);
-        Player player = new Player("Player 1", 100);
-        //gameController.setPlayer(player);
 
-        // Creazione del GameController
-        GameController gameController = new GameController(player, bag, room1);
+
+
         // Aggiunta degli oggetti e degli animali alle stanze
         gameController.addItemInRoom(item1);
         gameController.addAnimalInRoom(animal1);

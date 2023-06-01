@@ -1,21 +1,22 @@
 package model;
 
 import java.util.List;
+import java.util.Map;
 
 public class Player {
 
     private String name;
 
-    private int lifePoints;  //fare get e setter
+    private int lifePoints;  //da gestire
 
     //private Bag bag;             // la mettiamoin game controller
-    //private Room currentRoom;
+    private Room currentRoom;
 
-    public Player ( String name, int lifePoints/*, Bag bag, Room currentRoom*/) {
+    public Player ( String name, int lifePoints,/* Bag bag,*/ Room currentRoom) {
         this.name= name;
         this.lifePoints = lifePoints;
         //this.bag = bag;
-        //this.currentRoom = currentRoom;
+        this.currentRoom = currentRoom;
     }
     public String getName () {
         return name;
@@ -40,7 +41,7 @@ public class Player {
 
     public void setBag (Bag bag) {
         this.bag = bag;
-    }
+    }*/
 
     public Room getCurrentRoom() {
         return currentRoom;
@@ -48,19 +49,21 @@ public class Player {
 
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
-    }*/
+    }
 
     @Override
     public String toString () {
         return "Player{"+
                 "name='"+name+
                 ", lifePoints="+lifePoints+
-               /* ", bag="+bag+
-                ", currentRoom"+ currentRoom+*/
+               /* ", bag="+bag+*/
+                ", currentRoom"+ currentRoom+
                 '}';
     }
 
-    /*public void go(Direction direction) {
+
+
+   /* public void go(Direction direction) {
         Room nextRoom = currentRoom.getAdjoiningRoom(direction);
         if (nextRoom != null) {
             setCurrentRoom(nextRoom);
@@ -71,7 +74,7 @@ public class Player {
         }
     }
 
-    public void addItemToBag(Item item){
+  /*  public void addItemToBag(Item item){
         int availableSpace = bag.getAvailableSpace();   //conytrollo se la boesa è piena
        if(bag.getAvailableSpace() -item.getSpaceBagUsed() >= 0){
            bag.addItemsInBag(item);

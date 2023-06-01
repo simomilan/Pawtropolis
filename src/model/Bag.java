@@ -66,7 +66,7 @@ public class Bag {
     }*/
 
     public int dropItemsFromBag(Item item) {  //? valutare se usare un iterator
-       Scanner scanner = new Scanner(System.in);
+       /*Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the item name to drop: ");
         String input = scanner.nextLine();
 
@@ -79,7 +79,17 @@ public class Bag {
             }
 
         }
-        return availableSpace;
+        return availableSpace;*/
+            if (items.contains(item)) {
+                items.remove(item);
+                availableSpace += item.getSpaceBagUsed();
+                System.out.println("The item has been dropped from the bag: " + item.getNameItem());
+            } else {
+                System.out.println("Item not found in the bag: " + item.getNameItem());
+            }
+            return availableSpace;
+        }
+
     }
 
 
@@ -93,13 +103,8 @@ public class Bag {
         return items;
 
     }*/
-}
 
 
-
-
-
-// fare get e set, to string,  metodi come (void) addItem(getItem), (void) dropItem, ( listItem) showBag
 
 
 

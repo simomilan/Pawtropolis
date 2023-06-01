@@ -62,7 +62,7 @@ public class Room {  //manca il toString
                 "nameRoom='" + nameRoom + '\'' +
                /* ", items=" + items +
                 ", animalsInRoom=" + animalsInRoom +*/
-                ", adjoiningRooms=" + adjoiningRooms +
+               ", adjoiningRooms=" + adjoiningRooms +
                 '}';
     }
 
@@ -70,7 +70,7 @@ public class Room {  //manca il toString
         adjoiningRooms.put(direction, room);
     }
 
-    public Room getAdjoiningRoom (Direction direction) {
+    public Room getDirectionRoom (Direction direction) {
         return adjoiningRooms.get(direction);
     }
 

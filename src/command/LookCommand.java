@@ -16,8 +16,8 @@ public class LookCommand implements GameCommand {
     public void execute () {
         Room currentRoom = gameController.getPlayer().getCurrentRoom();
         System.out.println("Current room: " + currentRoom.getNameRoom());
-        System.out.println("Items in the room: " + gameController.getItems());
-        System.out.println("Animals in the room: " + gameController.getAnimals());
+        System.out.println("Items in the room: " + currentRoom.getItemsInRoom());
+        System.out.println("Animals in the room: " + currentRoom.getAnimalsInRoom());
 
     }
 }

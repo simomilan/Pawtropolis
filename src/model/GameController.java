@@ -11,26 +11,30 @@ public class GameController {
     private List<Room> rooms;
     private Player player;
     private Bag bag;
-   // private Map <Direction, Room> adjoiningRooms;
 
 
-
-
-    public GameController(Player player, Bag bag/*Map<Direction, Room> adjoiningRooms*/) {   //i set non dovrebbero servirmi...
+    public GameController(Player player, Bag bag) {   //i set non dovrebbero servirmi...
         this.items = new ArrayList <>();
         this.animals = new ArrayList<>();
         this.rooms = new ArrayList <>();
         this.player = player;
         this.bag = bag;
-      //  this.adjoiningRooms = new HashMap <>();
+
     }
 
-    public List <Item> getItems() {
-        return items;
+    public List <Item> getItems(Room room) {
+        /*Room currentRoom = getPlayer().getCurrentRoom();
+        return currentRoom.getItemsInRoom(currentRoom);*/
+      //  return getPlayer().getCurrentRoom().getItemsInRoom();
+        return room.getItemsInRoom();
     }
 
-    public List<Animal> getAnimals() {
-        return animals;
+    public List<Animal> getAnimals(Room room) {
+        /*Room currentRoom = getPlayer().getCurrentRoom();
+        return currentRoom.getAnimalsInRoom(currentRoom);*/
+       // return getPlayer().getCurrentRoom().getAnimalsInRoom();
+        return room.getAnimalsInRoom();
+
     }
 
 
@@ -57,35 +61,6 @@ public class GameController {
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
-   /* public Map<Direction, Room> getAdjoiningRooms() {
-        return adjoiningRooms;
-    }
-
-    public void setAdjoiningRooms (Map <Direction, Room> adjoiningRooms) {
-        this.adjoiningRooms = adjoiningRooms;
-    }*/
-
-
-
-   /* public void addItem(Item item) {
-        items.add(item);
-    }
-
-    public void removeItem(Item item) {
-        items.remove(item);
-    }
-
-    public void addAnimal(Animal animal) {
-        animals.add(animal);
-    }
-
-    public void removeAnimal(Animal animal) {
-        animals.remove(animal);
-    }
-
-    public void addRoom() {
-        rooms.getRooms();
-    }*/
 
     public void removeRoom(Room room) {
        /* // Itera sulle stanze per trovare quella da rimuovere
@@ -112,16 +87,26 @@ public class GameController {
 
     }
 
-    public void addItemInRoom (Item item){
-        items.add(item);
+    public void addItemInRoom (Item items, Room room){
+       // room.addItem(items);
+        Room currentRoom = getPlayer().getCurrentRoom();
+        if (currentRoom.equals(room)) {
+            currentRoom.addItem(items);
+        }
     }
+
+
 
     public void removeItemFromRoom (Item item) {
         items.remove(item);
     }
 
-    public void addAnimalInRoom (Animal animal){
-        animals.add(animal);
+    public void addAnimalInRoom (Animal animal, Room room){
+       // animals.add(animal);
+        Room currentRoom = getPlayer().getCurrentRoom();
+        if (currentRoom.equals(room)) {
+            currentRoom.addAnimal(animal);
+        }
     }
 
     public void go(Direction direction) {
@@ -172,12 +157,5 @@ public class GameController {
         return items;
 
     }
-    /*public void addAdjoiningRoom( Direction direction, Room room) {  //aggiunge la stanza alla lista
-        adjoiningRooms.put(direction, room);
-    }
-
-    public Room getDirectionRoom (Direction direction) {
-        return adjoiningRooms.get(direction);
-    }*/
 
         }

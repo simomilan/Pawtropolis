@@ -9,8 +9,10 @@ import java.util.Map;
 public class Room {  //manca il toString
 
     private String nameRoom;
-    /*private List <Item> itemsInRoom;
-    private List<Animal> animalsInRoom;*/
+
+
+    private List <Item> itemsInRoom;
+    private List<Animal> animalsInRoom;
     private Map <Direction, Room> adjoiningRooms; //se lo mettiamo nel Gamecontroller??
 
 
@@ -23,13 +25,15 @@ public class Room {  //manca il toString
         this.nameRoom = nameRoom;
     }
 
-  /*  public List<Item> getItemsInRoom() {
+
+    public List <Item> getItemsInRoom () {
         return itemsInRoom;
     }
 
+
     public void setItemsInRoom(List<Item> itemsInRoom) {
         this.itemsInRoom = itemsInRoom;
-    }*/
+    }
 
 
     public Map<Direction, Room> getAdjoiningRooms() {
@@ -40,19 +44,19 @@ public class Room {  //manca il toString
         this.adjoiningRooms = adjoiningRooms;
     }
 
-   /* public List <Animal> getAnimalsInRoom () {
+    public List <Animal> getAnimalsInRoom () {
         return animalsInRoom;
     }
 
     public void setAnimalsInRoom (List <Animal> animalsInRoom) {
         this.animalsInRoom = animalsInRoom;
-    }*/
+    }
 
     public Room(String nameRoom /*, List<Item> itemsInRoom, List<Animal> animalsInRoom, Map<Direction, Room> adjoiningRooms*/)  {
         this.nameRoom = nameRoom;
-      /*  this.itemsInRoom = new ArrayList<>();
-        this.animalsInRoom = new ArrayList<>();*/
-        this.adjoiningRooms = new HashMap <>();
+        this.itemsInRoom = new ArrayList<>();
+        this.animalsInRoom = new ArrayList<>();
+         this.adjoiningRooms = new HashMap <>();
 
     }
 
@@ -78,18 +82,17 @@ public class Room {  //manca il toString
 
 
 
-    /*public void addItemInRoom (Item item){
+    public void addItem (Item item){
         itemsInRoom.add(item);
     }
 
-    public void removeItemFromRoom (Item item) {
+    public void removeRoom (Item item) {
         itemsInRoom.remove(item);
     }
 
-    public void addAnimalInRoom (Animal animal){
+    public void addAnimal (Animal animal){
         animalsInRoom.add(animal);
     }
-*/
 
 
 

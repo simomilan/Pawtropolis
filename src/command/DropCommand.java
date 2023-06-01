@@ -15,6 +15,7 @@ public class DropCommand implements GameCommand {
 
     @Override
     public void execute() {
-        gameController.getPlayer().dropItemFromBag(item);
+        gameController.dropItemFromBag(item);
+        gameController.addItemInRoom(item);
     }
 }

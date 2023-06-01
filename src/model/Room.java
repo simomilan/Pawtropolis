@@ -9,9 +9,9 @@ import java.util.Map;
 public class Room {  //manca il toString
 
     private String nameRoom;
-    private List <Item> itemsInRoom;
-    private List<Animal> animalsInRoom;
-    private Map <Direction, Room> adjoiningRooms;
+    /*private List <Item> itemsInRoom;
+    private List<Animal> animalsInRoom;*/
+    private Map <Direction, Room> adjoiningRooms; //se lo mettiamo nel Gamecontroller??
 
 
 
@@ -23,13 +23,13 @@ public class Room {  //manca il toString
         this.nameRoom = nameRoom;
     }
 
-    public List<Item> getItemsInRoom() {
+  /*  public List<Item> getItemsInRoom() {
         return itemsInRoom;
     }
 
     public void setItemsInRoom(List<Item> itemsInRoom) {
         this.itemsInRoom = itemsInRoom;
-    }
+    }*/
 
 
     public Map<Direction, Room> getAdjoiningRooms() {
@@ -40,18 +40,18 @@ public class Room {  //manca il toString
         this.adjoiningRooms = adjoiningRooms;
     }
 
-    public List <Animal> getAnimalsInRoom () {
+   /* public List <Animal> getAnimalsInRoom () {
         return animalsInRoom;
     }
 
     public void setAnimalsInRoom (List <Animal> animalsInRoom) {
         this.animalsInRoom = animalsInRoom;
-    }
+    }*/
 
-    public Room(String nameRoom /*, List<Item> itemsInRoom, List<Animal> animalsInRoom, List<Room> adjoiningRooms, Room currentRoom*/)  {
+    public Room(String nameRoom /*, List<Item> itemsInRoom, List<Animal> animalsInRoom, Map<Direction, Room> adjoiningRooms*/)  {
         this.nameRoom = nameRoom;
-        this.itemsInRoom = new ArrayList<>();
-        this.animalsInRoom = new ArrayList<>();
+      /*  this.itemsInRoom = new ArrayList<>();
+        this.animalsInRoom = new ArrayList<>();*/
         this.adjoiningRooms = new HashMap <>();
 
     }
@@ -76,7 +76,9 @@ public class Room {  //manca il toString
 
 
 
-    public void addItemInRoom (Item item){
+
+
+    /*public void addItemInRoom (Item item){
         itemsInRoom.add(item);
     }
 
@@ -87,22 +89,8 @@ public class Room {  //manca il toString
     public void addAnimalInRoom (Animal animal){
         animalsInRoom.add(animal);
     }
+*/
 
 
-   /* public String look() {  //fyunziona ma non ci piace!
-        System.out.println("Current room: " + getNameRoom());
-        if (items.isEmpty()){
-            System.out.println("No items in the room");
-        } else {
-            System.out.println("In the room there's the following items: " + getItemsInRoom());
-        }
-        if (animalsInRoom.isEmpty()){
-            System.out.println("No animals in the room");
-        } else {
-                System.out.println("In the room there's the following animals: " + getAnimalsInRoom());
-            }
-
-        return toString();
-    }*/
 
 }

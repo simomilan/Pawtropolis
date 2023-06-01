@@ -1,9 +1,9 @@
 package model;
 
-public class Item { //  astratta?
+public class Item {
 
     private String nameItem;
-    private String descriptionItem;   //dovrebbe essere apposto almeno al momento
+    private String descriptionItem;
     private int spaceBagUsed; //perchè ogni oggetto non occupa un indice nella lista (cioè si) ma ha una grandezza sua e la borsa anche. Esempio un mattone neòla borsa occupa più spazio di una penna
 
 
@@ -33,7 +33,7 @@ public class Item { //  astratta?
         return spaceBagUsed;
     }
 
-    public void setSlotBagUsed (int spaceBagUsed) {
+    public void setSpaceBagUsed (int spaceBagUsed) {
         this.spaceBagUsed = spaceBagUsed;
     }
 
@@ -42,10 +42,10 @@ public class Item { //  astratta?
         return "Item{"+
                 "nameItem='"+nameItem+'\''+
                 ", descriptionItem='"+descriptionItem+'\''+
-                ", slotBagUsed="+spaceBagUsed+
+                ", spaceBagUsed="+spaceBagUsed+
                 '}';
     }
 
 
 }
-// creare una classe che gestisce gli item e le sue operazioni(metodi)
+

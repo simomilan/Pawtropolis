@@ -1,5 +1,5 @@
 package model;
-
+import model.Item;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ public class Bag {
 
 
     public Bag (List<Item> items, int availableSpace) {
-        this.items = items; // new ArrayList()
+        this.items = items != null ? items : new ArrayList<>(); // così non incorrere in un'eccezione NullPointerException se il parametro items è null
         this.availableSpace = availableSpace;
     }
 
@@ -46,7 +46,16 @@ public class Bag {
 
 
     public int addItemsInBag(Item item) {
-        if(availableSpace - item.getSpaceBagUsed() >= 0 ){
+        if (item != null && availableSpace - item.getSpaceBagUsed() >= 0) {
+            items.add(item);
+            availableSpace -= item.getSpaceBagUsed();
+        } else {
+            System.out.println("The item occupied too much space!" + '\n' + "Please drop something to make space or you can't take it.");
+        }
+        return availableSpace;
+    }
+
+       /* if(availableSpace - item.getSpaceBagUsed() >= 0 ){
             items.add(item);
             availableSpace -= item.getSpaceBagUsed();
         }
@@ -54,7 +63,7 @@ public class Bag {
             System.out.println("The item occupied too much space!" +'\n'+ "Please drop something to do space or you can't take it.");
         }
         return availableSpace;
-    }
+    }*/
 
     public int dropItemsFromBag(Item item) {  //? valutare se usare un iterator
        Scanner scanner = new Scanner(System.in);
@@ -75,7 +84,7 @@ public class Bag {
 
 
 
-    public List<Item>  showBag(){   //condizione se è empty,
+    /*public List<Item>  showBag(){   //condizione se è empty,
         if (items.isEmpty()) {
             System.out.println("Your bag is empty");
         } else {
@@ -83,7 +92,7 @@ public class Bag {
         }
         return items;
 
-    }
+    }*/
 }
 
 

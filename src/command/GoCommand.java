@@ -4,6 +4,8 @@ import model.Direction;
 import model.GameController;
 import model.Room;
 
+import java.util.List;
+
 public class GoCommand implements GameCommand {
 
     private GameController gameController;
@@ -16,10 +18,10 @@ public class GoCommand implements GameCommand {
 
     @Override
     public void execute() {
-        Room currentRoom = gameController.getPlayer().getCurrentRoom();
+        Room currentRoom = gameController.getCurrentRoom();
         Room newRoom = currentRoom.getAdjoiningRooms().get(direction);
         if (newRoom != null) {
-            gameController.getPlayer().setCurrentRoom(newRoom);
+            gameController.setCurrentRoom(newRoom);
             System.out.println("You have entered the " + newRoom.getNameRoom());
         } else {
             System.out.println("There is no room in that direction.");

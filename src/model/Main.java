@@ -118,14 +118,19 @@ public class Main {
         LocalDate t1 = LocalDate.of(2021, 4, 2);
         Animal animal2 = new Eagle("Gatto", "Meat", 3, t1, 288.00, 116.00, 100.00);
 
+        // Creazione del giocatore
+        Bag bag = new Bag(new ArrayList<>(), Bag.SPACE_BAG);
+        Player player = new Player("Player 1", 100);
+        //gameController.setPlayer(player);
+
         // Creazione del GameController
-        GameController gameController = new GameController();
+        GameController gameController = new GameController(player, bag, room1);
         // Aggiunta degli oggetti e degli animali alle stanze
-        gameController.addItem(item1);
-        gameController.addAnimal(animal1);
-        gameController.addItem(item2);
-        gameController.addItem(item3);
-        gameController.addAnimal(animal2);
+        gameController.addItemInRoom(item1);
+        gameController.addAnimalInRoom(animal1);
+        gameController.addItemInRoom(item2);
+        gameController.addItemInRoom(item3);
+        gameController.addAnimalInRoom(animal2);
 
 
 
@@ -137,10 +142,10 @@ public class Main {
 
 
 
-        // Creazione del giocatore
+      /*  // Creazione del giocatore
         Bag bag = new Bag(new ArrayList<>(), Bag.SPACE_BAG);
         Player player = new Player("Player 1", 100, bag, room1);
-        gameController.setPlayer(player);
+        gameController.setPlayer(player);*/
 
         // Creazione dei comandi
         GameCommand lookCommand = new LookCommand(gameController);

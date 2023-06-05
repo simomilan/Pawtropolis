@@ -95,5 +95,7 @@ public class Room {  //manca il toString
     }
 
 
-
+    public void removeItem (Item item) {
+        itemsInRoom.remove(item);
+    }
 }

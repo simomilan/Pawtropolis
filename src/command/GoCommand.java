@@ -4,8 +4,6 @@ import model.Direction;
 import model.GameController;
 import model.Room;
 
-import java.util.List;
-
 public class GoCommand implements GameCommand {
 
     private GameController gameController;
@@ -27,5 +25,6 @@ public class GoCommand implements GameCommand {
         } else {
             System.out.println("There is no room in that direction.");
         }
+
     }
 }

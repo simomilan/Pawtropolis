@@ -1,7 +1,6 @@
 package command;
 
 import model.GameController;
-import model.Player;
 import model.Room;
 
 public class LookCommand implements GameCommand {
@@ -18,6 +17,7 @@ public class LookCommand implements GameCommand {
         System.out.println("Current room: " + currentRoom.getNameRoom());
         System.out.println("Items in the room: " + currentRoom.getItemsInRoom());
         System.out.println("Animals in the room: " + currentRoom.getAnimalsInRoom());
+
 
     }
 }

@@ -2,6 +2,7 @@ package command;
 
 import model.GameController;
 import model.Item;
+import model.Room;
 
 public class AddCommand implements GameCommand{
 
@@ -15,12 +16,13 @@ public class AddCommand implements GameCommand{
 
 
     @Override
-    public void execute () {//non è l'add item di quando popolo le stanze, ma di quando io giocatore rtaccolgo l'item
-        gameController.removeItemFromRoom(item);
+    public void execute() {
+        Room currentRoom = gameController.getPlayer().getCurrentRoom();
         gameController.addItemToBag(item);
-
+        gameController.removeItemFromRoom(item, currentRoom);
+    }
 
     }
 
 
-}
+

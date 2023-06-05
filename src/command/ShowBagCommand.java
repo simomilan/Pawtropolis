@@ -14,5 +14,6 @@ public class ShowBagCommand implements GameCommand{
     @Override
     public void execute () {
         gameController.showBag();
+
     }
 }

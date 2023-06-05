@@ -87,26 +87,23 @@ public class GameController {
 
     }
 
-    public void addItemInRoom (Item items, Room room){
-       // room.addItem(items);
-        Room currentRoom = getPlayer().getCurrentRoom();
-        if (currentRoom.equals(room)) {
-            currentRoom.addItem(items);
+
+
+
+    public void removeItemFromRoom(Item item, Room room) {
+        Bag bag = getBag();
+        if (bag.getItems().contains(item)) {
+            room.removeItem(item);
         }
     }
 
-
-
-    public void removeItemFromRoom (Item item) {
-        items.remove(item);
+    public void addItemInRoom(Item item, Room room) {
+        room.addItem(item);  // Aggiungi direttamente l'oggetto alla stanza specificata
     }
 
-    public void addAnimalInRoom (Animal animal, Room room){
-       // animals.add(animal);
-        Room currentRoom = getPlayer().getCurrentRoom();
-        if (currentRoom.equals(room)) {
-            currentRoom.addAnimal(animal);
-        }
+
+    public void addAnimalInRoom(Animal animal, Room room) {
+        room.addAnimal(animal);  // Aggiungi direttamente l'oggetto alla stanza specificata
     }
 
     public void go(Direction direction) {

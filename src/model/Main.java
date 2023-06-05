@@ -1,6 +1,7 @@
 package model;
 
 import command.*;
+import console.TextGame;
 import model.Bag;
 import model.Direction;
 import model.Item;
@@ -19,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        // Creazione degli oggetti
+     /*   // Creazione degli oggetti
         Item item1 = new Item("Item 1", "osso", 1);
         Item item2 = new Item("Item 2", "croccantino", 3);
         Item item3 = new Item("Item 3", "collare", 1);
@@ -84,8 +85,9 @@ public class Main {
         GameCommand goCommand = new GoCommand(gameController, Direction.North);
         GameCommand addCommand = new AddCommand(gameController, item2);
         GameCommand dropCommand = new DropCommand(gameController, item2);
+        GameCommand showBagCommand = new ShowBagCommand(gameController);*/
 
-        // Esecuzione dei comandi
+       /* // Esecuzione dei comandi
         lookCommand.execute(); // Esegue il comando "look" per visualizzare la stanza corrente
         goCommand.execute(); // Esegue il comando "go" per spostarsi nella stanza ad est
         lookCommand.execute(); // Esegue nuovamente il comando "look" per visualizzare la nuova stanza corrente
@@ -93,7 +95,12 @@ public class Main {
         lookCommand.execute(); // Esegue nuovamente il comando "look" per visualizzare gli oggetti nella stanza corrente DOVREBBE RESTITUIRMI LA STANZA VUOTA
         dropCommand.execute(); // Esegue il comando "drop" per droppare l'oggetto dalla borsa del giocatore
         lookCommand.execute(); // Esegue nuovamente il comando "look" per visualizzare gli oggetti nella stanza corrente
+        showBagCommand.execute();*/
 
-    }
-}
+
+                TextGame game = new TextGame();
+                game.start();
+            }
+        }
+
 

@@ -1,6 +1,6 @@
 package command;
 
-import model.GameController;///
+import model.GameController;
 import model.Item;
 import model.Room;
 
@@ -22,5 +22,6 @@ public class DropCommand implements GameCommand {
         gameController.dropItemFromBag(item);
         gameController.addItemInRoom(item, currentRoom);
     }
-    }
+}
+
 

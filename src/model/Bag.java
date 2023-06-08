@@ -1,5 +1,4 @@
 package model;
-import model.Item;
 
 import java.util.*;
 
@@ -20,10 +19,6 @@ public class Bag {
 
     public List<Item> getItems () {
         return  items;
-    }
-
-    public void setItems (List<Item> items) {   //per usare la soluzione di sonarlint a questo punto tanto vale creare le sogtoclassi del tipi List<T exentds Item>
-        this.items = items;
     }
 
     public int getAvailableSpace () {
@@ -56,7 +51,7 @@ public class Bag {
 
 
 
-    public int dropItemsFromBag(Item item) {  //? valutare se usare un iterator
+    /*public int dropItemsFromBag(Item item) {  //tanto non lo usiamo
 
             if (items.contains(item)) {
                 items.remove(item);
@@ -66,7 +61,7 @@ public class Bag {
                 System.out.println("Item not found in the bag: " + item.getNameItem());
             }
             return availableSpace;
-        }
+        }*/
 
     }
 

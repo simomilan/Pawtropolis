@@ -2,27 +2,19 @@ package model;
 
 import zoo.Animal;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;  //mappare e metterci dentro le cose e poi se è randomizzarla
-import java.util.Map;
-public class Room {  //manca il toString
+import java.util.*;
+
+public class Room {
 
     private String nameRoom;
-
-
     private List <Item> itemsInRoom;
     private List<Animal> animalsInRoom;
-    private Map <Direction, Room> adjoiningRooms; //se lo mettiamo nel Gamecontroller??
+    private Map <Direction, Room> adjoiningRooms;
 
 
 
     public String getNameRoom() {
         return nameRoom;
-    }
-
-    public void setNameRoom(String nameRoom) {
-        this.nameRoom = nameRoom;
     }
 
 
@@ -31,32 +23,19 @@ public class Room {  //manca il toString
     }
 
 
-    public void setItemsInRoom(List<Item> itemsInRoom) {
-        this.itemsInRoom = itemsInRoom;
-    }
-
-
     public Map<Direction, Room> getAdjoiningRooms() {
         return adjoiningRooms;
-    }
-
-    public void setAdjoiningRooms (Map <Direction, Room> adjoiningRooms) {
-        this.adjoiningRooms = adjoiningRooms;
     }
 
     public List <Animal> getAnimalsInRoom () {
         return animalsInRoom;
     }
 
-    public void setAnimalsInRoom (List <Animal> animalsInRoom) {
-        this.animalsInRoom = animalsInRoom;
-    }
-
-    public Room(String nameRoom /*, List<Item> itemsInRoom, List<Animal> animalsInRoom, Map<Direction, Room> adjoiningRooms*/)  {
+    public Room(String nameRoom)  {
         this.nameRoom = nameRoom;
         this.itemsInRoom = new ArrayList<>();
         this.animalsInRoom = new ArrayList<>();
-         this.adjoiningRooms = new HashMap <>();
+         this.adjoiningRooms = new EnumMap <>(Direction.class);
 
     }
 
@@ -64,8 +43,6 @@ public class Room {  //manca il toString
     public String toString() {
         return "Room{" +
                 "nameRoom='" + nameRoom + '\'' +
-               /* ", items=" + items +
-                ", animalsInRoom=" + animalsInRoom +*/
                ", adjoiningRooms=" + adjoiningRooms +
                 '}';
     }

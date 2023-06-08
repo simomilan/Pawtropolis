@@ -2,30 +2,27 @@ package model;
 
 public enum Direction {
 
-    North("north"),
-    East("east"),
-    South("south"),
-    West("west");
+    NORTH("north"),
+    EAST("east"),
+    SOUTH("south"),
+    WEST("west");
 
-    private final String direction; //meglio final mi sa così non può modificato
+    private final String directioning; //meglio final mi sa così non può modificato
 
 
-    Direction (String direction) {
-        this.direction = direction;
+    Direction (String directioning) {
+        this.directioning = directioning;
     }
 
-    public String getDirection () {
-        return direction;
+    public String getDirection () {  //il get vorrei non toglierlo, può sempre servire!!
+        return directioning;
     }
 
-    /*public void setDirection (String direction) {   //non dovrebbe servire con l enum il set
-        this.direction = direction;
-    }*/
 
     @Override
     public String toString () {
         return "Direction{"+
-                "direction='"+direction+'\''+
+                "directioning='"+directioning+'\''+
                 '}';
     }
 

@@ -4,24 +4,34 @@ import model.GameController;
 import model.Item;
 import model.Room;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DropCommand implements GameCommand {
 
     private GameController gameController;
     private Item item;
 
 
-    public DropCommand(GameController gameController, Item item) {
+    public DropCommand(GameController gameController,Item item) {
         this.gameController = gameController;
         this.item = item;
 
     }
 
     @Override
+
     public void execute() {
         Room currentRoom = gameController.getPlayer().getCurrentRoom();
-        gameController.dropItemFromBag(item);
-        gameController.addItemInRoom(item, currentRoom);
+        List<Item> itemsToAdd = new ArrayList<>(gameController.getItems(currentRoom));
+
+
+        for (Item item : itemsToAdd) {
+            gameController.dropItemFromBag(item);
+            gameController.addItemInRoom(item, currentRoom);
+        }
     }
 }
+
 
 

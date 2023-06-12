@@ -21,7 +21,7 @@ public class LookCommand implements GameCommand {
         List<Item> items = gameController.getItems(gameController.getPlayer().getCurrentRoom());
 
         if (items.isEmpty()) {
-            System.out.println("There are no items in the room");
+            System.out.print("There are no items in the room");
         } else {
             System.out.print("Items in the room: ");
 
@@ -35,7 +35,7 @@ public class LookCommand implements GameCommand {
         List<Animal> animals = gameController.getAnimals(gameController.getPlayer().getCurrentRoom());
 
         if (animals.isEmpty()) {
-            System.out.print("\nThere are no Animals in the room.");
+            System.out.print("\nThere are no Animals in the room");
         } else {
             System.out.print("\nAnimals in the room: ");
             for (int i = 0; i < animals.size(); i++) {
@@ -46,5 +46,6 @@ public class LookCommand implements GameCommand {
             }
             System.out.println();
         }
+        System.out.println();
     }
 }

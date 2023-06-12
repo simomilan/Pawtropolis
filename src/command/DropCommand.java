@@ -2,33 +2,50 @@ package command;
 
 import model.GameController;
 import model.Item;
-import model.Room;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class DropCommand implements GameCommand {
 
     private GameController gameController;
-    private Item item;
+    private List<Item> items;
 
 
-    public DropCommand(GameController gameController,Item item) {
+    public DropCommand(GameController gameController,List<Item> items) {
         this.gameController = gameController;
-        this.item = item;
+        this.items = items;
 
     }
 
     @Override
 
     public void execute() {
-        Room currentRoom = gameController.getPlayer().getCurrentRoom();
-        List<Item> itemsToAdd = new ArrayList<>(gameController.getItems(currentRoom));
 
+        List<Item> items = gameController.getBag().getItems();
+        Scanner scanner = new Scanner(System.in);
 
-        for (Item item : itemsToAdd) {
-            gameController.dropItemFromBag(item);
-            gameController.addItemInRoom(item, currentRoom);
+        if (items.isEmpty()) {
+            System.out.println("\nYour bag is empty");
+            scanner.nextLine();
+            return;
+        }
+
+        System.out.print("\nEnter the name of the item to drop: ");
+        String itemName = scanner.nextLine();
+
+        Item selectedItem = null;
+        for (Item item : items) {
+            if (item.getNameItem().equalsIgnoreCase(itemName)) {
+                selectedItem = item;
+                break;
+            }
+        }
+
+        if (selectedItem != null) {
+            gameController.removeItemFromRoom(selectedItem, gameController.getPlayer().getCurrentRoom());
+            gameController.dropItemFromBag(selectedItem);
+        } else {
+            System.out.println("\nItem not found in your bag: " + itemName);
         }
     }
 }

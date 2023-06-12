@@ -13,9 +13,6 @@ public class GameController {
 
 
     public GameController(Player player, Bag bag) {
-        if (player == null) {
-            throw new IllegalArgumentException("Player cannot be null");
-        }
         this.rooms = new ArrayList <>();
         this.player = player;
         this.bag = bag;
@@ -104,7 +101,7 @@ public class GameController {
             items.remove(item);
             int availableSpace = bag.getAvailableSpace() + item.getSpaceBagUsed();
             bag.setAvailableSpace(availableSpace);
-            System.out.println("The item has been dropped from the bag: " + item.getNameItem());
+            System.out.println("\nThe item has been dropped from the bag: " + item.getNameItem());
 
             // Aggiungi l'oggetto alla stanza corrente
             Room currentRoom = player.getCurrentRoom();
@@ -132,6 +129,8 @@ public class GameController {
             }
             System.out.println();
         }
+        int remainingSpace  = bag.getAvailableSpace();
+        System.out.println("Remaining space in bag: " + remainingSpace);
     }
 
 }

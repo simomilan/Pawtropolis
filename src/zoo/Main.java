@@ -3,7 +3,7 @@ package zoo;
 import java.time.LocalDate;
 import java.util.logging.Logger;
 
-public class Controller {
+public class Main {
 
     private static final Logger LOGGER = Logger.getLogger("InfoLogging");
 

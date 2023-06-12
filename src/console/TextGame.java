@@ -7,6 +7,8 @@ import command.*;
 import model.*;
 import zoo.*;
 
+import static model.Player.MAX_LIFE_POINTS;
+
 public class TextGame {
 
     private GameController gameController;
@@ -16,9 +18,10 @@ public class TextGame {
     Item item1 = new Item("collar", "studded collar", 1);
     Item item2 = new Item("bone", "a human femur", 3);
     Item item3 = new Item("whip", "leather whip", 1);
-    Item item4 = new Item("meat", "sheep", 1);
-    Item item5 = new Item( "anal", "metal dildo", 2);
+    Item item4 = new Item("meat", "sheep", 4);
+    Item item5 = new Item( "dildo", "anal plug", 2);
     Item item6 = new Item("muzzle", "anti-bark", 2);
+
 
     LocalDate l1 = LocalDate.of(2020, 1, 1);
     Animal animal1 = new Lion("Simba", "Meat", 4, l1, 320.00, 120.00, 90.00);
@@ -34,19 +37,62 @@ public class TextGame {
     Room room1 = new Room("Entrance");
     Room room2 = new Room("Lion's enclosure");
     Room room3 = new Room("Eagle's cage");
+    Room room4 = new Room("Garden");
+    Room room5 = new Room("Tiger jungle");
+    Room room6 = new Room("Rest room");
+    Room room7 = new Room("Bathroom");
 
     public TextGame() {
-        gameController = new GameController(new Player("player1", 100, room1), new Bag(new ArrayList<>(), Bag.SPACE_BAG));
+
         scanner = new Scanner(System.in);
+        System.out.println("Welcome to Pawtropolis!\nEnter your player name: ");
+        String playerNAme = scanner.nextLine();
+        gameController = new GameController(new Player(playerNAme, MAX_LIFE_POINTS, room1), new Bag(new ArrayList<>(), Bag.SPACE_BAG));
+
         //gestire l'inserimento del nome del player dall'utente
 
         gameController.addItemInRoom(item1, room1 );
-        gameController.addAnimalInRoom(animal1, room1);
-        gameController.addItemInRoom(item2, room2);
+        gameController.addAnimalInRoom(animal1, room2);
         gameController.addItemInRoom(item3, room2);
-        gameController.addAnimalInRoom(animal2, room3);
         gameController.addAnimalInRoom(animal3, room2);
+        gameController.addAnimalInRoom(animal2, room3);
+        gameController.addAnimalInRoom(animal5, room3);
+        gameController.addItemInRoom(item4, room4);
+        gameController.addItemInRoom(item6, room4);
+        gameController.addItemInRoom(item2, room5);
+        gameController.addAnimalInRoom(animal4, room5);
+        gameController.addItemInRoom(item5, room6);
+
+        room1.addAdjoiningRoom(Direction.NORTH, room2);
+        room1.addAdjoiningRoom(Direction.SOUTH, room3);
+        room1.addAdjoiningRoom(Direction.EAST, room6);
+        room2.addAdjoiningRoom(Direction.SOUTH, room1);
+        room3.addAdjoiningRoom(Direction.NORTH, room1);
+        room3.addAdjoiningRoom(Direction.WEST, room4);
+        room3.addAdjoiningRoom(Direction.EAST, room5);
+        room4.addAdjoiningRoom(Direction.EAST,room3);
+        room5.addAdjoiningRoom(Direction.WEST,room3);
+        room5.addAdjoiningRoom(Direction.NORTH, room6);
+        room6.addAdjoiningRoom(Direction.WEST,room1);
+        room6.addAdjoiningRoom(Direction.SOUTH,room5);
+        room6.addAdjoiningRoom(Direction.NORTH, room7);
+        room7.addAdjoiningRoom(Direction.SOUTH, room6);
+
+
+        gameController.getRooms().add(room1);
+        gameController.getRooms().add(room2);
+        gameController.getRooms().add(room3);
+        gameController.getRooms().add(room4);
+        gameController.getRooms().add(room5);
+        gameController.getRooms().add(room6);
+        gameController.getRooms().add(room7);
+
+
+
     }
+
+
+
 
     boolean gameRunning = true;
 
@@ -55,7 +101,7 @@ public class TextGame {
     }
 
     public void start() {
-        System.out.println("Welcome to Pawtropolis! Enter 'help' to view the available commands.");
+        System.out.println("\nHello " + gameController.getPlayer().getName()+ "! " + "Please enter 'help' to view the available commands");
 
         while (gameRunning) {
             System.out.print("\n> ");
@@ -100,15 +146,6 @@ public class TextGame {
 
     private void go() {
 
-        room1.addAdjoiningRoom(Direction.NORTH, room2);
-        room1.addAdjoiningRoom(Direction.SOUTH, room3);
-        room2.addAdjoiningRoom(Direction.SOUTH, room1);
-        room3.addAdjoiningRoom(Direction.NORTH, room1);
-
-
-        gameController.getRooms().add(room1);
-        gameController.getRooms().add(room2);
-        gameController.getRooms().add(room3);
 
         System.out.print("Enter a direction : (north, south, east, west): ");
         String input = scanner.nextLine();
@@ -132,50 +169,27 @@ public class TextGame {
     }
 
     private void add() {
-        List<Item> itemList = new ArrayList<>();
+       List<Item> itemList = new ArrayList<>();
         itemList.add(item1);
         itemList.add(item2);
         itemList.add(item3);
+        itemList.add(item4);
+        itemList.add(item5);
+        itemList.add(item6);
 
-        Item selectedItem = null;
-        for (Item item : itemList) {
-            if (item.getNameItem().equalsIgnoreCase(item.getNameItem().trim())) {
-                selectedItem = item;
-                break;
-            }
-        }
-
-        if (selectedItem != null) {
-            List<Item> selectedItems = new ArrayList<>();
-            selectedItems.add(selectedItem);
-            GameCommand addCommand = new AddCommand(gameController, selectedItems);
+            GameCommand addCommand = new AddCommand(gameController, itemList);
             addCommand.execute();
-        } else {
-            System.out.println("Item not found: " + itemList);
-        }
+
+
     }
 
     private void drop() {
-        Bag bag = gameController.getBag();
-        List<Item> items = bag.getItems();
+        List<Item> items = gameController.getBag().getItems();
 
-        if (items.isEmpty()) {
-            System.out.println("Your bag is empty");
-            return;
+            GameCommand dropCommand = new DropCommand(gameController, items);
+            dropCommand.execute();
         }
 
-        System.out.print("Enter the name of the item to drop: ");
-        String itemName = scanner.nextLine();
-
-        for (Item item : items) {
-            if (item.getNameItem().equalsIgnoreCase(itemName)) {
-                gameController.dropItemFromBag(item);
-                return;
-            }
-        }
-
-        System.out.println("Item not found in your bag: " + itemName);
-    }
 
     private void showBag() {
         GameCommand showBagCommand = new ShowBagCommand(gameController);

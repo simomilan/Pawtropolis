@@ -2,9 +2,12 @@ package model;
 
 public class Player {
 
+    public static final int MAX_LIFE_POINTS = 100;
+    public static final int MIN_LIFE_POINTS = 0;
+
     private String name;
 
-    private int lifePoints;  //da gestire
+    private int lifePoints;
 
     private Room currentRoom;
 
@@ -27,9 +30,14 @@ public class Player {
     }
 
     public void setLifePoints (int lifePoints) {
+        if (lifePoints > MAX_LIFE_POINTS) {
+            this.lifePoints = MAX_LIFE_POINTS;
+        } else if (lifePoints < MIN_LIFE_POINTS) {
+            this.lifePoints = MIN_LIFE_POINTS;
+        } else {
         this.lifePoints = lifePoints;
     }
-
+    }
     public Room getCurrentRoom() {
         return currentRoom;
     }

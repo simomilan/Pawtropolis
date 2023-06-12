@@ -4,6 +4,8 @@ public class Item {
 
     private String nameItem;
     private String descriptionItem;
+
+
     private int spaceBagUsed;
 
 
@@ -17,6 +19,9 @@ public class Item {
         return nameItem;
     }
 
+    public String getDescriptionItem () {
+        return descriptionItem;
+    }
     public int getSpaceBagUsed () {
         return spaceBagUsed;
     }

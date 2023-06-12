@@ -36,11 +36,11 @@ public class Bag {
                 "listItem="+items+
                 ",availableSpace="+availableSpace+
                 '}';
-    }//
+    }
 
 
     public int addItemsInBag(Item item) {
-        if (item != null && availableSpace - item.getSpaceBagUsed() >= 0) {
+        if (item != null && availableSpace - item.getSpaceBagUsed() >= 0) {  //bisognerebbe dscindere l'else dal caso in cui l'oggtto si anullo dal caso in cui occupa troppo spazio
             items.add(item);
             availableSpace -= item.getSpaceBagUsed();
         } else {
@@ -48,20 +48,6 @@ public class Bag {
         }
         return availableSpace;
     }
-
-
-
-    /*public int dropItemsFromBag(Item item) {  //tanto non lo usiamo
-
-            if (items.contains(item)) {
-                items.remove(item);
-                availableSpace += item.getSpaceBagUsed();
-                System.out.println("The item has been dropped from the bag: " + item.getNameItem());
-            } else {
-                System.out.println("Item not found in the bag: " + item.getNameItem());
-            }
-            return availableSpace;
-        }*/
 
     }
 

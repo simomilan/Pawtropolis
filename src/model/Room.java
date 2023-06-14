@@ -35,7 +35,7 @@ public class Room {
         this.nameRoom = nameRoom;
         this.itemsInRoom = new ArrayList<>();
         this.animalsInRoom = new ArrayList<>();
-         this.adjoiningRooms = new EnumMap <>(Direction.class);
+        this.adjoiningRooms = new EnumMap <>(Direction.class);
 
     }
 
@@ -43,7 +43,7 @@ public class Room {
     public String toString() {
         return "Room{" +
                 "nameRoom='" + nameRoom + '\'' +
-               ", adjoiningRooms=" + adjoiningRooms +
+                ", adjoiningRooms=" + adjoiningRooms +
                 '}';
     }
 
@@ -57,23 +57,22 @@ public class Room {
 
 
 
-
-
-
     public void addItem (Item item){
         itemsInRoom.add(item);
-    }
-
-    public void removeRoom (Item item) {
-        itemsInRoom.remove(item);
     }
 
     public void addAnimal (Animal animal){
         animalsInRoom.add(animal);
     }
 
+    public void removeAnimal (Animal animal) {
+        itemsInRoom.remove(animal);
+    }
+
 
     public void removeItem (Item item) {
         itemsInRoom.remove(item);
     }
+
+
 }

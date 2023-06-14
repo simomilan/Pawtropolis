@@ -1,7 +1,7 @@
 package command;
 
 
-import model.GameController;
+import controller.GameController;
 
 public class ShowBagCommand implements GameCommand{
 
@@ -13,6 +13,6 @@ public class ShowBagCommand implements GameCommand{
 
     @Override
     public void execute () {
-        gameController.showBag();
+        gameController.getPlayer().showBag();
     }
 }

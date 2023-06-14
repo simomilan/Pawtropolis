@@ -4,8 +4,6 @@ public class Item {
 
     private String nameItem;
     private String descriptionItem;
-
-
     private int spaceBagUsed;
 
 

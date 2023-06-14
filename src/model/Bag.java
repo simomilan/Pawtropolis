@@ -7,8 +7,6 @@ public class Bag {
 
     public static final int SPACE_BAG = 4; //static per accesso al main (vedi riga 25 di Main), Final per eviatare che la grandezza dello spoazio della bag commuti.
     private List<Item> items;
-
-
     private int availableSpace;
 
 
@@ -49,13 +47,4 @@ public class Bag {
         return availableSpace;
     }
 
-    }
-
-
-
-
-
-
-
-
-
+}

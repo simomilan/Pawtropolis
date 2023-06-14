@@ -1,6 +1,6 @@
 package command;
 
-import model.GameController;
+import controller.GameController;
 import model.Item;
 import zoo.Animal;
 
@@ -17,8 +17,8 @@ public class LookCommand implements GameCommand {
     @Override
     public void execute () {
 
-        System.out.println('\n' + "You are in " + gameController.getPlayer().getCurrentRoom().getNameRoom());
-        List<Item> items = gameController.getItems(gameController.getPlayer().getCurrentRoom());
+        System.out.println('\n' + "You are in " + gameController.getMapController().getCurrentRoom().getNameRoom());
+        List<Item> items = gameController.getMapController().getCurrentRoom().getItemsInRoom();
 
         if (items.isEmpty()) {
             System.out.print("There are no items in the room");
@@ -32,14 +32,14 @@ public class LookCommand implements GameCommand {
                 }
             }
         }
-        List<Animal> animals = gameController.getAnimals(gameController.getPlayer().getCurrentRoom());
+        List<Animal> animals = gameController.getMapController().getCurrentRoom().getAnimalsInRoom();
 
         if (animals.isEmpty()) {
             System.out.print("\nThere are no Animals in the room");
         } else {
             System.out.print("\nAnimals in the room: ");
             for (int i = 0; i < animals.size(); i++) {
-                System.out.print(animals.get(i).getNickName());
+                System.out.print(animals.get(i).getNickName() + " (" + animals.get(i).getClass().getSimpleName() + ") " );
                 if (i < animals.size() - 1) {
                     System.out.print(", ");
                 }

@@ -76,8 +76,8 @@ public class Player {
 
         if (items.contains(item)) {
             bag.dropItemsFromBag(item);
-            bag.setAvailableSpace(bag.getAvailableSpace() + item.requiredSpace());
-            System.out.println("\nThe item has been dropped from the bag: " + item.name());
+         //   bag.setAvailableSpace(bag.getAvailableSpace() + item.requiredSpace());
+       //     System.out.println("\nThe item has been dropped from the bag: " + item.name());
         }
     }
   /*  public void showBag() {

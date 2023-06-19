@@ -31,7 +31,7 @@ public class AddCommand implements GameCommand{
 
         Item selectedItem = null;
         for (Item item : items) {
-            if (item.name().equalsIgnoreCase(itemName.trim())) {
+            if (item.getName().equalsIgnoreCase(itemName.trim())) {
                 selectedItem = item ;
                 break;
             }
@@ -40,19 +40,20 @@ public class AddCommand implements GameCommand{
             System.out.println("\nItem not found: " + itemName);
             return;
         }
-        int necessarySpace = Math.abs(gameController.getPlayer().getBag().getAvailableSpace() - selectedItem.requiredSpace());
+        int necessarySpace = Math.abs(gameController.getPlayer().getBag().getAvailableSpace() - selectedItem.getRequiredSpace());
 
         if (selectedItem != null) {
-            if (gameController.getPlayer().getBag().getAvailableSpace() >= selectedItem.requiredSpace()) {
+            if (gameController.getPlayer().getBag().getAvailableSpace() >= selectedItem.getRequiredSpace()) {
 
                 gameController.getMapController().getCurrentRoom().removeItem(selectedItem);
-                System.out.println("\nThe item has been added to the bag: " + selectedItem.name());
-                System.out.println(selectedItem.name() + " has been removed from the room");
+                gameController.getPlayer().takeItem(selectedItem);
+                System.out.println("\nThe item has been added to the bag: " + selectedItem.getName());
+                System.out.println(selectedItem.getName() + " has been removed from the room");
             } else {
                 if(necessarySpace == 1){
-                    System.out.println("\nThere's no enough space in your bag, you need "+ necessarySpace + " free space to pick up "+ selectedItem.name());
+                    System.out.println("\nThere's no enough space in your bag, you need "+ necessarySpace + " free space to pick up "+ selectedItem.getName());
                 }else{
-                    System.out.println("\nThere's no enough space in your bag, you need "+ necessarySpace + " free spaces to pick up "+ selectedItem.name());
+                    System.out.println("\nThere's no enough space in your bag, you need "+ necessarySpace + " free spaces to pick up "+ selectedItem.getName());
                 }
             }
 

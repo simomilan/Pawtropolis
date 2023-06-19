@@ -33,7 +33,7 @@ public class DropCommand implements GameCommand {
                                                                               //già sapevamo che gli input andavano gestiti diversamente
         Item selectedItem = null;
         for (Item item : items) {
-            if (item.name().equalsIgnoreCase(itemName)) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
                 selectedItem = item;
                 break;
             }
@@ -41,6 +41,9 @@ public class DropCommand implements GameCommand {
         if (selectedItem != null) {                                 //fatto!           //il metodo execute e non il dropItemFromBag sennò se chiamava
             gameController.getPlayer().giveItemByName(selectedItem);//dropItemFromBag&GetToRoom
       gameController.getMapController().getCurrentRoom().addItem(selectedItem);
+            System.out.println("\nThe item has been dropped from the bag: " + selectedItem.getName());
+            System.out.println((selectedItem.getName() + " has been added in  the room"));
+            System.out.print(("Now the available space in your bag is: " + gameController.getPlayer().getBag().getAvailableSpace() ));
         } else {                                                                                                            //ghahhahahahah
             System.out.println("\nItem not found in your bag: " + itemName);
         }

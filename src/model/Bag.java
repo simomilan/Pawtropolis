@@ -39,32 +39,34 @@ public class Bag {
 
     public Item addItemInBag(Item item)  {
 
-        if (item != null && availableSpace - item.requiredSpace() >= 0) {  //bisognerebbe dscindere l'else dal caso in cui l'oggtto si anullo dal caso in cui occupa troppo spazio
+        if (item != null && availableSpace - item.getRequiredSpace() >= 0) {  //bisognerebbe dscindere l'else dal caso in cui l'oggtto si anullo dal caso in cui occupa troppo spazio
             items.add(item);
-            availableSpace -= item.requiredSpace();
+            availableSpace -= item.getRequiredSpace();
         }
         return null;
     }
 
     public int dropItemsFromBag (Item item) {
         items.remove(item);
-        availableSpace += item.requiredSpace();
+        availableSpace += item.getRequiredSpace();
 
     return availableSpace;
 
 }
 
-    public void showBag() {
-                  // la gestione della borsa lo deve fare o bag o il comando showbag, nel senso il controllo se la borsa è vuoto o piena
+    public List<Item> showBag() {
+               // la gestione della borsa lo deve fare o bag o il comando showbag, nel senso il controllo se la borsa è vuoto o piena
                                                  //forse deve farlo il metodo execute in ShowBagCommand
-        if (items.isEmpty()) {
-            System.out.println("\nYour bag is empty");
-        } else {
-            System.out.print("\nIn bag: ");
-            items.forEach(item -> System.out.print(item.name() + ", "));
-            System.out.println();
-        }
-        int remainingSpace = getAvailableSpace();
-        System.out.println("Remaining space in bag: " + remainingSpace);
+
+            for (int i = 0; i < items.size(); i++) {
+                System.out.print(items.get(i).getName());
+                if (i < items.size() - 1) {
+                    System.out.print(", ");
+                }
+
+            }
+
+        return items;
     }
-}
+
+    }

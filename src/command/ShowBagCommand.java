@@ -2,6 +2,9 @@ package command;
 
 
 import controller.GameController;
+import model.Item;
+
+import java.util.List;
 
 public class ShowBagCommand implements GameCommand{
 
@@ -13,6 +16,19 @@ public class ShowBagCommand implements GameCommand{
 
     @Override
     public void execute () {
-        gameController.getPlayer().getBag().showBag();
+
+        List <Item> items = gameController.getPlayer().getBag().getItems();
+        if (items.isEmpty()) {
+            System.out.println("\nYour bag is empty");
+
+        } else {
+            System.out.print("\nIn bag: ");
+            gameController.getPlayer().getBag().showBag();
+
+            }
+
+        System.out.println("\nRemaining space in bag: " + gameController.getPlayer().getBag().getAvailableSpace());
     }
-}
+
+   }
+

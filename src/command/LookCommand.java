@@ -26,7 +26,7 @@ public class LookCommand implements GameCommand {
             System.out.print("Items in the room: ");
 
             for (int i = 0; i < items.size(); i++) {
-                System.out.print(items.get(i).name());
+                System.out.print(items.get(i).getName());
                 if (i < items.size() - 1) {
                     System.out.print(", ");
                 }

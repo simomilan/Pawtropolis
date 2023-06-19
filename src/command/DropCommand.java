@@ -28,20 +28,25 @@ public class DropCommand implements GameCommand {
 
         System.out.print("\nEnter the name of the item to drop: ");
         String itemName = scanner.nextLine();
-        itemName = itemName.trim().replaceAll("\\s+", "");
-
+        itemName = itemName.trim().replaceAll("\\s+", "");       //repleceall ovviamnete non va bene perche se la stringa è composta
+                                                                              // da più parole me la fonde in una parolona unica
+                                                                              //già sapevamo che gli input andavano gestiti diversamente
         Item selectedItem = null;
         for (Item item : items) {
-            if (item.getNameItem().trim().equalsIgnoreCase(itemName)) {
+            if (item.name().equalsIgnoreCase(itemName)) {
                 selectedItem = item;
                 break;
             }
-        }
-        if (selectedItem != null) {
-            gameController.getPlayer().dropItemFromBag(selectedItem, gameController.getMapController().getCurrentRoom());
-        } else {
+        }                                                                   // fatto!       //l aggiunta dell'iem (o rimozione nell' addCommand) lo deve farew
+        if (selectedItem != null) {                                 //fatto!           //il metodo execute e non il dropItemFromBag sennò se chiamava
+            gameController.getPlayer().giveItemByName(selectedItem);//dropItemFromBag&GetToRoom
+      gameController.getMapController().getCurrentRoom().addItem(selectedItem);
+        } else {                                                                                                            //ghahhahahahah
             System.out.println("\nItem not found in your bag: " + itemName);
         }
     }
 }
 
+            //fatto!                //deve essere tipo: gameController.GetPlayer.GetItemByName e stop
+
+                            //In drop siamo stati inconsistenti, ma jche ver dì?!o

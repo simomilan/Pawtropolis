@@ -1,35 +1,12 @@
 package model;
 
-public class Item {
-
-    private String nameItem;
-    private String descriptionItem;
-    private int spaceBagUsed;
-
-
-    public Item (String nameItem, String descriptionItem, int spaceBagUsed ) {
-        this.nameItem = nameItem;
-        this.descriptionItem = descriptionItem;
-        this.spaceBagUsed = spaceBagUsed;
-    }
-
-    public String getNameItem () {
-        return nameItem;
-    }
-
-    public String getDescriptionItem () {
-        return descriptionItem;
-    }
-    public int getSpaceBagUsed () {
-        return spaceBagUsed;
-    }
-
-    @Override
+public record Item(String name, String description, int requiredSpace) {                            //ho convertito la classe a record
+    @Override                                                                        //patre funzioni, ma è da vedere bene vcos'è questo record
     public String toString () {
         return "Item{"+
-                "nameItem='"+nameItem+'\''+
-                ", descriptionItem='"+descriptionItem+'\''+
-                ", spaceBagUsed="+spaceBagUsed+
+                "nameItem='"+name+'\''+
+                ", descriptionItem='"+description+'\''+
+                ", spaceBagUsed="+requiredSpace+
                 '}';
     }
 

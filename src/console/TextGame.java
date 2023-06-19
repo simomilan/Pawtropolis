@@ -27,7 +27,7 @@ public class TextGame {
         System.out.println("Welcome to Pawtropolis!\nEnter your player name: ");
         String playerName = scanner.nextLine();
 
-        gameController = new GameController(new Player(playerName, Player.MAX_LIFE_POINTS, new Bag(new ArrayList<>(), Bag.SPACE_BAG)), new MapController(seeMap()));
+        gameController = new GameController(new Player(playerName, Player.MAX_LIFE_POINTS, new Bag(Bag.SPACE_BAG)), new MapController());
 
     }
 
@@ -39,7 +39,7 @@ public class TextGame {
             String input = scanner.nextLine();
 
             if (input.trim().replaceAll("\\s+", "").equalsIgnoreCase("help")) {
-                HelpCommand helpCommand = new HelpCommand(gameController);
+                HelpCommand helpCommand = new HelpCommand();
                 helpCommand.execute();
             } else if (input.trim().replaceAll("\\s+", "").equalsIgnoreCase("look")) {
                 LookCommand lookCommand = new LookCommand(gameController);
@@ -57,7 +57,7 @@ public class TextGame {
                 GameCommand showBagCommand = new ShowBagCommand(gameController);
                 showBagCommand.execute();
             } else if (input.trim().replaceAll("\\s+", "").equalsIgnoreCase("quit")) {
-                QuitCommand quitCommand = new QuitCommand(gameController);
+                QuitCommand quitCommand = new QuitCommand();
                 quitCommand.execute();
                 setGameRunning(false);
             } else {

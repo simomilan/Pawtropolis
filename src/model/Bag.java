@@ -5,14 +5,14 @@ import java.util.*;
 public class Bag {
 
 
-    public static final int SPACE_BAG = 4; //static per accesso al main (vedi riga 25 di Main), Final per eviatare che la grandezza dello spoazio della bag commuti.
+    public static final int SPACE_BAG = 4;
     private List<Item> items;
     private int availableSpace;
 
 
-    public Bag (List<Item> items, int availableSpace) {
-        this.items = items != null ? items : new ArrayList<>(); // così non incorrere in un'eccezione NullPointerException se il parametro items è null
-        this.availableSpace = availableSpace;
+    public Bag ( int availableSpace) {
+        this.items= new ArrayList<>(SPACE_BAG);
+        this.availableSpace = SPACE_BAG;
     }
 
     public List<Item> getItems () {
@@ -37,14 +37,34 @@ public class Bag {
     }
 
 
-    public int addItemsInBag(Item item) {
-        if (item != null && availableSpace - item.getSpaceBagUsed() >= 0) {  //bisognerebbe dscindere l'else dal caso in cui l'oggtto si anullo dal caso in cui occupa troppo spazio
+    public Item addItemInBag(Item item)  {
+
+        if (item != null && availableSpace - item.requiredSpace() >= 0) {  //bisognerebbe dscindere l'else dal caso in cui l'oggtto si anullo dal caso in cui occupa troppo spazio
             items.add(item);
-            availableSpace -= item.getSpaceBagUsed();
-        } else {
-            System.out.println("The item occupied too much space!" + '\n' + "Please drop something to make space or you can't take it.");
+            availableSpace -= item.requiredSpace();
         }
-        return availableSpace;
+        return null;
     }
 
+    public int dropItemsFromBag (Item item) {
+        items.remove(item);
+        availableSpace += item.requiredSpace();
+
+    return availableSpace;
+
+}
+
+    public void showBag() {
+                  // la gestione della borsa lo deve fare o bag o il comando showbag, nel senso il controllo se la borsa è vuoto o piena
+                                                 //forse deve farlo il metodo execute in ShowBagCommand
+        if (items.isEmpty()) {
+            System.out.println("\nYour bag is empty");
+        } else {
+            System.out.print("\nIn bag: ");
+            items.forEach(item -> System.out.print(item.name() + ", "));
+            System.out.println();
+        }
+        int remainingSpace = getAvailableSpace();
+        System.out.println("Remaining space in bag: " + remainingSpace);
+    }
 }

@@ -1,8 +1,8 @@
 package controller;
 
-import model.Direction;
+
 import model.Player;
-import model.Room;
+
 
 public class GameController {
 
@@ -12,7 +12,7 @@ public class GameController {
 
     public GameController(Player player, MapController mapController) {
         this.player = player;
-        this.mapController = new MapController(mapController.getCurrentRoom());
+        this.mapController = new MapController();
     }
 
     public Player getPlayer() {
@@ -33,7 +33,4 @@ public class GameController {
         this.mapController = mapController;
     }
 
-    public Room changeRoom(Direction direction){
-        return mapController.getCurrentRoom().getDirectionRoom(direction);
-    }
 }

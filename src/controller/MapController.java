@@ -14,7 +14,7 @@ public class MapController {
 
     private Room currentRoom;
 
-    public MapController(Room currentRoom) {
+    public MapController() {
         this.currentRoom = createMap();
     }
 
@@ -81,6 +81,8 @@ public class MapController {
         room5.addItem(item2);
         room5.addAnimal(animal4);
         room6.addItem(item5);
+        room6.addItem(item6);
+
 
         return room1;
     }

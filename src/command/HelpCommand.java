@@ -1,14 +1,7 @@
 package command;
 
-import controller.GameController;
 
 public class HelpCommand {
-
-    private GameController gameController;
-
-    public HelpCommand(GameController gameController) {
-        this.gameController = gameController;
-    }
 
     public void execute(){
         System.out.println("Available command:");

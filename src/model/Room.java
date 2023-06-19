@@ -23,10 +23,6 @@ public class Room {
     }
 
 
-    public Map<Direction, Room> getAdjoiningRooms() {
-        return adjoiningRooms;
-    }
-
     public List <Animal> getAnimalsInRoom () {
         return animalsInRoom;
     }

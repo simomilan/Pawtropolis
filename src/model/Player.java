@@ -1,7 +1,7 @@
 
 package model;
 
-import zoo.Animal;
+import exception.InsufficientSpaceException;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ public class Player {
 
     private String name;
     private int lifePoints;
+
     private Bag bag;
 
     public Player(String name, int lifePoints, Bag bag) {
@@ -50,48 +51,45 @@ public class Player {
                 '}';
     }
 
-    /////GESTIONE BAG DAL PLAYER
+    //Il player non deve sapere che esistono le stanze, sa solo che ha una bag con degli item dentro, ma non sa come funziona
+    // cioè come la bag gestisce gli item
+    //il player prende qualcosa(di generico, non sa nemmeno se un item) --> take
+    // il player da qualcosa (es giveItemByname), non so se in player fare il metodo take e give generico e implementarli nel gameController
+    // del tipo il player prende e da , m cosa??!!, in gamecontroller potrei avere GiveItem....
 
 
-    public void addItemToBag(Item item) {
-        int availableSpace = bag.getAvailableSpace();
-        if (bag.getAvailableSpace() - item.getSpaceBagUsed() >= 0) {
+    /*public void takeItemByName(Item item) throws InsufficientSpaceException {
+        if (bag.getAvailableSpace() - item.requiredSpace() >= 0) {
             bag.addItemsInBag(item);
-            availableSpace -= item.getSpaceBagUsed();
-            bag.setAvailableSpace(availableSpace);
+            bag.setAvailableSpace(bag.getAvailableSpace() - item.requiredSpace());
         } else {
             System.out.println("You haven't enough space in your bag, so you can't add it. Please drop something first!");
         }
+    }*/
+    public Item takeItem(Item item) {
+        return bag.addItemInBag(item);
     }
 
-    public void dropItemFromBag(Item item, Room currentRoom) {
-        bag = getBag();
+    public void giveItemByName(Item item) {
+
         List<Item> items = bag.getItems();
 
         if (items.contains(item)) {
-            items.remove(item);
-            int availableSpace = bag.getAvailableSpace() + item.getSpaceBagUsed();
-            bag.setAvailableSpace(availableSpace);
-            System.out.println("\nThe item has been dropped from the bag: " + item.getNameItem());
-
-            // Aggiungi l'oggetto alla stanza corrente
-            currentRoom.addItem(item);
-            System.out.println("The item has been added to the current room: " + item.getNameItem());
-        } else {
-            System.out.println("Item not found in the bag: " + item.getNameItem());
+            bag.dropItemsFromBag(item);
+            bag.setAvailableSpace(bag.getAvailableSpace() + item.requiredSpace());
+            System.out.println("\nThe item has been dropped from the bag: " + item.name());
         }
     }
-
-    public void showBag() {
+  /*  public void showBag() {
         bag = getBag();
-        List<Item> items = bag.getItems();
+        List<Item> items = bag.getItems();            // la gestione della borsa lo deve fare o bag o il comando showbag
 
         if (items.isEmpty()) {
             System.out.println("\nYour bag is empty");
         } else {
             System.out.print("\nIn bag: ");
             for (int i = 0; i < items.size(); i++) {
-                System.out.print(items.get(i).getNameItem());
+                System.out.print(items.get(i).getName());
                 if (i < items.size() - 1) {
                     System.out.print(", ");
                 }
@@ -100,7 +98,7 @@ public class Player {
         }
         int remainingSpace = bag.getAvailableSpace();
         System.out.println("Remaining space in bag: " + remainingSpace);
-    }
+    }*/
 
     public Bag getBag() {
         return bag;

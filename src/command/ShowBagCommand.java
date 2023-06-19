@@ -13,6 +13,6 @@ public class ShowBagCommand implements GameCommand{
 
     @Override
     public void execute () {
-        gameController.getPlayer().showBag();
+        gameController.getPlayer().getBag().showBag();
     }
 }

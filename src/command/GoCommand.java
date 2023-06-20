@@ -46,8 +46,6 @@ public class GoCommand implements GameCommand {
         } else {
             System.out.println("\nThere is no room in that direction");
         }*/
-
-
         Direction direction;
         switch (this.direction) {
             case "north":

@@ -94,11 +94,23 @@ public class TextGame {
                 String direction = commandParts[1];
                 GameCommand goCommand = new GoCommand(gameController, direction);
                 goCommand.execute();
-            } else if (InputController.equalsIgnoreCase(sanitizedInput, "get")) {
-                AddCommand addCommand = new AddCommand(gameController);
+            } else if (sanitizedInput.startsWith("get")) {
+                String[] commandParts = sanitizedInput.split("\\s+", 2);
+                if (commandParts.length != 2) {
+                    System.out.println("Invalid command. Please use the format: get [item name]");
+                    continue;
+                }
+                String itemName = commandParts[1];
+                GameCommand addCommand = new AddCommand(gameController, itemName);
                 addCommand.execute();
-            } else if (InputController.equalsIgnoreCase(sanitizedInput, "drop")) {
-                DropCommand dropCommand = new DropCommand(gameController);
+            } else if (sanitizedInput.startsWith("drop")) {
+                String[] commandParts = sanitizedInput.split("\\s+", 2);
+                if (commandParts.length != 2) {
+                    System.out.println("Invalid command. Please use the format: get [item name]");
+                    continue;
+                }
+                String itemName = commandParts[1];
+                DropCommand dropCommand = new DropCommand(gameController, itemName);
                 dropCommand.execute();
             } else if (InputController.equalsIgnoreCase(sanitizedInput, "showBag")) {
                 ShowBagCommand showBagCommand = new ShowBagCommand(gameController);
@@ -112,7 +124,7 @@ public class TextGame {
             }
         }
     }
-77
+
     public void setGameRunning(boolean gameRunning) {
         this.gameRunning = gameRunning;
     }

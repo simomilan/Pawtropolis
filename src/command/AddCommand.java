@@ -9,24 +9,23 @@ import java.util.Scanner;
 public class AddCommand implements GameCommand{
 
     private GameController gameController;
+    private String itemName;
 
 
-    public AddCommand(GameController gameController) {
+    public AddCommand(GameController gameController, String itemName) {
         this.gameController = gameController;
+        this.itemName=itemName;
     }
 
 
-    Scanner scanner = new Scanner(System.in);
+
 
 
 
     public void execute()  {
 
         List<Item> items = gameController.getMapController().getCurrentRoom().getItemsInRoom();
-        System.out.print("\nEnter the object's name to add to the bag: ");
 
-        String itemName = scanner.nextLine();
-        itemName = itemName.trim().replaceAll("\\s+", "");
 
         Item selectedItem = null;
         for (Item item : items) {

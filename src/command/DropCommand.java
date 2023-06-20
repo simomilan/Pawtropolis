@@ -8,11 +8,13 @@ import java.util.Scanner;
 public class DropCommand implements GameCommand {
 
     private GameController gameController;
+    private String itemName;
 
 
 
-    public DropCommand(GameController gameController) {
+    public DropCommand(GameController gameController, String itemName) {
         this.gameController = gameController;
+        this.itemName=itemName;
 
 
     }
@@ -26,11 +28,8 @@ public class DropCommand implements GameCommand {
             return;
         }
 
-        System.out.print("\nEnter the name of the item to drop: ");
-        String itemName = scanner.nextLine();
-        itemName = itemName.trim().replaceAll("\\s+", "");       //repleceall ovviamnete non va bene perche se la stringa è composta
-                                                                              // da più parole me la fonde in una parolona unica
-                                                                              //già sapevamo che gli input andavano gestiti diversamente
+
+
         Item selectedItem = null;
         for (Item item : items) {
             if (item.getName().equalsIgnoreCase(itemName)) {

@@ -4,12 +4,13 @@ public enum Direction {
 
     NORTH("north"),
     EAST("east"),
+
     SOUTH("south"),
     WEST("west");
 
-    private final String directioning; //meglio final mi sa così non può modificato
+    private final String directioning; //meglio final mi sa così non può modificato, directionString
 
-
+// metodo per restituire l'enum da una stringa
     Direction (String directioning) {
         this.directioning = directioning;
     }
@@ -24,6 +25,10 @@ public enum Direction {
         return "Direction{"+
                 "directioning='"+directioning+'\''+
                 '}';
+    }
+
+    public String chooseDirection(){
+        return getDirection();
     }
 
 

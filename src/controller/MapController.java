@@ -87,11 +87,5 @@ public class MapController {
         return room1;
     }
 
-    public static Room seeMap(){
-        createMap();
-
-        return null;
-    }
-
 }
 

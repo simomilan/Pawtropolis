@@ -1,7 +1,6 @@
 package command;
 
 import controller.GameController;
-import exception.InsufficientSpaceException;
 import model.Item;
 
 import java.util.List;

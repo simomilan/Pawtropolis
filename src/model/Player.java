@@ -1,8 +1,6 @@
 
 package model;
 
-import exception.InsufficientSpaceException;
-
 import java.util.List;
 
 public class Player {
@@ -57,52 +55,25 @@ public class Player {
     // il player da qualcosa (es giveItemByname), non so se in player fare il metodo take e give generico e implementarli nel gameController
     // del tipo il player prende e da , m cosa??!!, in gamecontroller potrei avere GiveItem....
 
+//metodo che restuisce gli item diosponibili presso di lui, restuisce a showbag ciò che ha nella borsa(o altro)
 
-    /*public void takeItemByName(Item item) throws InsufficientSpaceException {
-        if (bag.getAvailableSpace() - item.requiredSpace() >= 0) {
-            bag.addItemsInBag(item);
-            bag.setAvailableSpace(bag.getAvailableSpace() - item.requiredSpace());
-        } else {
-            System.out.println("You haven't enough space in your bag, so you can't add it. Please drop something first!");
-        }
-    }*/
     public Item takeItem(Item item) {
         return bag.addItemInBag(item);
     }
 
-    public void giveItemByName(Item item) {
+    public void giveItemByName(Item item) {  //cambio di stato
 
         List<Item> items = bag.getItems();
 
         if (items.contains(item)) {
             bag.dropItemsFromBag(item);
-         //   bag.setAvailableSpace(bag.getAvailableSpace() + item.requiredSpace());
-       //     System.out.println("\nThe item has been dropped from the bag: " + item.name());
+
         }
     }
-  /*  public void showBag() {
-        bag = getBag();
-        List<Item> items = bag.getItems();            // la gestione della borsa lo deve fare o bag o il comando showbag
-
-        if (items.isEmpty()) {
-            System.out.println("\nYour bag is empty");
-        } else {
-            System.out.print("\nIn bag: ");
-            for (int i = 0; i < items.size(); i++) {
-                System.out.print(items.get(i).getName());
-                if (i < items.size() - 1) {
-                    System.out.print(", ");
-                }
-            }
-            System.out.println();
-        }
-        int remainingSpace = bag.getAvailableSpace();
-        System.out.println("Remaining space in bag: " + remainingSpace);
-    }*/
 
     public Bag getBag() {
         return bag;
-    }
+    } //TODO da togliere
 
     public void setBag(Bag bag) {
         this.bag = bag;

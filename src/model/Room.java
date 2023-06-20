@@ -6,8 +6,8 @@ import java.util.*;
 
 public class Room {
 
-    private String nameRoom;
-    private List <Item> itemsInRoom;
+    private String nameRoom; //name
+    private List <Item> itemsInRoom; //items
     private List<Animal> animalsInRoom;
     private Map <Direction, Room> adjoiningRooms;
 
@@ -20,7 +20,7 @@ public class Room {
 
     public List <Item> getItemsInRoom () {
         return itemsInRoom;
-    }
+    }  //TODO da togliere
 
 
     public List <Animal> getAnimalsInRoom () {
@@ -36,7 +36,7 @@ public class Room {
     }
 
     @Override
-    public String toString() {
+    public String toString() {  //da aggiornare
         return "Room{" +
                 "nameRoom='" + nameRoom + '\'' +
                 ", adjoiningRooms=" + adjoiningRooms +
@@ -49,7 +49,7 @@ public class Room {
 
     public Room getDirectionRoom (Direction direction) {
         return adjoiningRooms.get(direction);
-    }
+    } //getAdj....
 
 
 
@@ -62,8 +62,8 @@ public class Room {
     }
 
     public void removeAnimal (Animal animal) {
-        itemsInRoom.remove(animal);
-    }
+        animalsInRoom.remove(animal);
+    } //aggiusta
 
 
     public void removeItem (Item item) {

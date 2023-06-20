@@ -112,7 +112,7 @@ public class TextGame {
             }
         }
     }
-
+77
     public void setGameRunning(boolean gameRunning) {
         this.gameRunning = gameRunning;
     }

@@ -1,8 +1,9 @@
 package command;
 
-public class QuitCommand {
+public class QuitCommand implements GameCommand {
 
+    @Override
     public void execute(){
-        System.out.println("See you next time!");
+        System.out.println("\n See you next time!");
     }
 }

@@ -1,13 +1,14 @@
 package controller;
 
+import command.AddCommand;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class InputController {
 
-    public InputController(){
-
+    private InputController(){
     }
 
     public static String readString() {
@@ -25,8 +26,12 @@ public class InputController {
         return str1.equalsIgnoreCase(str2);
     }
 
-    public static String cleanerInput(String input) {
+    public static String cleanerInputSingleWord(String input) {
+        return input.trim().replaceAll(" +", "");
+    }
+    public static String cleanerInputMultipleWord(String input) {
         return input.trim().toLowerCase();
     }
+
 
 }

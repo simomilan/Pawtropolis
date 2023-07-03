@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView">
+    <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="A new condition (fullness of the bag) in execute method in AddCommand">
+      <changelist_data name="mcilli" email="marianna.cilli@gmail.com" date="1688397496000" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/command/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/AddCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +16,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4f111d21-a6b4-49fb-924d-74f507a33d16" />
+        <option name="url" value="https://github.com/simomilan/Pawtropolis.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectId" id="2S70VWBD7wRSisQ7QPxCh06mwfW" />
   <component name="ProjectViewState">
@@ -33,6 +48,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.build.android",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -44,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688482336019</updated>
-      <workItem from="1688482337459" duration="29538000" />
+      <workItem from="1688482337459" duration="35234000" />
     </task>
     <task id="LOCAL-00001" summary="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object">
       <created>1688549222707</created>
@@ -67,18 +83,92 @@
       <option name="project" value="LOCAL" />
       <updated>1688554152253</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="A new condition (fullness of the bag) in execute method in AddCommand">
+      <created>1688720785568</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688720785568</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="15" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="87" />
+                </map>
+              </option>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="date">
+                    <value>
+                      <list>
+                        <option value="1688654373538" />
+                        <option value="" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -87,6 +177,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object" />
     <MESSAGE value="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView" />
-    <option name="LAST_COMMIT_MESSAGE" value="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView" />
+    <MESSAGE value="A new condition (fullness of the bag) in execute method in AddCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="A new condition (fullness of the bag) in execute method in AddCommand" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

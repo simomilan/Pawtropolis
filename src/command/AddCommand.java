@@ -32,17 +32,15 @@ public class AddCommand implements GameCommand {
             gameController.getPlayer().addItemToBag(selectedItem);
             bagView.displayAddItemToBag(selectedItem.getName());
 
+        }else if (gameController.getPlayer().getAvailableSpaceInBag() == 0) {
+            bagView.displayFullBag();
+
         } else if(necessarySpace == 1){
             bagView.displayNotEnoughSpace(necessarySpace, selectedItem);
         } else if(necessarySpace > 1){
             bagView.displayNotEnoughSpaces(necessarySpace, selectedItem);
-        }
 
-///////da togliere?
-        else if (!gameController.getPlayer().isEnoughSpaceInBag(selectedItem)) {
-            bagView.displayFullBag();
         }
-
     }
     public static void executeAddCommand(GameController gameController, String secondParse) {
         ConsoleView consoleView = new ConsoleView();

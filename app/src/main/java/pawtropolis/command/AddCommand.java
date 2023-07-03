@@ -11,12 +11,12 @@ import pawtropolis.view.BagView;
 public class AddCommand implements GameCommand {
 
     private final GameController gameController;
-    private final String itemName;
+    private String itemName;
 
 //@Autowired
     public AddCommand(GameController gameController, String itemName) {
+    public AddCommand(GameController gameController) {
         this.gameController = gameController;
-        this.itemName = itemName;
     }
 
     @Override

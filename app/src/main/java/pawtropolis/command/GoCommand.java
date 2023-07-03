@@ -15,8 +15,9 @@ public class GoCommand implements GameCommand {
     private final String direction;
 
     public GoCommand(GameController gameController, String direction) {
+    private String direction;
+    public GoCommand(GameController gameController) {
         this.gameController = gameController;
-        this.direction = direction;
 
     }
 

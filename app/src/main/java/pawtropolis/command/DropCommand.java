@@ -12,8 +12,9 @@ public class DropCommand implements GameCommand {
     private final String itemName;
 
     public DropCommand(GameController gameController, String itemName) {
+    private String itemName;
+    public DropCommand(GameController gameController) {
         this.gameController = gameController;
-        this.itemName = itemName;
     }
 
     @Override

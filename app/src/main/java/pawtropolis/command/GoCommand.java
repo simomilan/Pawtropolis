@@ -1,23 +1,22 @@
 package pawtropolis.command;
 
+import lombok.Setter;
+import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
-import pawtropolis.controller.InputController;
 import pawtropolis.model.Direction;
 import pawtropolis.model.Room;
-import pawtropolis.view.ConsoleView;
 import pawtropolis.view.DirectionView;
 import pawtropolis.view.RoomView;
 
-
+@Component
+@Setter
 public class GoCommand implements GameCommand {
 
     private final GameController gameController;
-    private final String direction;
+    private  String direction;
 
-    public GoCommand(GameController gameController, String direction) {
+    public GoCommand(GameController gameController) {
         this.gameController = gameController;
-        this.direction = direction;
-
     }
 
     @Override

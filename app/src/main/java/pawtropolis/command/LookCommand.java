@@ -1,13 +1,15 @@
 package pawtropolis.command;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
 import pawtropolis.view.RoomView;
 
-
+@Component
 public class LookCommand implements GameCommand {
 
     private final GameController gameController;
-
+@Autowired
     public LookCommand(GameController gameController) {
         this.gameController = gameController;
     }

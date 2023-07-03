@@ -16,8 +16,8 @@ public class TextGame {
     private final CommandController commandController;
 
 
-
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));   //TODO ANChe qui si puo fare l'iniezione
+    //TODO ANChe qui si puo fare l'iniezione
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
 
 
     public TextGame(Player player) {

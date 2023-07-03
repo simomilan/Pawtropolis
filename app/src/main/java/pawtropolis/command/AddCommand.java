@@ -1,22 +1,23 @@
 package pawtropolis.command;
 
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Component;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
 import pawtropolis.model.Item;
 import pawtropolis.view.BagView;
 
 
-//@Component
+@Component
+@Setter
 public class AddCommand implements GameCommand {
 
     private final GameController gameController;
-    private final String itemName;
+    private String itemName;
 
-//@Autowired
-    public AddCommand(GameController gameController, String itemName) {
+   @Autowired
+   public AddCommand(GameController gameController) {
         this.gameController = gameController;
-        this.itemName = itemName;
     }
 
     @Override

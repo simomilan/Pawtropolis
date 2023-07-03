@@ -1,19 +1,19 @@
 package pawtropolis.command;
 
+import lombok.Setter;
+import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
-import pawtropolis.controller.InputController;
 import pawtropolis.model.Item;
 import pawtropolis.view.BagView;
-import pawtropolis.view.ConsoleView;
-
+@Component
+@Setter
 public class DropCommand implements GameCommand {
 
     private final GameController gameController;
-    private final String itemName;
+    private  String itemName;
 
-    public DropCommand(GameController gameController, String itemName) {
+    public DropCommand(GameController gameController) {
         this.gameController = gameController;
-        this.itemName = itemName;
     }
 
     @Override

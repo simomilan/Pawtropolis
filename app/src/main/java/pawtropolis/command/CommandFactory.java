@@ -34,13 +34,14 @@ public class CommandFactory { //è un component
 
     public void createHelpCommand() {
         HelpCommand helpCommand = new HelpCommand();
-    helpCommand.execute();
+        helpCommand.execute();
     }
 
     public void createGoCommand(String secondPart) {
         try {
             String direction = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
-            GoCommand goCommand = new GoCommand(gameController,direction);
+            GoCommand goCommand = new GoCommand(gameController);
+            goCommand.setDirection(direction);
             goCommand.execute();
         }catch (ArrayIndexOutOfBoundsException e){
             consoleView.displayInvalidDirection();
@@ -50,7 +51,8 @@ public class CommandFactory { //è un component
     public void createAddCommand(String secondPart) {
         try {
             String item = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
-            AddCommand addCommand = new AddCommand(gameController,item);
+            AddCommand addCommand = new AddCommand(gameController);
+            addCommand.setItemName(item);
             addCommand.execute();
         }catch (ArrayIndexOutOfBoundsException e){
             consoleView.displayInvalidNameItemToGet();
@@ -60,7 +62,8 @@ public class CommandFactory { //è un component
     public void createDropCommand(String secondPart) {
         try {
             String item = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
-            DropCommand dropCommand = new DropCommand(gameController,item);
+            DropCommand dropCommand = new DropCommand(gameController);
+            dropCommand.setItemName(item);
             dropCommand.execute();
         }catch (ArrayIndexOutOfBoundsException e){
             consoleView.displayInvalidNameItemToDrop();

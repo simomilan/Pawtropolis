@@ -1,13 +1,15 @@
 package pawtropolis.command;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
 import pawtropolis.view.BagView;
 
-
+@Component
 public class ShowBagCommand implements GameCommand {
 
     private final GameController gameController;
-
+@Autowired
     public ShowBagCommand(GameController gameController) {
         this.gameController = gameController;
     }

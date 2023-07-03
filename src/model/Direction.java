@@ -7,32 +7,41 @@ public enum Direction {
     SOUTH("south"),
     WEST("west");
 
-    private final  String directionString; //meglio final mi sa così non può modificato, directionString
+    private final String directionString;
 
-
-    Direction (String directionString) {
+    Direction(String directionString) {
         this.directionString = directionString;
     }
 
-    public String getDirectionString () {  //il get vorrei non toglierlo, può sempre servire!!
+    public String getDirectionString() {
         return directionString;
     }
 
-
     @Override
-    public String toString () {
-        return "Direction{"+
-                "directionString='"+directionString+'\''+
+    public String toString() {
+        return "Direction{" +
+                "directionString='" + directionString + '\'' +
                 '}';
     }
-    // metodo per restituire l'enum da una stringa
-    public static Direction getDirectionFromString (String directionString) {
+
+    public static Direction getDirectionFromString(String directionString) {
         for (Direction direction : Direction.values()) {
             if (direction.getDirectionString().equalsIgnoreCase(directionString)) {
                 return direction;
             }
         }
-        return null; // La stringa non corrisponde a nessuna direzione
+        return null;
     }
+
+    public Direction opposite() {
+        return switch (this) {
+            case NORTH -> SOUTH;
+            case SOUTH -> NORTH;
+            case EAST -> WEST;
+            case WEST -> EAST;
+        };
+    }
+
 }
+
 

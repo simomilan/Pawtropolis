@@ -1,26 +1,35 @@
 package view;
 
+public class BagView implements GameView {
 
-public class BagView {
-//SHOWcommang
+
+    @Override
+    public void displayMessage(String message) {
+        GameView.logger.info(message);
+    }
+
     public void displayBag(String items, int availableSpace) {
-        if (items.isEmpty()) {
-            System.out.println("\nYour bag is empty");
-        } else {
-            System.out.println("\nIn bag: " + items);
-        }
-        System.out.println("\nREMining space in bag: " + availableSpace);
+        displayMessage("\nIn bag: " + items);
+        displayMessage("Remaining space in bag: " + availableSpace);
     }
 
-    //ADDcommand
+    public void displayEmptyBag() {
+        displayMessage("\nYour bag is empty");
+    }
+
     public void displayAddItemToBag(String itemName) {
-        System.out.println("\nThe item has been added to the bag: " + itemName);
-        System.out.println( itemName + "has been removed from the room");
+        displayMessage("\nThe item has been added to the bag: " + itemName);
     }
-
 
     public void displayItemNotFound(String itemName) {
-        System.out.println("\nItem not found: " + itemName);
+        displayMessage("\nItem not found: " + itemName);
     }
 
+    public void displayFullBag() {
+        displayMessage("\nYour bag is full!");
+    }
+
+    public void displayItemDropped(String itemName) {
+        displayMessage("\nThe item has been dropped from the bag: " + itemName);
+    }
 }

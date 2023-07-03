@@ -1,22 +1,25 @@
 package command;
+
 import controller.GameController;
 import view.BagView;
 
 public class ShowBagCommand implements GameCommand {
 
     private final GameController gameController;
-    private final BagView bagView;
 
-    public ShowBagCommand(GameController gameController, BagView bagView) {
+    public ShowBagCommand(GameController gameController) {
         this.gameController = gameController;
-        this.bagView = bagView;
     }
 
     @Override
     public void execute() {
+        BagView bagView = new BagView();
         String items = gameController.getPlayer().showBag();
         int availableSpace = gameController.getPlayer().getAvailableSpaceInBag();
-        bagView.displayBag(items, availableSpace);
+        if (items.isEmpty()) {
+            bagView.displayEmptyBag();
+        } else {
+            bagView.displayBag(items, availableSpace);
+        }
     }
-
 }

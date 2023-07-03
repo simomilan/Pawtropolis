@@ -1,6 +1,7 @@
 package command;
 
 import controller.GameController;
+import view.RoomView;
 
 public class LookCommand implements GameCommand {
 
@@ -12,14 +13,24 @@ public class LookCommand implements GameCommand {
 
     @Override
     public void execute() {
-
+        RoomView roomView = new RoomView();
 
         String roomName = gameController.getMapController().getCurrentRoom().getName();
         String items = gameController.getMapController().getCurrentRoom().getAllItems();
         String animals = gameController.getMapController().getCurrentRoom().getAllAnimals();
 
-        System.out.println(roomName);
-        System.out.println(items);
-        System.out.println(animals);
+        roomView.displayNameRoom(roomName);
+        if (items.isEmpty()) {
+            roomView.displayAbsenceItemInRoom();
+        } else {
+            roomView.displayItemInRoom(items);
+        }
+
+        if (animals.isEmpty()) {
+            roomView.displayAbsenceAnimalInRoom();
+        } else {
+            roomView.displayAnimalInRoom(animals);
+        }
+
     }
 }

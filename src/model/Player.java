@@ -12,7 +12,7 @@ public class Player {
     public Player(String name, int lifePoints, Bag bag) {
         this.name = name;
         this.lifePoints = lifePoints;
-        this.bag=bag;
+        this.bag = bag;
     }
 
     public String getName() {
@@ -22,12 +22,12 @@ public class Player {
 
     public int getLifePoints() {
         return lifePoints;
-    }  // lo lascio non si sa mia serve nelle fasi successive
+    }
 
     public void setLifePoints(int lifePoints) {
         if (lifePoints > MAX_LIFE_POINTS) {
             this.lifePoints = MAX_LIFE_POINTS;
-        } else this.lifePoints = Math.max(lifePoints, MIN_LIFE_POINTS) ;
+        } else this.lifePoints = Math.max(lifePoints, MIN_LIFE_POINTS);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Player {
     }
 
     public void removeItemFromBag(Item item) {
-            bag.removeItem(item);
+        bag.removeItem(item);
     }
 
     public String showBag() {
@@ -55,7 +55,7 @@ public class Player {
     }
 
     public Item getItemInBag(String itemName) {
-       return bag.itemByName(itemName);
+        return bag.itemByName(itemName);
     }
 }
 

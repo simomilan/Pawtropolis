@@ -8,17 +8,16 @@ public class AddCommand implements GameCommand {
 
     private final GameController gameController;
     private final String itemName;
-    private final BagView bagView;
 
 
-    public AddCommand(GameController gameController, String itemName, BagView bagView) {
+    public AddCommand(GameController gameController, String itemName) {
         this.gameController = gameController;
         this.itemName = itemName;
-        this.bagView = bagView;
     }
 
     @Override
     public void execute() {
+        BagView bagView = new BagView();
         Item selectedItem = gameController.getMapController().getCurrentRoom().getItemByName(itemName);
 
         if (selectedItem == null) {
@@ -30,6 +29,8 @@ public class AddCommand implements GameCommand {
             gameController.getPlayer().addItemToBag(selectedItem);
             bagView.displayAddItemToBag(selectedItem.getName());
 
+        } else {
+            bagView.displayFullBag();
         }
 
     }

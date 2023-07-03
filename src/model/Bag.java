@@ -17,11 +17,6 @@ public class Bag {
         return availableSpace;
     }
 
-    /////NON VA BENE DA TOGLIERE POICHè PER MODIFICARE LISTA PUOI AGGIUNGERE CON METODO ADDIREM, REMOVEITEM, USARE METODO ITEMBYNAME
-   /* public List<Item> getItems() {
-        return items;
-    }*/
-///////////////////
     @Override
     public String toString() {
         return "Bag{" +
@@ -49,7 +44,8 @@ public class Bag {
             if (item.getName().equalsIgnoreCase(itemName)) {
                 return item;
             }
-        } return null;
+        }
+        return null;
     }
 
     public String showBag() {

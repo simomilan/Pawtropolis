@@ -3,6 +3,8 @@ package command;
 import model.Direction;
 import controller.GameController;
 import model.Room;
+import view.DirectionView;
+import view.RoomView;
 
 public class GoCommand implements GameCommand {
 
@@ -11,31 +13,46 @@ public class GoCommand implements GameCommand {
 
     public GoCommand(GameController gameController, String direction) {
         this.gameController = gameController;
-        this.direction= direction;
+        this.direction = direction;
+
     }
 
     @Override
     public void execute() {
-
-
+        DirectionView directionView = new DirectionView();
+        RoomView roomView = new RoomView();
         Direction dir = Direction.getDirectionFromString(direction);
 
         if (dir == null) {
-            System.out.println("\nInvalid direction. Choose a valid direction: north, south, east, west");
+            directionView.displayNotFoundDirection();
             return;
         }
 
         Room currentRoom = gameController.getMapController().getCurrentRoom();
-        Room newRoom = currentRoom.getAdjoiningDirectionRoom(dir);
+        Room nextRoom = currentRoom.getAdjoiningDirectionRoom(dir);
 
-        if (newRoom != null) {
-            gameController.getMapController().setCurrentRoom(newRoom);
-            System.out.println("\nYou have entered " + newRoom.getName());
+        if (nextRoom != null) {
+            gameController.getMapController().setCurrentRoom(nextRoom);
+            directionView.displayNameCurrentRoom(nextRoom.getName());
 
-            LookCommand lookCommand = new LookCommand(gameController);
-            lookCommand.execute();
-        } else {
-            System.out.println("\nThere is no room in that direction");
+            String items = gameController.getMapController().getCurrentRoom().getAllItems();
+            String animals = gameController.getMapController().getCurrentRoom().getAllAnimals();
+
+
+            if (items.isEmpty()) {
+                roomView.displayAbsenceItemInRoom();
+            } else {
+                roomView.displayItemInRoom(items);
+            }
+
+            if (animals.isEmpty()) {
+                roomView.displayAbsenceAnimalInRoom();
+            } else {
+                roomView.displayAnimalInRoom(animals);
+            }
+        }
+        if (nextRoom == null) {
+            directionView.displayNotFoundRoom();
         }
     }
 

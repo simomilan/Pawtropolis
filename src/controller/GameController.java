@@ -14,13 +14,14 @@ public class GameController {
         this.player = player;
         this.mapController = new MapController();
     }
+
     public Player getPlayer() {
         return player;
     }
+
     public MapController getMapController() {
         return mapController;
     }
-
 
 
 }

@@ -38,24 +38,17 @@ public class MapController {
         room1.addAdjoiningRoom(Direction.NORTH, room2);
         room1.addAdjoiningRoom(Direction.SOUTH, room3);
         room1.addAdjoiningRoom(Direction.EAST, room6);
-        room2.addAdjoiningRoom(Direction.SOUTH, room1);
-        room3.addAdjoiningRoom(Direction.NORTH, room1);
         room3.addAdjoiningRoom(Direction.WEST, room4);
         room3.addAdjoiningRoom(Direction.EAST, room5);
-        room4.addAdjoiningRoom(Direction.EAST,room3);
-        room5.addAdjoiningRoom(Direction.WEST,room3);
         room5.addAdjoiningRoom(Direction.NORTH, room6);
-        room6.addAdjoiningRoom(Direction.WEST,room1);
-        room6.addAdjoiningRoom(Direction.SOUTH,room5);
         room6.addAdjoiningRoom(Direction.NORTH, room7);
-        room7.addAdjoiningRoom(Direction.SOUTH, room6);
 
 
         Item item1 = new Item("collar", "studded collar", 1);
         Item item2 = new Item("bone", "a human femur", 3);
         Item item3 = new Item("whip", "leather whip", 1);
         Item item4 = new Item("meat", "sheep", 4);
-        Item item5 = new Item( "dildo", "anal plug", 2);
+        Item item5 = new Item("dildo", "anal plug", 2);
         Item item6 = new Item("muzzle", "anti-bark", 2);
 
 
@@ -65,9 +58,9 @@ public class MapController {
         Animal animal2 = new Eagle("Gatto", "Meat", 3, t1, 288.00, 116.00, 100.00);
         LocalDate l3 = LocalDate.of(2017, 3, 3);
         Animal animal3 = new Lion("Gio", "Meat", 7, l3, 325.00, 122.00, 94.00);
-        LocalDate t2 = LocalDate.of(2019,9,10);
+        LocalDate t2 = LocalDate.of(2019, 9, 10);
         Animal animal4 = new Tiger("Gino", "Meat", 6, t2, 301.00, 123.00, 102.00);
-        LocalDate e2 = LocalDate.of(2018, 3,12);
+        LocalDate e2 = LocalDate.of(2018, 3, 12);
         Animal animal5 = new Eagle("Titti", "Meat", 5, e2, 75.00, 90.00, 191.00);
 
 

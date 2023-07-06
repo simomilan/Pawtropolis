@@ -48,7 +48,7 @@ public class MapController {
         Item item2 = new Item("bone", "a human femur", 3);
         Item item3 = new Item("whip", "leather whip", 1);
         Item item4 = new Item("meat", "sheep", 4);
-        Item item5 = new Item("dildo", "anal plug", 2);
+        Item item5 = new Item("flashlight", "can be helpfully", 2);
         Item item6 = new Item("muzzle", "anti-bark", 2);
 
 

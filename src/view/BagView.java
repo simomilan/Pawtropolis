@@ -1,16 +1,19 @@
 package view;
 
+import view.utility.CustomLogger;
+
 public class BagView implements GameView {
 
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
 
     @Override
     public void displayMessage(String message) {
-        GameView.logger.info(message);
+        CUSTOM_LOGGER.displayMessage(message);
     }
 
     public void displayBag(String items, int availableSpace) {
         displayMessage("\nIn bag: " + items);
-        displayMessage("Remaining space in bag: " + availableSpace);
+        displayMessage("\nRemaining space in bag: " + availableSpace);
     }
 
     public void displayEmptyBag() {

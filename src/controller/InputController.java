@@ -1,11 +1,14 @@
 package controller;
 
+import view.utility.CustomLogger;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class InputController {
 
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
 
     private InputController() {
     }
@@ -16,7 +19,7 @@ public class InputController {
         try {
             return inputReader.readLine();
         } catch (IOException e) {
-            System.err.println("Error while reading user input");
+            CUSTOM_LOGGER.displayMessage("Error while reading user input");
             return "";
         }
     }
@@ -29,6 +32,7 @@ public class InputController {
         return input.trim().toLowerCase();
     }
 
+    //TODO: usare Split -secondWordParser- non da mettere quì
     public static String secondWordReader(String input) {
         int spaceIndex = input.indexOf(' ');
         if (spaceIndex == -1) {

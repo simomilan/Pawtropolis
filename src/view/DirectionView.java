@@ -1,11 +1,14 @@
 package view;
 
+import view.utility.CustomLogger;
+
 public class DirectionView implements GameView {
+
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
 
     @Override
     public void displayMessage(String message) {
-        GameView.logger.info(message);
-
+        CUSTOM_LOGGER.displayMessage(message);
     }
 
     public void displayNotFoundDirection() {

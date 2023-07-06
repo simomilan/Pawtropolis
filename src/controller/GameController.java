@@ -23,5 +23,6 @@ public class GameController {
         return mapController;
     }
 
+    //TODO: metodo per concludere il gioco
 
 }

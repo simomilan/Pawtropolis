@@ -62,7 +62,7 @@ public class Room {
 
     }
 
-    public String getAllItems() {
+    public String getAllItemsDescription() {
         var sc = new StringBuilder();
 
         for (int i = 0; i < items.size(); i++) {
@@ -77,7 +77,7 @@ public class Room {
     }
 
 
-    public String getAllAnimals() {
+    public String getAllAnimalsDescription() {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < animals.size(); i++) {

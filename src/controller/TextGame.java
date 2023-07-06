@@ -2,12 +2,15 @@ package controller;
 
 import model.*;
 import view.ConsoleView;
+import view.utility.CustomLogger;
 
 public class TextGame {
     private final GameController gameController;
     private boolean gameRunning = true;
     private final ConsoleView consoleView = new ConsoleView();
     private final CommandController commandController;
+
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
 
 
     public TextGame() {
@@ -22,10 +25,14 @@ public class TextGame {
         consoleView.displayStartGame(chosenName);
 
         while (gameRunning) {
-            System.out.print("\n> ");
+            CUSTOM_LOGGER.displayMessage("\n>");
             String input = InputController.readString();
-            commandController.processInput(input);
-            if (input.equals("quit")) {
+
+
+            commandController. executeCommandFromInput(input);
+
+            //TODO: togliere
+            if (input.equalsIgnoreCase("quit")) {
                 setGameRunning(false);
             }
 

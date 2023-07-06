@@ -16,8 +16,8 @@ public class LookCommand implements GameCommand {
         RoomView roomView = new RoomView();
 
         String roomName = gameController.getMapController().getCurrentRoom().getName();
-        String items = gameController.getMapController().getCurrentRoom().getAllItems();
-        String animals = gameController.getMapController().getCurrentRoom().getAllAnimals();
+        String items = gameController.getMapController().getCurrentRoom().getAllItemsDescription();
+        String animals = gameController.getMapController().getCurrentRoom().getAllAnimalsDescription();
 
         roomView.displayNameRoom(roomName);
         if (items.isEmpty()) {

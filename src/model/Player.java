@@ -47,7 +47,7 @@ public class Player {
     }
 
     public String showBag() {
-        return bag.showBag();
+        return bag.getBagContentDescription();
     }
 
     public int getAvailableSpaceInBag() {
@@ -55,7 +55,7 @@ public class Player {
     }
 
     public Item getItemInBag(String itemName) {
-        return bag.itemByName(itemName);
+        return bag.getItemByName(itemName);
     }
 }
 

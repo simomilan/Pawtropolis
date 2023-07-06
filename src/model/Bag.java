@@ -39,7 +39,7 @@ public class Bag {
         }
     }
 
-    public Item itemByName(String itemName) {
+    public Item getItemByName(String itemName) {
         for (Item item : items) {
             if (item.getName().equalsIgnoreCase(itemName)) {
                 return item;
@@ -48,7 +48,8 @@ public class Bag {
         return null;
     }
 
-    public String showBag() {
+    //TODO: for-each o Stream? StringJoin per sb.append(", ");?
+    public String getBagContentDescription() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
             sb.append(items.get(i).getName());

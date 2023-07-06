@@ -57,5 +57,10 @@ public class Player {
     public Item getItemInBag(String itemName) {
         return bag.getItemByName(itemName);
     }
+
+    public boolean isEnoughSpaceInBag(Item item){
+        return bag.isEnoughSpace(item);
+    }
+
 }
 

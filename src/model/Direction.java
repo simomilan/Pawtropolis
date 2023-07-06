@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public enum Direction {
 
     NORTH("north"),
@@ -25,12 +27,10 @@ public enum Direction {
     }
 
     public static Direction getDirectionFromString(String directionString) {
-        for (Direction direction : Direction.values()) {
-            if (direction.getDirectionString().equalsIgnoreCase(directionString)) {
-                return direction;
-            }
-        }
-        return null;
+        return Arrays.stream(Direction.values())
+                .filter(direction -> direction.getDirectionString().equalsIgnoreCase(directionString))
+                .findFirst()
+                .orElse(null);
     }
 
     public Direction opposite() {

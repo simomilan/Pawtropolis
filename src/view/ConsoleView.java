@@ -2,9 +2,12 @@ package view;
 
 import view.utility.CustomLogger;
 
+import java.util.logging.Logger;
+
 public class ConsoleView implements GameView {
 
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
+
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
 
     @Override
     public void displayMessage(String message) {
@@ -50,4 +53,5 @@ public class ConsoleView implements GameView {
     public void displayInvalidCommand() {
         displayMessage("\nInvalid command. Enter 'help' to view the available commands.");
     }
+
 }

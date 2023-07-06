@@ -5,10 +5,12 @@ import view.utility.CustomLogger;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.logging.Logger;
+
 
 public class InputController {
 
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
 
     private InputController() {
     }
@@ -31,16 +33,5 @@ public class InputController {
     public static String cleanerInputMultipleWord(String input) {
         return input.trim().toLowerCase();
     }
-
-    //TODO: usare Split -secondWordParser- non da mettere quì
-    public static String secondWordReader(String input) {
-        int spaceIndex = input.indexOf(' ');
-        if (spaceIndex == -1) {
-            return null;
-        }
-        String secondWord = input.substring(spaceIndex + 1).trim();
-        return secondWord.isEmpty() ? null : secondWord;
-    }
-
 
 }

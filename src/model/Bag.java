@@ -1,6 +1,7 @@
 package model;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Bag {
 
@@ -17,6 +18,11 @@ public class Bag {
         return availableSpace;
     }
 
+    public boolean isEnoughSpace(Item item) {
+        return availableSpace - item.getRequiredSpace() >= 0;
+    }
+
+
     @Override
     public String toString() {
         return "Bag{" +
@@ -26,7 +32,7 @@ public class Bag {
     }
 
     public void addItem(Item item) {
-        if (item != null && availableSpace - item.getRequiredSpace() >= 0) {
+        if (item != null && getAvailableSpace() - item.getRequiredSpace() >= 0) {
             items.add(item);
             availableSpace -= item.getRequiredSpace();
         }
@@ -40,24 +46,16 @@ public class Bag {
     }
 
     public Item getItemByName(String itemName) {
-        for (Item item : items) {
-            if (item.getName().equalsIgnoreCase(itemName)) {
-                return item;
-            }
-        }
-        return null;
+        return items.stream()
+                .filter(item -> item.getName().equalsIgnoreCase(itemName))
+                .findFirst()
+                .orElse(null);
     }
 
-    //TODO: for-each o Stream? StringJoin per sb.append(", ");?
     public String getBagContentDescription() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < items.size(); i++) {
-            sb.append(items.get(i).getName());
-            if (i < items.size() - 1) {
-                sb.append(", ");
-            }
-        }
-        return sb.toString();
+        return items.stream()
+                .map(Item::getName)
+                .collect(Collectors.joining(", "));
     }
 }
 

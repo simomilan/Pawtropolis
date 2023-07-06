@@ -14,6 +14,7 @@ public class ShowBagCommand implements GameCommand {
     @Override
     public void execute() {
         BagView bagView = new BagView();
+
         String items = gameController.getPlayer().showBag();
         int availableSpace = gameController.getPlayer().getAvailableSpaceInBag();
         if (items.isEmpty()) {

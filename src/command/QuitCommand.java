@@ -5,16 +5,23 @@ import view.ConsoleView;
 
 public class QuitCommand implements GameCommand {
 
-    //TODO: costruttore che passa GameController
+    GameController gameController;
+
+    public QuitCommand(GameController gameController) {
+        this.gameController = gameController;
+    }
 
     @Override
-    public void execute(){
+    public void execute() {
         ConsoleView consoleView = new ConsoleView();
         consoleView.displayQuitCommand();
     }
 
     public static void executeQuitCommand(GameController gameController) {
-        QuitCommand quitCommand = new QuitCommand();
+        QuitCommand quitCommand = new QuitCommand(gameController);
         quitCommand.execute();
+        gameController.endGame();
+
     }
+
 }

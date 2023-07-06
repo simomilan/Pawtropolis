@@ -32,7 +32,7 @@ public class CommandController {
         } else if (cleanedInputSingleWord.equalsIgnoreCase("showBag")) {
             ShowBagCommand.executeShowBagCommand(gameController);
         } else if (cleanedInputSingleWord.equalsIgnoreCase("quit")) {
-           QuitCommand.executeQuitCommand(gameController);
+            QuitCommand.executeQuitCommand(gameController);
         } else {
             consoleView.displayInvalidCommand();
         }

@@ -30,13 +30,15 @@ public class DropCommand implements GameCommand {
     }
 
 
-    public static void executeDropCommand(GameController gameController, String cleanedMultipleWords) {
+    public static void executeDropCommand(GameController gameController, String secondPart) {
         ConsoleView consoleView = new ConsoleView();
-        String item = InputController.secondWordReader(cleanedMultipleWords);
-        if (item != null) {
-            DropCommand dropCommand = new DropCommand(gameController, item);
+
+        try {
+            String item = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
+            GameCommand dropCommand = new DropCommand(gameController, item);
             dropCommand.execute();
-        } else {
+
+        } catch (ArrayIndexOutOfBoundsException e) {
             consoleView.displayInvalidNameItemToDrop();
         }
     }

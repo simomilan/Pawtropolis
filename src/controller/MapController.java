@@ -49,7 +49,7 @@ public class MapController {
         Item item3 = new Item("whip", "leather whip", 1);
         Item item4 = new Item("meat", "sheep", 4);
         Item item5 = new Item("flashlight", "can be helpfully", 2);
-        Item item6 = new Item("muzzle", "anti-bark", 2);
+        Item item6 = new Item("muzzle", "anti-bark", 1);
 
 
         LocalDate l1 = LocalDate.of(2020, 1, 1);

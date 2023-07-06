@@ -18,7 +18,7 @@ public class GoCommand implements GameCommand {
         this.direction = direction;
 
     }
-/*
+
     @Override
     public void execute() {
         DirectionView directionView = new DirectionView();
@@ -40,7 +40,6 @@ public class GoCommand implements GameCommand {
             String items = gameController.getMapController().getCurrentRoom().getAllItemsDescription();
             String animals = gameController.getMapController().getCurrentRoom().getAllAnimalsDescription();
 
-
             if (items.isEmpty()) {
                 roomView.displayAbsenceItemInRoom();
             } else {
@@ -56,53 +55,18 @@ public class GoCommand implements GameCommand {
         if (nextRoom == null) {
             directionView.displayNotFoundRoom();
         }
-    }*/
-@Override
-public void execute() {
-    DirectionView directionView = new DirectionView();
-    RoomView roomView = new RoomView();
-    Direction dir = Direction.getDirectionFromString(direction);
-
-    if (dir == null) {
-        directionView.displayNotFoundDirection();
-        return;
     }
 
-    Room currentRoom = gameController.getMapController().getCurrentRoom();
-    Room nextRoom = currentRoom.getAdjoiningDirectionRoom(dir);
 
-    if (nextRoom != null) {
-        gameController.getMapController().setCurrentRoom(nextRoom);
-        directionView.displayNameCurrentRoom(nextRoom.getName());
-
-        String items = gameController.getMapController().getCurrentRoom().getAllItemsDescription();
-        String animals = gameController.getMapController().getCurrentRoom().getAllAnimalsDescription();
-
-        if (items.isEmpty()) {
-            roomView.displayAbsenceItemInRoom();
-        } else {
-            roomView.displayItemInRoom(items);
-        }
-
-        if (animals.isEmpty()) {
-            roomView.displayAbsenceAnimalInRoom();
-        } else {
-            roomView.displayAnimalInRoom(animals);
-        }
-    }
-    if (nextRoom == null) {
-        directionView.displayNotFoundRoom();
-    }
-}
-
-
-    public static void executeGoCommand (GameController gameController, String cleanedMultipleWords){
+    public static void executeGoCommand(GameController gameController, String secondPart) {
         ConsoleView consoleView = new ConsoleView();
-        String direction = InputController.secondWordReader(cleanedMultipleWords);
-        if (direction != null) {
-            GoCommand goCommand = new GoCommand(gameController, direction);
+
+        try {
+            String direction = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
+            GameCommand goCommand = new GoCommand(gameController, direction);
             goCommand.execute();
-        } else {
+
+        } catch (ArrayIndexOutOfBoundsException e) {
             consoleView.displayInvalidDirection();
         }
     }

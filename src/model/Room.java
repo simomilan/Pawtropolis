@@ -3,6 +3,7 @@ package model;
 import zoo.Animal;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Room {
 
@@ -53,41 +54,24 @@ public class Room {
     }
 
     public Item getItemByName(String itemName) {
-        for (Item item : items) {
-            if (item.getName().equalsIgnoreCase(itemName)) {
-                return item;
-            }
-        }
-        return null;
+        return items.stream()
+                .filter(item -> item.getName().equalsIgnoreCase(itemName))
+                .findFirst()
+                .orElse(null);
 
     }
 
     public String getAllItemsDescription() {
-        var sc = new StringBuilder();
-
-        for (int i = 0; i < items.size(); i++) {
-            sc.append(items.get(i).getName());
-            if (i < items.size() - 1) {
-                sc.append(", ");
-            }
-        }
-
-
-        return sc.toString();
+        return items.stream()
+                .map(Item::getName)
+                .collect(Collectors.joining(", "));
     }
 
 
     public String getAllAnimalsDescription() {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < animals.size(); i++) {
-            sb.append(animals.get(i).getNickName());
-            if (i < animals.size() - 1) {
-                sb.append(", ");
-            }
-        }
-
-        return sb.toString();
+        return animals.stream()
+                .map(Animal::getNickName)
+                .collect(Collectors.joining(", "));
     }
 
 

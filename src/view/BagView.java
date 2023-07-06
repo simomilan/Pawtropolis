@@ -1,10 +1,14 @@
 package view;
 
+import model.Item;
 import view.utility.CustomLogger;
+
+import java.util.logging.Logger;
 
 public class BagView implements GameView {
 
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
+
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
 
     @Override
     public void displayMessage(String message) {
@@ -34,5 +38,12 @@ public class BagView implements GameView {
 
     public void displayItemDropped(String itemName) {
         displayMessage("\nThe item has been dropped from the bag: " + itemName);
+    }
+
+    public void displayNotEnoughSpace(int necessarySpace, Item selectedItem) {
+        displayMessage("\nThere's no enough space in your bag, you need "+ necessarySpace + " free space to pick up "+ selectedItem.getName());
+    }
+    public void displayNotEnoughSpaces(int necessarySpace, Item selectedItem) {
+        displayMessage("\nThere's no enough space in your bag, you need "+ necessarySpace + " free spaces to pick up "+ selectedItem.getName());
     }
 }

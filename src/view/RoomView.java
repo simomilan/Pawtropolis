@@ -2,9 +2,12 @@ package view;
 
 import view.utility.CustomLogger;
 
+import java.util.logging.Logger;
+
 public class RoomView implements GameView {
 
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
+
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
 
     @Override
     public void displayMessage(String message) {

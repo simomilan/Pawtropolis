@@ -4,13 +4,15 @@ import model.*;
 import view.ConsoleView;
 import view.utility.CustomLogger;
 
+import java.util.logging.Logger;
+
 public class TextGame {
     private final GameController gameController;
-    private boolean gameRunning = true;
     private final ConsoleView consoleView = new ConsoleView();
     private final CommandController commandController;
 
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger();
+
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
 
 
     public TextGame() {
@@ -24,24 +26,16 @@ public class TextGame {
         String chosenName = gameController.getPlayer().getName();
         consoleView.displayStartGame(chosenName);
 
-        while (gameRunning) {
+        while (gameController.isGameRunning()) {
             CUSTOM_LOGGER.displayMessage("\n>");
             String input = InputController.readString();
 
-
-            commandController. executeCommandFromInput(input);
-
-            //TODO: togliere
-            if (input.equalsIgnoreCase("quit")) {
-                setGameRunning(false);
-            }
+            commandController.executeCommandFromInput(input);
 
         }
-
     }
-
-    public void setGameRunning(boolean gameRunning) {
-        this.gameRunning = gameRunning;
-    }
-
 }
+
+
+
+

@@ -1,5 +1,6 @@
 package command;
 
+import controller.GameController;
 import view.ConsoleView;
 
 public class QuitCommand implements GameCommand {
@@ -10,5 +11,10 @@ public class QuitCommand implements GameCommand {
     public void execute(){
         ConsoleView consoleView = new ConsoleView();
         consoleView.displayQuitCommand();
+    }
+
+    public static void executeQuitCommand(GameController gameController) {
+        QuitCommand quitCommand = new QuitCommand();
+        quitCommand.execute();
     }
 }

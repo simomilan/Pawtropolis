@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView">
+      <change beforePath="$PROJECT_DIR$/src/command/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/AddCommand.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2S70VWBD7wRSisQ7QPxCh06mwfW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="" />
+      <created>1688482336019</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688482336019</updated>
+      <workItem from="1688482337459" duration="29538000" />
+    </task>
+    <task id="LOCAL-00001" summary="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object">
+      <created>1688549222707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688549222707</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object">
+      <created>1688549350660</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688549350660</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView">
+      <created>1688554152253</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1688554152253</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object" />
+    <MESSAGE value="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView" />
+  </component>
+</project>

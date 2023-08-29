@@ -4,9 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="A new condition (fullness of the bag) in execute method in AddCommand">
+    <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="">
       <changelist_data name="mcilli" email="marianna.cilli@gmail.com" date="1688397496000" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pawtropolis.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/command/AddCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/command/DropCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/command/GameCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/command/GoCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/command/HelpCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/command/LookCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/command/QuitCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/command/ShowBagCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/CommandController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/InputController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/MapController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/TextGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Bag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/BagView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/ConsoleView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/DirectionView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/GameView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/RoomView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/utility/CustomFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/utility/CustomLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zoo/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zoo/Eagle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zoo/Lion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zoo/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zoo/Tailed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zoo/Tiger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zoo/Winged.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zoo/Zoo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,34 +74,37 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="4f111d21-a6b4-49fb-924d-74f507a33d16" />
+        <option name="accountId" value="2238fb74-ff62-42f8-9992-c5231cb94280" />
         <option name="url" value="https://github.com/simomilan/Pawtropolis.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2S70VWBD7wRSisQ7QPxCh06mwfW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/smilan/IdeaProjects/Pawtropolis",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "configurable.group.build.android",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/smilan/IdeaProjects/Pawtropolis&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build.android&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -182,7 +232,7 @@
     <MESSAGE value="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object" />
     <MESSAGE value="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView" />
     <MESSAGE value="A new condition (fullness of the bag) in execute method in AddCommand" />
-    <option name="LAST_COMMIT_MESSAGE" value="A new condition (fullness of the bag) in execute method in AddCommand" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

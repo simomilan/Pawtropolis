@@ -16,5 +16,6 @@ public class QuitCommand implements GameCommand {
     public void execute() {
         ConsoleView consoleView = new ConsoleView();
         consoleView.displayQuitCommand();
+        gameController.endGame();
     }
 }

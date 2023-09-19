@@ -22,7 +22,7 @@ public class TextGame {
         consoleView.displayWelcomeMessage();
         String playerName = InputController.readString();
         gameController = new GameController(new Player(playerName, Player.MAX_LIFE_POINTS, new Bag()));
-        commandController = new CommandController(gameController);
+        commandController = new CommandController(new CommandFactory(gameController));
     }
 
     public void start() {

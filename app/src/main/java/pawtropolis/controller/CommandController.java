@@ -1,22 +1,16 @@
 package pawtropolis.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import pawtropolis.command.*;
 import pawtropolis.view.ConsoleView;
 
-@Controller
+
 public class CommandController {
 
-    private final GameController gameController;
-
-    @Autowired
-    public CommandController(GameController gameController) {
-        this.gameController = gameController;
-
+    private final CommandFactory commandFactory;
+    public CommandController(CommandFactory commandFactory) {
+        this.commandFactory = commandFactory;
     }
-
-
+    
     ConsoleView consoleView = new ConsoleView();
 
     public void executeCommandFromInput(String input) {
@@ -24,19 +18,19 @@ public class CommandController {
         String cleanedMultipleWords = InputController.cleanerInputMultipleWord(input);
 
         if (cleanedInputSingleWord.equalsIgnoreCase("help")) {
-            HelpCommand.executeHelpCommand();
+            commandFactory.createHelpCommand();
         } else if (cleanedInputSingleWord.equalsIgnoreCase("look")) {
-            LookCommand.executeLookCommand(gameController);
+            commandFactory.createLookCommand();
         } else if (cleanedMultipleWords.startsWith("go")) {
-            GoCommand.executeGoCommand(gameController, cleanedMultipleWords);
+            commandFactory.createGoCommand(input);
         } else if (cleanedMultipleWords.startsWith("get")) {
-            AddCommand.executeAddCommand(gameController, cleanedMultipleWords);
+            commandFactory.createAddCommand(input);
         } else if (cleanedMultipleWords.startsWith("drop")) {
-            DropCommand.executeDropCommand(gameController, cleanedMultipleWords);
+            commandFactory.createDropCommand(input);
         } else if (cleanedInputSingleWord.equalsIgnoreCase("showBag")) {
-            ShowBagCommand.executeShowBagCommand(gameController);
+            commandFactory.createShowBagCommand();
         } else if (cleanedInputSingleWord.equalsIgnoreCase("quit")) {
-            QuitCommand.executeQuitCommand(gameController);
+            commandFactory.createQuitCommand();
         } else {
             consoleView.displayInvalidCommand();
         }

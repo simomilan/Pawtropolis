@@ -3,12 +3,12 @@ package pawtropolis.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.stereotype.Component;
+import lombok.experimental.SuperBuilder;
 
-@Component
 @Getter
 @ToString
 @AllArgsConstructor
+//@SuperBuilder
 public class Item {
     private final String name;
     private final String description;

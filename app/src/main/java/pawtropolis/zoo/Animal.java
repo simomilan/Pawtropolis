@@ -2,10 +2,12 @@ package pawtropolis.zoo;
 
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.stereotype.Component;
+import lombok.experimental.SuperBuilder;
+
+
 
 import java.time.LocalDate;
-@Component
+
 @Getter
 @ToString
 //@SuperBuilder

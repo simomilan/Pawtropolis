@@ -2,16 +2,15 @@ package pawtropolis.model;
 
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.experimental.SuperBuilder;
 import pawtropolis.zoo.Animal;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Component
 @Getter
 @ToString
+//@SuperBuilder
 public class Room {
 
     private final String name;
@@ -19,7 +18,7 @@ public class Room {
     private final List<Animal> animals;
     private final Map<Direction, Room> adjoiningRooms;
 
-    @Autowired
+
     public Room(String nameRoom) {
         this.name = nameRoom;
         this.items = new ArrayList<>();

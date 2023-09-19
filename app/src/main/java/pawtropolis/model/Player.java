@@ -3,12 +3,12 @@ package pawtropolis.model;
 
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.experimental.SuperBuilder;
+
 
 @Getter
 @ToString
-@Component
+//@SuperBuilder
 public class Player {
 
     public static final int MAX_LIFE_POINTS = 100;
@@ -18,7 +18,6 @@ public class Player {
     private int lifePoints;
     private final Bag bag;
 
-    @Autowired
     public Player(String name, int lifePoints, Bag bag) {
         this.name = name;
         this.lifePoints = lifePoints;

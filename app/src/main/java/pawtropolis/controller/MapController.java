@@ -2,8 +2,6 @@ package pawtropolis.controller;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import pawtropolis.model.Direction;
 import pawtropolis.model.Item;
 import pawtropolis.model.Room;
@@ -14,14 +12,13 @@ import pawtropolis.zoo.Tiger;
 
 
 import java.time.LocalDate;
-
+//TODO utilizzare @builder ed eliminare instanze in createMap()
 @Getter
 @Setter
-@Controller
 public class MapController {
 
     private Room currentRoom;
-    @Autowired
+
     public MapController() {
         this.currentRoom = createMap();
     }

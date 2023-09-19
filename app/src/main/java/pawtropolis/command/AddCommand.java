@@ -1,18 +1,19 @@
 package pawtropolis.command;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
-import pawtropolis.controller.InputController;
 import pawtropolis.model.Item;
 import pawtropolis.view.BagView;
-import pawtropolis.view.ConsoleView;
 
 
+@Component
 public class AddCommand implements GameCommand {
 
     private final GameController gameController;
     private final String itemName;
 
-
+@Autowired
     public AddCommand(GameController gameController, String itemName) {
         this.gameController = gameController;
         this.itemName = itemName;
@@ -43,18 +44,7 @@ public class AddCommand implements GameCommand {
 
         }
     }
-    public static void executeAddCommand(GameController gameController, String secondParse) {
-        ConsoleView consoleView = new ConsoleView();
 
-        try {
-            String item = InputController.cleanerInputMultipleWord(secondParse.split(" +")[1]);
-                GameCommand addCommand = new AddCommand(gameController, item);
-                addCommand.execute();
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-            consoleView.displayInvalidNameItemToGet();
-        }
-    }
 }
 
 

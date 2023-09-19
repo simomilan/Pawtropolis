@@ -23,11 +23,4 @@ public class ShowBagCommand implements GameCommand {
             bagView.displayBag(items, availableSpace);
         }
     }
-
-
-
-    public static void executeShowBagCommand(GameController gameController) {
-        ShowBagCommand showBagCommand = new ShowBagCommand(gameController);
-        showBagCommand.execute();
-    }
 }

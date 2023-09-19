@@ -57,20 +57,4 @@ public class GoCommand implements GameCommand {
             directionView.displayNotFoundRoom();
         }
     }
-
-
-    public static void executeGoCommand(GameController gameController, String secondPart) {
-        ConsoleView consoleView = new ConsoleView();
-
-        try {
-            String direction = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
-            GameCommand goCommand = new GoCommand(gameController, direction);
-            goCommand.execute();
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-            consoleView.displayInvalidDirection();
-        }
-    }
-
-
 }

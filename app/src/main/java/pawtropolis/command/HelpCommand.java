@@ -11,10 +11,4 @@ public class HelpCommand implements GameCommand {
         consoleView.displayHelpCommand();
 
     }
-
-    public static void executeHelpCommand() {
-        HelpCommand helpCommand = new HelpCommand();
-        helpCommand.execute();
-    }
-
 }

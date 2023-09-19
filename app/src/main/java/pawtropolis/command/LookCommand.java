@@ -34,10 +34,4 @@ public class LookCommand implements GameCommand {
         }
 
     }
-
-    public static void executeLookCommand(GameController gameController) {
-        LookCommand lookCommand = new LookCommand(gameController);
-        lookCommand.execute();
-    }
-
 }

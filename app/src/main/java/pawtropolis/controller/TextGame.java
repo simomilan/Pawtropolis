@@ -1,6 +1,7 @@
 package pawtropolis.controller;
 
 
+import pawtropolis.command.CommandFactory;
 import pawtropolis.model.Player;
 import pawtropolis.model.Bag;
 import pawtropolis.view.ConsoleView;

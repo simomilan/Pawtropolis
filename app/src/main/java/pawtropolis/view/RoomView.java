@@ -1,8 +1,6 @@
 package pawtropolis.view;
 
-
 import pawtropolis.view.utility.CustomLogger;
-
 import java.util.logging.Logger;
 
 public class RoomView implements GameView {

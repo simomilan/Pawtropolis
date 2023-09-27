@@ -1,19 +1,19 @@
 package pawtropolis.command;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
 import pawtropolis.controller.InputController;
 import pawtropolis.view.ConsoleView;
 
 
-@Component
+//@Component
 public class CommandFactory {
 
     private final GameController gameController;
     ConsoleView consoleView = new ConsoleView();
 
-    @Autowired
+   // @Autowired
     public CommandFactory(GameController gameController) {
         this.gameController = gameController;
     }

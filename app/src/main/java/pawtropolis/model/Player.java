@@ -2,25 +2,28 @@ package pawtropolis.model;
 
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
 @Getter
+@Setter
 @ToString
-//@SuperBuilder
+
+@Component
 public class Player {
 
     public static final int MAX_LIFE_POINTS = 100;
     public static final int MIN_LIFE_POINTS = 0;
 
-    private final String name;
+    private String name;
     private int lifePoints;
     private final Bag bag;
-
-    public Player(String name, int lifePoints, Bag bag) {
-        this.name = name;
-        this.lifePoints = lifePoints;
+    @Autowired
+    public Player(Bag bag) {
         this.bag = bag;
     }
 

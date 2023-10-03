@@ -3,12 +3,12 @@ package pawtropolis.controller;
 
 import pawtropolis.command.CommandFactory;
 import pawtropolis.model.Player;
-import pawtropolis.model.Bag;
 import pawtropolis.view.ConsoleView;
 import pawtropolis.view.utility.CustomLogger;
 
 
 import java.util.logging.Logger;
+
 
 public class TextGame {
     private final GameController gameController;
@@ -16,17 +16,20 @@ public class TextGame {
     private final CommandController commandController;
 
 
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
+
+    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));   //TODO ANChe qui si puo fare l'iniezione
 
 
-    public TextGame() {
+    public TextGame(Player player) {
         consoleView.displayWelcomeMessage();
         String playerName = InputController.readString();
-        gameController = new GameController(new Player(playerName, Player.MAX_LIFE_POINTS, new Bag()));
+        player.setName(playerName);
+        player.setLifePoints(Player.MAX_LIFE_POINTS);
+        gameController = new GameController(player);
         commandController = new CommandController(new CommandFactory(gameController));
     }
-
     public void start() {
+
         String chosenName = gameController.getPlayer().getName();
         consoleView.displayStartGame(chosenName);
 

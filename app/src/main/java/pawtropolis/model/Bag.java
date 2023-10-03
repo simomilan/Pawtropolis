@@ -2,18 +2,20 @@ package pawtropolis.model;
 
 import lombok.Getter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
+import org.springframework.stereotype.Component;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Getter
 @ToString
-//@SuperBuilder
+@Component
 public class Bag {
 
     public static final int BAG_SPACE = 4;
     private final List<Item> items;
     private int availableSpace;
+
 
     public Bag() {
         this.items = new ArrayList<>(BAG_SPACE);

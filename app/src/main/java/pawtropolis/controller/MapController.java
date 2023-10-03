@@ -2,6 +2,8 @@ package pawtropolis.controller;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pawtropolis.model.Direction;
 import pawtropolis.model.Item;
 import pawtropolis.model.Room;
@@ -15,14 +17,14 @@ import java.time.LocalDate;
 //TODO utilizzare @builder ed eliminare instanze in createMap()
 @Getter
 @Setter
-public class MapController {
+@Component
+public class MapController {     //TODO current room è si un singleton ma nel costruttore il parametro è assegnato a un metodo statico
 
     private Room currentRoom;
 
     public MapController() {
         this.currentRoom = createMap();
     }
-
     private static Room createMap() {
         Room room1 = new Room("Entrance");
         Room room2 = new Room("Lion's enclosure");
@@ -60,6 +62,30 @@ public class MapController {
         LocalDate e2 = LocalDate.of(2018, 3, 12);
         Animal animal5 = new Eagle("Titti", "Meat", 5, e2, 75.00, 90.00, 191.00);
 
+        Animal animal6 = Lion.builder()
+                .nickname("cazzo")
+                .favoriteFood("fregna")
+                .age(10)
+                .entryDate(LocalDate.of(2020, 1, 1))
+                .weight(400)
+                .height(110)
+                .tailLength(105)
+                .build();
+
+        Animal aniaml7 = Eagle.builder()
+                .nickname("Alato")
+                .favoriteFood("Insetti")
+                .age(5)
+                .entryDate(LocalDate.now())
+                .weight(2.5)
+                .height(30.0)
+                .wingspan(50.0)
+                .build();
+
+
+
+
+
 
         room1.addItem(item1);
         room2.addAnimal(animal1);
@@ -72,6 +98,8 @@ public class MapController {
         room5.addAnimal(animal4);
         room6.addItem(item5);
         room6.addItem(item6);
+        room1.addAnimal(animal6);
+        room1.addAnimal(aniaml7);
 
 
         return room1;

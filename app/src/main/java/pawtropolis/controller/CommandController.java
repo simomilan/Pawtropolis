@@ -1,12 +1,15 @@
 package pawtropolis.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pawtropolis.command.*;
 import pawtropolis.view.ConsoleView;
 
-
-public class CommandController {
+@Component
+public class CommandController {     //TODO è un componente o un controller
 
     private final CommandFactory commandFactory;
+    @Autowired
     public CommandController(CommandFactory commandFactory) {
         this.commandFactory = commandFactory;
     }

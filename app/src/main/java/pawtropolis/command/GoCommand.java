@@ -1,12 +1,11 @@
 package pawtropolis.command;
 
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
 import pawtropolis.model.Direction;
 import pawtropolis.model.Room;
-import pawtropolis.view.DirectionView;
-import pawtropolis.view.RoomView;
 
 @Component
 @Setter
@@ -15,18 +14,17 @@ public class GoCommand implements GameCommand {
     private final GameController gameController;
     private  String direction;
 
-    public GoCommand(GameController gameController) {
-        this.gameController = gameController;
+    @Autowired
+    public GoCommand(GameController gameControllerParam) {
+        gameController = gameControllerParam;
     }
 
     @Override
     public void execute() {
-        DirectionView directionView = new DirectionView();
-        RoomView roomView = new RoomView();
         Direction dir = Direction.getDirectionFromString(direction);
 
         if (dir == null) {
-            directionView.displayNotFoundDirection();
+            gameController.getDirectionView().displayNotFoundDirection();
             return;
         }
 
@@ -35,25 +33,22 @@ public class GoCommand implements GameCommand {
 
         if (nextRoom != null) {
             gameController.getMapController().setCurrentRoom(nextRoom);
-            directionView.displayNameCurrentRoom(nextRoom.getName());
-
+            gameController.getDirectionView().displayNameCurrentRoom(nextRoom.getName());
             String items = gameController.getMapController().getCurrentRoom().getAllItemsDescription();
             String animals = gameController.getMapController().getCurrentRoom().getAllAnimalsDescription();
-
             if (items.isEmpty()) {
-                roomView.displayAbsenceItemInRoom();
+                gameController.getRoomView().displayAbsenceItemInRoom();
             } else {
-                roomView.displayItemInRoom(items);
+                gameController.getRoomView().displayItemInRoom(items);
             }
-
             if (animals.isEmpty()) {
-                roomView.displayAbsenceAnimalInRoom();
+                gameController.getRoomView().displayAbsenceAnimalInRoom();
             } else {
-                roomView.displayAnimalInRoom(animals);
+                gameController.getRoomView().displayAnimalInRoom(animals);
             }
         }
         if (nextRoom == null) {
-            directionView.displayNotFoundRoom();
+            gameController.getDirectionView().displayNotFoundRoom();
         }
     }
 }

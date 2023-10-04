@@ -3,37 +3,32 @@ package pawtropolis.command;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
-import pawtropolis.view.RoomView;
 
 @Component
 public class LookCommand implements GameCommand {
 
     private final GameController gameController;
-@Autowired
-    public LookCommand(GameController gameController) {
-        this.gameController = gameController;
+
+    @Autowired
+    public LookCommand(GameController gameControllerParam) {
+        gameController = gameControllerParam;
     }
 
     @Override
     public void execute() {
-        RoomView roomView = new RoomView();
-
         String roomName = gameController.getMapController().getCurrentRoom().getName();
         String items = gameController.getMapController().getCurrentRoom().getAllItemsDescription();
         String animals = gameController.getMapController().getCurrentRoom().getAllAnimalsDescription();
-
-        roomView.displayNameRoom(roomName);
+        gameController.getRoomView().displayNameRoom(roomName);
         if (items.isEmpty()) {
-            roomView.displayAbsenceItemInRoom();
+            gameController.getRoomView().displayAbsenceItemInRoom();
         } else {
-            roomView.displayItemInRoom(items);
+            gameController.getRoomView().displayItemInRoom(items);
         }
-
         if (animals.isEmpty()) {
-            roomView.displayAbsenceAnimalInRoom();
+            gameController.getRoomView().displayAbsenceAnimalInRoom();
         } else {
-            roomView.displayAnimalInRoom(animals);
+            gameController.getRoomView().displayAnimalInRoom(animals);
         }
-
     }
 }

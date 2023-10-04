@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pawtropolis.controller.GameController;
 import pawtropolis.model.Item;
-import pawtropolis.view.BagView;
+
 
 
 @Component
@@ -16,33 +16,28 @@ public class AddCommand implements GameCommand {
     private String itemName;
 
    @Autowired
-   public AddCommand(GameController gameController) {
-        this.gameController = gameController;
+   public AddCommand(GameController gameControllerParam) {
+        gameController = gameControllerParam;
     }
 
     @Override
     public void execute() {
-        BagView bagView = new BagView();
         Item selectedItem = gameController.getMapController().getCurrentRoom().getItemByName(itemName);
-
         if (selectedItem == null) {
-            bagView.displayItemNotFound(itemName);
+            gameController.getBagView().displayItemNotFound(itemName);
             return;
         }
         int necessarySpace = Math.abs(gameController.getPlayer().getAvailableSpaceInBag() - selectedItem.getRequiredSpace());
         if (gameController.getPlayer().isEnoughSpaceInBag(selectedItem)) {
             gameController.getMapController().getCurrentRoom().removeItem(selectedItem);
             gameController.getPlayer().addItemToBag(selectedItem);
-            bagView.displayAddItemToBag(selectedItem.getName());
-
+            gameController.getBagView().displayAddItemToBag(selectedItem.getName());
         }else if (gameController.getPlayer().getAvailableSpaceInBag() == 0) {
-            bagView.displayFullBag();
-
+            gameController.getBagView().displayFullBag();
         } else if(necessarySpace == 1){
-            bagView.displayNotEnoughSpace(necessarySpace, selectedItem);
+            gameController.getBagView().displayNotEnoughSpace(necessarySpace,selectedItem);
         } else if(necessarySpace > 1){
-            bagView.displayNotEnoughSpaces(necessarySpace, selectedItem);
-
+            gameController.getBagView().displayNotEnoughSpaces(necessarySpace,selectedItem);
         }
     }
 

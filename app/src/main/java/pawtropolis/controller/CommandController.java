@@ -3,18 +3,16 @@ package pawtropolis.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pawtropolis.command.*;
-import pawtropolis.view.ConsoleView;
-//TODO è un componente o un controller
+
 @Component
 public class CommandController {
 
     private final CommandFactory commandFactory;
+
     @Autowired
-    public CommandController(CommandFactory commandFactory) {
-        this.commandFactory = commandFactory;
+    public CommandController(CommandFactory commandParam) {
+        commandFactory = commandParam;
     }
-    
-    ConsoleView consoleView = new ConsoleView();
 
     public void executeCommandFromInput(String input) {
         String cleanedInputSingleWord = InputController.cleanerInputSingleWord(input);
@@ -35,7 +33,7 @@ public class CommandController {
         } else if (cleanedInputSingleWord.equalsIgnoreCase("quit")) {
             commandFactory.createQuitCommand();
         } else {
-            consoleView.displayInvalidCommand();
+            commandFactory.getGameController().getConsoleView().displayInvalidCommand();
         }
     }
 

@@ -1,33 +1,34 @@
 package pawtropolis.controller;
 
 
-import pawtropolis.command.CommandFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pawtropolis.model.Player;
-import pawtropolis.view.ConsoleView;
-
+@Component
 public class TextGame {
+    
     private final GameController gameController;
-    private final ConsoleView consoleView = new ConsoleView();
     private final CommandController commandController;
 
-    public TextGame(Player player) {
-        consoleView.displayWelcomeMessage();
-        String playerName = InputController.readString();
-        player.setName(playerName);
-        player.setLifePoints(Player.MAX_LIFE_POINTS);
-        gameController = new GameController(player);
-        commandController = new CommandController(new CommandFactory(gameController));
+    @Autowired
+    public TextGame(GameController gameControllerParam, CommandController commandControllerParam) {
+        gameController = gameControllerParam;
+        commandController = commandControllerParam;
+        start();
     }
+
     public void start() {
+        gameController.getConsoleView().displayWelcomeMessage();
+        String playerName = InputController.readString();
+        gameController.getPlayer().setName(playerName);
+        gameController.getPlayer().setLifePoints(Player.MAX_LIFE_POINTS);
         String chosenName = gameController.getPlayer().getName();
-        consoleView.displayStartGame(chosenName);
+        gameController.getConsoleView().displayStartGame(chosenName);
 
         while (gameController.isGameRunning()) {
-            consoleView.displayMessageAtTheHead();
+            gameController.getConsoleView().displayMessageAtTheHead();
             String input = InputController.readString();
-
             commandController.executeCommandFromInput(input);
-
         }
     }
 }

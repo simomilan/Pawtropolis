@@ -1,10 +1,11 @@
 package pawtropolis.view;
 
+import org.springframework.stereotype.Component;
 import pawtropolis.model.Item;
 import pawtropolis.view.utility.CustomLogger;
 
 import java.util.logging.Logger;
-
+@Component
 public class BagView implements GameView {
 
 

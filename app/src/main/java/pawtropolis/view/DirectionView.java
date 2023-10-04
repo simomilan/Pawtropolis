@@ -1,9 +1,10 @@
 package pawtropolis.view;
 
+import org.springframework.stereotype.Component;
 import pawtropolis.view.utility.CustomLogger;
 
 import java.util.logging.Logger;
-
+@Component
 public class DirectionView implements GameView {
 
 

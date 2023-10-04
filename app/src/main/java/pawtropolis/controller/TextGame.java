@@ -4,21 +4,11 @@ package pawtropolis.controller;
 import pawtropolis.command.CommandFactory;
 import pawtropolis.model.Player;
 import pawtropolis.view.ConsoleView;
-import pawtropolis.view.utility.CustomLogger;
-
-
-import java.util.logging.Logger;
-
 
 public class TextGame {
     private final GameController gameController;
     private final ConsoleView consoleView = new ConsoleView();
     private final CommandController commandController;
-
-
-    //TODO ANChe qui si puo fare l'iniezione
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
-
 
     public TextGame(Player player) {
         consoleView.displayWelcomeMessage();
@@ -29,12 +19,11 @@ public class TextGame {
         commandController = new CommandController(new CommandFactory(gameController));
     }
     public void start() {
-
         String chosenName = gameController.getPlayer().getName();
         consoleView.displayStartGame(chosenName);
 
         while (gameController.isGameRunning()) {
-            CUSTOM_LOGGER.displayMessage("\n>");
+            consoleView.displayMessageAtTheHead();
             String input = InputController.readString();
 
             commandController.executeCommandFromInput(input);

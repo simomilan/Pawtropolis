@@ -1,28 +1,26 @@
 package pawtropolis.controller;
 
 
-import pawtropolis.view.utility.CustomLogger;
-
+import pawtropolis.view.ConsoleView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.logging.Logger;
+
 
 
 public class InputController {
-
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
 
     private InputController() {
     }
 
     public static String readString() {
+        ConsoleView consoleView = new ConsoleView();
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader inputReader = new BufferedReader(input);
         try {
             return inputReader.readLine();
         } catch (IOException e) {
-            CUSTOM_LOGGER.displayMessage("Error while reading user input");
+            consoleView.displayErrorReadMsg();
             return "";
         }
     }

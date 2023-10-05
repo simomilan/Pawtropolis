@@ -1,15 +1,17 @@
 package pawtropolis.view.utility;
 
+import org.springframework.stereotype.Component;
+
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+@Component
 public class CustomLogger {
 
     private final Logger logger;
 
-    public CustomLogger( Logger logger){
+    public CustomLogger(){
         this.logger = Logger.getLogger(CustomLogger.class.getName());
 
         Logger rootLogger = Logger.getLogger("");

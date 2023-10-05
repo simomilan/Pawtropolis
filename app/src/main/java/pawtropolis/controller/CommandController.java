@@ -33,7 +33,7 @@ public class CommandController {
         } else if (cleanedInputSingleWord.equalsIgnoreCase("quit")) {
             commandFactory.createQuitCommand();
         } else {
-            commandFactory.getGameController().getConsoleView().displayInvalidCommand();
+            commandFactory.getGameController().getViewFactory().getConsoleView().displayInvalidCommand();
         }
     }
 

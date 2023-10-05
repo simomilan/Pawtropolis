@@ -2,7 +2,6 @@ package pawtropolis.controller;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pawtropolis.model.Direction;
 import pawtropolis.model.Item;
@@ -14,11 +13,11 @@ import pawtropolis.zoo.Tiger;
 
 
 import java.time.LocalDate;
-//TODO utilizzare @builder ed eliminare instanze in createMap()
+
 @Getter
 @Setter
 @Component
-public class MapController {     //TODO current room è si un singleton ma nel costruttore il parametro è assegnato a un metodo statico
+public class MapController {
 
     private Room currentRoom;
 
@@ -33,6 +32,7 @@ public class MapController {     //TODO current room è si un singleton ma nel c
         Room room5 = new Room("Tiger jungle");
         Room room6 = new Room("Rest room");
         Room room7 = new Room("Bathroom");
+
 
         room1.addAdjoiningRoom(Direction.NORTH, room2);
         room1.addAdjoiningRoom(Direction.SOUTH, room3);
@@ -81,10 +81,6 @@ public class MapController {     //TODO current room è si un singleton ma nel c
                 .height(30.0)
                 .wingspan(50.0)
                 .build();
-
-
-
-
 
 
         room1.addItem(item1);

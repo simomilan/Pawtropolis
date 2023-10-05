@@ -24,7 +24,7 @@ public class GoCommand implements GameCommand {
         Direction dir = Direction.getDirectionFromString(direction);
 
         if (dir == null) {
-            gameController.getDirectionView().displayNotFoundDirection();
+            gameController.getViewFactory().getDirectionView().displayNotFoundDirection();
             return;
         }
 
@@ -33,22 +33,22 @@ public class GoCommand implements GameCommand {
 
         if (nextRoom != null) {
             gameController.getMapController().setCurrentRoom(nextRoom);
-            gameController.getDirectionView().displayNameCurrentRoom(nextRoom.getName());
+            gameController.getViewFactory().getDirectionView().displayNameCurrentRoom(nextRoom.getName());
             String items = gameController.getMapController().getCurrentRoom().getAllItemsDescription();
             String animals = gameController.getMapController().getCurrentRoom().getAllAnimalsDescription();
             if (items.isEmpty()) {
-                gameController.getRoomView().displayAbsenceItemInRoom();
+                gameController.getViewFactory().getRoomView().displayAbsenceItemInRoom();
             } else {
-                gameController.getRoomView().displayItemInRoom(items);
+                gameController.getViewFactory().getRoomView().displayItemInRoom(items);
             }
             if (animals.isEmpty()) {
-                gameController.getRoomView().displayAbsenceAnimalInRoom();
+                gameController.getViewFactory().getRoomView().displayAbsenceAnimalInRoom();
             } else {
-                gameController.getRoomView().displayAnimalInRoom(animals);
+                gameController.getViewFactory().getRoomView().displayAnimalInRoom(animals);
             }
         }
         if (nextRoom == null) {
-            gameController.getDirectionView().displayNotFoundRoom();
+            gameController.getViewFactory().getDirectionView().displayNotFoundRoom();
         }
     }
 }

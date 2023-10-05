@@ -19,9 +19,9 @@ public class ShowBagCommand implements GameCommand {
         String items = gameController.getPlayer().showBag();
         int availableSpace = gameController.getPlayer().getAvailableSpaceInBag();
         if (items.isEmpty()) {
-            gameController.getBagView().displayEmptyBag();
+            gameController.getViewFactory().getBagView().displayEmptyBag();
         } else {
-            gameController.getBagView().displayBag(items, availableSpace);
+            gameController.getViewFactory().getBagView().displayBag(items, availableSpace);
         }
     }
 }

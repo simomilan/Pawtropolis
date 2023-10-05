@@ -8,7 +8,7 @@ import pawtropolis.controller.GameController;
 @Component
 public class QuitCommand implements GameCommand {
 
-    GameController gameController;
+    private final GameController gameController;
     @Autowired
     public QuitCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;
@@ -16,7 +16,7 @@ public class QuitCommand implements GameCommand {
 
     @Override
     public void execute() {
-        gameController.getConsoleView().displayQuitCommand();
+        gameController.getViewFactory().getConsoleView().displayQuitCommand();
         gameController.endGame();
     }
 }

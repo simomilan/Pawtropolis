@@ -55,7 +55,7 @@ public class CommandFactory {
             goCommand.setDirection(direction);
             goCommand.execute();
         }catch (ArrayIndexOutOfBoundsException e){
-            gameController.getConsoleView().displayInvalidDirection();
+            gameController.getViewFactory().getConsoleView().displayInvalidDirection();
         }
     }
 
@@ -65,7 +65,7 @@ public class CommandFactory {
             addCommand.setItemName(item);
             addCommand.execute();
         }catch (ArrayIndexOutOfBoundsException e){
-            gameController.getConsoleView().displayInvalidNameItemToGet();
+            gameController.getViewFactory().getConsoleView().displayInvalidNameItemToGet();
         }
     }
 
@@ -75,7 +75,7 @@ public class CommandFactory {
             dropCommand.setItemName(item);
             dropCommand.execute();
         }catch (ArrayIndexOutOfBoundsException e){
-            gameController.getConsoleView().displayInvalidNameItemToDrop();
+            gameController.getViewFactory().getConsoleView().displayInvalidNameItemToDrop();
         }
     }
 }

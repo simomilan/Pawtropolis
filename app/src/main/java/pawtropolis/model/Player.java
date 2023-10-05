@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 @ToString
-
 @Component
 public class Player {
 

@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Winged extends Animal {
 
     protected double wingspan;
-@Builder
+    @Builder
     public Winged (String nickname, String favoriteFood, int age, LocalDate entryDate, double weight, double height, double wingspan) {
         super(nickname, favoriteFood, age, entryDate, weight, height);
 

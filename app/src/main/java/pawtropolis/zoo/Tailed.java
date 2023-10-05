@@ -11,8 +11,8 @@ public class Tailed extends Animal {
 
     protected double tailLength;
 
-@Builder
 
+    @Builder
     public Tailed (String nickname, String favoriteFood, int age, LocalDate entryDate, double weight, double height, double tailLength)  {
        super(nickname, favoriteFood, age, entryDate, weight, height);
 

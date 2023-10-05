@@ -24,20 +24,20 @@ public class AddCommand implements GameCommand {
     public void execute() {
         Item selectedItem = gameController.getMapController().getCurrentRoom().getItemByName(itemName);
         if (selectedItem == null) {
-            gameController.getBagView().displayItemNotFound(itemName);
+            gameController.getViewFactory().getBagView().displayItemNotFound(itemName);
             return;
         }
         int necessarySpace = Math.abs(gameController.getPlayer().getAvailableSpaceInBag() - selectedItem.getRequiredSpace());
         if (gameController.getPlayer().isEnoughSpaceInBag(selectedItem)) {
             gameController.getMapController().getCurrentRoom().removeItem(selectedItem);
             gameController.getPlayer().addItemToBag(selectedItem);
-            gameController.getBagView().displayAddItemToBag(selectedItem.getName());
+            gameController.getViewFactory().getBagView().displayAddItemToBag(selectedItem.getName());
         }else if (gameController.getPlayer().getAvailableSpaceInBag() == 0) {
-            gameController.getBagView().displayFullBag();
+            gameController.getViewFactory().getBagView().displayFullBag();
         } else if(necessarySpace == 1){
-            gameController.getBagView().displayNotEnoughSpace(necessarySpace,selectedItem);
+            gameController.getViewFactory().getBagView().displayNotEnoughSpace(necessarySpace,selectedItem);
         } else if(necessarySpace > 1){
-            gameController.getBagView().displayNotEnoughSpaces(necessarySpace,selectedItem);
+            gameController.getViewFactory().getBagView().displayNotEnoughSpaces(necessarySpace,selectedItem);
         }
     }
 

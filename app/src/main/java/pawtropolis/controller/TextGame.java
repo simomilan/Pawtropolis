@@ -18,15 +18,15 @@ public class TextGame {
     }
 
     public void start() {
-        gameController.getConsoleView().displayWelcomeMessage();
+        gameController.getViewFactory().getConsoleView().displayWelcomeMessage();
         String playerName = InputController.readString();
         gameController.getPlayer().setName(playerName);
         gameController.getPlayer().setLifePoints(Player.MAX_LIFE_POINTS);
         String chosenName = gameController.getPlayer().getName();
-        gameController.getConsoleView().displayStartGame(chosenName);
+        gameController.getViewFactory().getConsoleView().displayStartGame(chosenName);
 
         while (gameController.isGameRunning()) {
-            gameController.getConsoleView().displayMessageAtTheHead();
+            gameController.getViewFactory().getConsoleView().displayMessageAtTheHead();
             String input = InputController.readString();
             commandController.executeCommandFromInput(input);
         }

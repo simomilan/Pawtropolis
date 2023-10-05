@@ -2,7 +2,6 @@ package pawtropolis.model;
 
 import lombok.Getter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 import pawtropolis.zoo.Animal;
 
 import java.util.*;
@@ -10,7 +9,6 @@ import java.util.stream.Collectors;
 
 @Getter
 @ToString
-//@SuperBuilder
 public class Room {
 
     private final String name;

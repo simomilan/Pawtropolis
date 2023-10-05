@@ -19,16 +19,16 @@ public class LookCommand implements GameCommand {
         String roomName = gameController.getMapController().getCurrentRoom().getName();
         String items = gameController.getMapController().getCurrentRoom().getAllItemsDescription();
         String animals = gameController.getMapController().getCurrentRoom().getAllAnimalsDescription();
-        gameController.getRoomView().displayNameRoom(roomName);
+        gameController.getViewFactory().getRoomView().displayNameRoom(roomName);
         if (items.isEmpty()) {
-            gameController.getRoomView().displayAbsenceItemInRoom();
+            gameController.getViewFactory().getRoomView().displayAbsenceItemInRoom();
         } else {
-            gameController.getRoomView().displayItemInRoom(items);
+            gameController.getViewFactory().getRoomView().displayItemInRoom(items);
         }
         if (animals.isEmpty()) {
-            gameController.getRoomView().displayAbsenceAnimalInRoom();
+            gameController.getViewFactory().getRoomView().displayAbsenceAnimalInRoom();
         } else {
-            gameController.getRoomView().displayAnimalInRoom(animals);
+            gameController.getViewFactory().getRoomView().displayAnimalInRoom(animals);
         }
     }
 }

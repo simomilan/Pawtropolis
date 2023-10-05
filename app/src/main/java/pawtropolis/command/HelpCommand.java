@@ -16,7 +16,7 @@ public class HelpCommand implements GameCommand {
 
     @Override
     public void execute() {
-        gameController.getConsoleView().displayHelpCommand();
+        gameController.getViewFactory().getConsoleView().displayHelpCommand();
 
     }
 }

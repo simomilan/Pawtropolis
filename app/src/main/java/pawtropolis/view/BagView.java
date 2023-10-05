@@ -1,19 +1,24 @@
 package pawtropolis.view;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pawtropolis.model.Item;
 import pawtropolis.view.utility.CustomLogger;
 
-import java.util.logging.Logger;
 @Component
 public class BagView implements GameView {
 
 
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
+    private final CustomLogger customLogger;
+
+    @Autowired
+    public BagView(CustomLogger customLoggerParam) {
+        customLogger = customLoggerParam;
+    }
 
     @Override
     public void displayMessage(String message) {
-        CUSTOM_LOGGER.displayMessage(message);
+        customLogger.displayMessage(message);
     }
 
     public void displayBag(String items, int availableSpace) {

@@ -1,17 +1,22 @@
 package pawtropolis.view;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pawtropolis.view.utility.CustomLogger;
-import java.util.logging.Logger;
+
 @Component
 public class RoomView implements GameView {
 
+    private final CustomLogger customLogger;
 
-    private static final CustomLogger CUSTOM_LOGGER = new CustomLogger(Logger.getLogger(""));
+    @Autowired
+    public RoomView(CustomLogger customLoggerParam) {
+        customLogger = customLoggerParam;
+    }
 
     @Override
     public void displayMessage(String message) {
-        CUSTOM_LOGGER.displayMessage(message);
+        customLogger.displayMessage(message);
     }
 
 

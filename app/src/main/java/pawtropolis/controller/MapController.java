@@ -6,10 +6,7 @@ import org.springframework.stereotype.Component;
 import pawtropolis.model.Direction;
 import pawtropolis.model.Item;
 import pawtropolis.model.Room;
-import pawtropolis.zoo.Animal;
-import pawtropolis.zoo.Eagle;
-import pawtropolis.zoo.Lion;
-import pawtropolis.zoo.Tiger;
+import pawtropolis.zoo.*;
 
 
 import java.time.LocalDate;
@@ -52,18 +49,13 @@ public class MapController {
         Item item6 = new Item("muzzle", "anti-bark", 1);
 
 
-        LocalDate l1 = LocalDate.of(2020, 1, 1);
-        Animal animal1 = new Lion("Simba", "Meat", 4, l1, 320.00, 120.00, 90.00);
-        LocalDate t1 = LocalDate.of(2021, 4, 2);
-        Animal animal2 = new Eagle("Gatto", "Meat", 3, t1, 288.00, 116.00, 100.00);
-        LocalDate l3 = LocalDate.of(2017, 3, 3);
-        Animal animal3 = new Lion("Gio", "Meat", 7, l3, 325.00, 122.00, 94.00);
-        LocalDate t2 = LocalDate.of(2019, 9, 10);
-        Animal animal4 = new Tiger("Gino", "Meat", 6, t2, 301.00, 123.00, 102.00);
-        LocalDate e2 = LocalDate.of(2018, 3, 12);
-        Animal animal5 = new Eagle("Titti", "Meat", 5, e2, 75.00, 90.00, 191.00);
+        Animal animal1 = new Lion("Simba", "Meat", 4, LocalDate.of(2020, 1, 1), 320.00, 120.00, 90.00);
+        Animal animal2 = new Eagle("Gatto", "Meat", 3, LocalDate.of(2021, 4, 2), 288.00, 116.00, 100.00);
+        Animal animal3 = new Lion("Gio", "Meat", 7, LocalDate.of(2017, 3, 3), 325.00, 122.00, 94.00);
+        Animal animal4 = new Tiger("Gino", "Meat", 6, LocalDate.of(2019, 9, 10), 301.00, 123.00, 102.00);
+        Animal animal5 = new Eagle("Titti", "Meat", 5, LocalDate.of(2018, 3, 12), 75.00, 90.00, 191.00);
 
-        Animal animal6 = Lion.builder()
+        Animal animal6 = Lion.lionBuilder()
                 .nickname("cazzo")
                 .favoriteFood("fregna")
                 .age(10)
@@ -73,7 +65,7 @@ public class MapController {
                 .tailLength(105)
                 .build();
 
-        Animal aniaml7 = Eagle.builder()
+        Animal animal7 = Eagle.eagleBuilder()
                 .nickname("Alato")
                 .favoriteFood("Insetti")
                 .age(5)
@@ -96,7 +88,7 @@ public class MapController {
         room6.addItem(item5);
         room6.addItem(item6);
         room1.addAnimal(animal6);
-        room1.addAnimal(aniaml7);
+        room1.addAnimal(animal7);
 
 
         return room1;

@@ -18,4 +18,8 @@ public class Lion extends Tailed {
 
     }
 
+    public static LionBuilder lionBuilder() {
+        return new LionBuilder();
+
+    }
 }

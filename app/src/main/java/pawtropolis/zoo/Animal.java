@@ -13,9 +13,9 @@ public class Animal {
      * The animal's nickname
      */
     protected String nickName;
-    private String favoriteFood;
-    private int age;
-    private LocalDate entryDate;
+    private final String favoriteFood;
+    private final int age;
+    private final LocalDate entryDate;
     protected double weight;
     protected double height;
 

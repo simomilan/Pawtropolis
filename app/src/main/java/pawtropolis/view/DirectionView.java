@@ -8,6 +8,7 @@ import pawtropolis.view.utility.CustomLogger;
 public class DirectionView implements GameView {
 
     private final CustomLogger customLogger;
+
     @Autowired
     public DirectionView(CustomLogger customLoggerParam) {
         customLogger = customLoggerParam;

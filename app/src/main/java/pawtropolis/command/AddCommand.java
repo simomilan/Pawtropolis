@@ -7,7 +7,6 @@ import pawtropolis.controller.GameController;
 import pawtropolis.model.Item;
 
 
-
 @Component
 @Setter
 public class AddCommand implements GameCommand {
@@ -15,8 +14,8 @@ public class AddCommand implements GameCommand {
     private final GameController gameController;
     private String itemName;
 
-   @Autowired
-   public AddCommand(GameController gameControllerParam) {
+    @Autowired
+    public AddCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;
     }
 
@@ -32,12 +31,12 @@ public class AddCommand implements GameCommand {
             gameController.getMapController().getCurrentRoom().removeItem(selectedItem);
             gameController.getPlayer().addItemToBag(selectedItem);
             gameController.getViewFactory().getBagView().displayAddItemToBag(selectedItem.getName());
-        }else if (gameController.getPlayer().getAvailableSpaceInBag() == 0) {
+        } else if (gameController.getPlayer().getAvailableSpaceInBag() == 0) {
             gameController.getViewFactory().getBagView().displayFullBag();
-        } else if(necessarySpace == 1){
-            gameController.getViewFactory().getBagView().displayNotEnoughSpace(necessarySpace,selectedItem);
-        } else if(necessarySpace > 1){
-            gameController.getViewFactory().getBagView().displayNotEnoughSpaces(necessarySpace,selectedItem);
+        } else if (necessarySpace == 1) {
+            gameController.getViewFactory().getBagView().displayNotEnoughSpace(necessarySpace, selectedItem);
+        } else if (necessarySpace > 1) {
+            gameController.getViewFactory().getBagView().displayNotEnoughSpaces(necessarySpace, selectedItem);
         }
     }
 

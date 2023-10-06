@@ -8,6 +8,7 @@ import lombok.ToString;
 
 
 import java.time.LocalDate;
+
 @ToString
 @Getter
 @Setter
@@ -15,8 +16,9 @@ import java.time.LocalDate;
 public class Winged extends Animal {
 
     protected double wingspan;
+
     @Builder
-    public Winged (String nickname, String favoriteFood, int age, LocalDate entryDate, double weight, double height, double wingspan) {
+    public Winged(String nickname, String favoriteFood, int age, LocalDate entryDate, double weight, double height, double wingspan) {
         super(nickname, favoriteFood, age, entryDate, weight, height);
 
         this.wingspan = wingspan;
@@ -27,8 +29,6 @@ public class Winged extends Animal {
 
 
     }
-
-
 
 
 }

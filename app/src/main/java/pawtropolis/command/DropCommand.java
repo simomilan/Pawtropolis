@@ -11,7 +11,7 @@ import pawtropolis.model.Item;
 public class DropCommand implements GameCommand {
 
     private final GameController gameController;
-    private  String itemName;
+    private String itemName;
 
     @Autowired
     public DropCommand(GameController gameController1) {

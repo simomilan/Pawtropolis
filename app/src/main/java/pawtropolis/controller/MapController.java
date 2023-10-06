@@ -24,6 +24,7 @@ public class MapController {
     public MapController() {
         this.currentRoom = createMap();
     }
+
     private static Room createMap() {
         Room room1 = new Room("Entrance");
         Room room2 = new Room("Lion's enclosure");

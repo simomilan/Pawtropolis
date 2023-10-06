@@ -4,14 +4,14 @@ import java.util.*;
 
 public class Zoo {
 
-    private final Map <String, List <Animal>> animals;
+    private final Map<String, List<Animal>> animals;
 
     public Zoo() {
-        animals = new HashMap <>();
+        animals = new HashMap<>();
     }
 
     public void addAnimal(String species, Animal animal) {
-        List<Animal> animalList = animals.getOrDefault(species, new ArrayList <>());
+        List<Animal> animalList = animals.getOrDefault(species, new ArrayList<>());
         animalList.add(animal);
         animals.put(species, animalList);
     }

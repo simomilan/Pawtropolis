@@ -16,8 +16,9 @@ public class GameController {
     private final MapController mapController;
     private boolean gameRunning;
     private final ViewFactory viewFactory;
+
     @Autowired
-    public GameController(Player player, ViewFactory viewFactoryParam ) {
+    public GameController(Player player, ViewFactory viewFactoryParam) {
         this.player = player;
         this.mapController = new MapController();
         this.gameRunning = true;

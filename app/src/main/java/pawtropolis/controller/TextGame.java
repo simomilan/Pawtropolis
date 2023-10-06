@@ -4,9 +4,10 @@ package pawtropolis.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pawtropolis.model.Player;
+
 @Component
 public class TextGame {
-    
+
     private final GameController gameController;
     private final CommandController commandController;
 

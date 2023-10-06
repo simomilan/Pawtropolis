@@ -12,7 +12,7 @@ import pawtropolis.model.Room;
 public class GoCommand implements GameCommand {
 
     private final GameController gameController;
-    private  String direction;
+    private String direction;
 
     @Autowired
     public GoCommand(GameController gameControllerParam) {

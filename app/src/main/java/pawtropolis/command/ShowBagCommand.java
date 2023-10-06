@@ -9,6 +9,7 @@ import pawtropolis.controller.GameController;
 public class ShowBagCommand implements GameCommand {
 
     private final GameController gameController;
+
     @Autowired
     public ShowBagCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;

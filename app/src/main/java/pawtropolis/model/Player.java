@@ -21,6 +21,7 @@ public class Player {
     private String name;
     private int lifePoints;
     private final Bag bag;
+
     @Autowired
     public Player(Bag bag) {
         this.bag = bag;

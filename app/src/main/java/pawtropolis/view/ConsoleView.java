@@ -20,7 +20,9 @@ public class ConsoleView implements GameView {
         customLogger.displayMessage(message);
     }
 
-    public void displayMessageAtTheHead(){displayMessage("\n>");}
+    public void displayMessageAtTheHead() {
+        displayMessage("\n>");
+    }
 
     public void displayQuitCommand() {
         displayMessage("\n See you next time!");
@@ -62,7 +64,7 @@ public class ConsoleView implements GameView {
         displayMessage("\nInvalid command. Enter 'help' to view the available commands.");
     }
 
-    public void displayErrorReadMsg(){
+    public void displayErrorReadMsg() {
         displayMessage("\nError while reading user input");
     }
 }

@@ -7,7 +7,6 @@ import pawtropolis.controller.GameController;
 import pawtropolis.controller.InputController;
 
 
-
 @Component
 @Getter
 public class CommandFactory {
@@ -33,16 +32,17 @@ public class CommandFactory {
         quitCommand = quitCommandParam;
         showBagCommand = showBagCommandParam;
     }
+
     public void createLookCommand() {
         lookCommand.execute();
     }
 
     public void createShowBagCommand() {
-         showBagCommand.execute();
+        showBagCommand.execute();
     }
 
     public void createQuitCommand() {
-         quitCommand.execute();
+        quitCommand.execute();
     }
 
     public void createHelpCommand() {
@@ -54,7 +54,7 @@ public class CommandFactory {
             String direction = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
             goCommand.setDirection(direction);
             goCommand.execute();
-        }catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             gameController.getViewFactory().getConsoleView().displayInvalidDirection();
         }
     }
@@ -64,7 +64,7 @@ public class CommandFactory {
             String item = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
             addCommand.setItemName(item);
             addCommand.execute();
-        }catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             gameController.getViewFactory().getConsoleView().displayInvalidNameItemToGet();
         }
     }
@@ -74,7 +74,7 @@ public class CommandFactory {
             String item = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
             dropCommand.setItemName(item);
             dropCommand.execute();
-        }catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             gameController.getViewFactory().getConsoleView().displayInvalidNameItemToDrop();
         }
     }

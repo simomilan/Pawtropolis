@@ -64,7 +64,4 @@ public class ConsoleView implements GameView {
         displayMessage("\nInvalid command. Enter 'help' to view the available commands.");
     }
 
-    public void displayErrorReadMsg() {
-        displayMessage("\nError while reading user input");
-    }
 }

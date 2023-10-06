@@ -1,10 +1,14 @@
 package pawtropolis.controller;
 
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.logging.Logger;
 
 public class InputController {
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(InputController.class);
 
     private InputController() {
     }
@@ -15,7 +19,7 @@ public class InputController {
         try {
             return inputReader.readLine();
         } catch (IOException e) {
-            System.out.println("Error while reading input");
+            logger.warning("\nError while reading user input");
             return "";
         }
     }

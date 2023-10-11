@@ -17,8 +17,7 @@ import java.time.LocalDate;
 public class MapController {
 
     private Room currentRoom;
-
-    public MapController() {
+    private MapController() {
         this.currentRoom = createMap();
     }
 

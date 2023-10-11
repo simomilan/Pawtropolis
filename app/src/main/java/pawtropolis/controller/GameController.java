@@ -18,9 +18,9 @@ public class GameController {
     private final ViewFactory viewFactory;
 
     @Autowired
-    public GameController(Player player, ViewFactory viewFactoryParam) {
-        this.player = player;
-        this.mapController = new MapController();
+    private GameController(Player playerParam, MapController mapControllerParam, ViewFactory viewFactoryParam) {
+        player = playerParam;
+        mapController = mapControllerParam;
         this.gameRunning = true;
         viewFactory = viewFactoryParam;
     }

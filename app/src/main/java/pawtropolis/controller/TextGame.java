@@ -12,7 +12,7 @@ public class TextGame {
     private final CommandController commandController;
 
     @Autowired
-    public TextGame(GameController gameControllerParam, CommandController commandControllerParam) {
+    private TextGame(GameController gameControllerParam, CommandController commandControllerParam) {
         gameController = gameControllerParam;
         commandController = commandControllerParam;
         start();

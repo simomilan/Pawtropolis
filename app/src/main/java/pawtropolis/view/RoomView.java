@@ -10,7 +10,7 @@ public class RoomView implements GameView {
     private final CustomLogger customLogger;
 
     @Autowired
-    public RoomView(CustomLogger customLoggerParam) {
+    private RoomView(CustomLogger customLoggerParam) {
         customLogger = customLoggerParam;
     }
 

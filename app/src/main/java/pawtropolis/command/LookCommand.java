@@ -10,7 +10,7 @@ public class LookCommand implements GameCommand {
     private final GameController gameController;
 
     @Autowired
-    public LookCommand(GameController gameControllerParam) {
+    private LookCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;
     }
 

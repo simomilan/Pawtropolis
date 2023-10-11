@@ -15,7 +15,7 @@ public class AddCommand implements GameCommand {
     private String itemName;
 
     @Autowired
-    public AddCommand(GameController gameControllerParam) {
+    private AddCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;
     }
 

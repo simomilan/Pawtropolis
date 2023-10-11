@@ -11,7 +11,7 @@ public class ShowBagCommand implements GameCommand {
     private final GameController gameController;
 
     @Autowired
-    public ShowBagCommand(GameController gameControllerParam) {
+    private ShowBagCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;
     }
 

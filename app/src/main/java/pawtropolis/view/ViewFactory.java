@@ -14,7 +14,7 @@ public class ViewFactory {
     private final RoomView roomView;
 
     @Autowired
-    public ViewFactory(BagView bagView, ConsoleView consoleView, DirectionView directionView, RoomView roomView) {
+    private ViewFactory(BagView bagView, ConsoleView consoleView, DirectionView directionView, RoomView roomView) {
         this.bagView = bagView;
         this.consoleView = consoleView;
         this.directionView = directionView;

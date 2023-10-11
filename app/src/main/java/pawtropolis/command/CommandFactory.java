@@ -21,7 +21,7 @@ public class CommandFactory {
     private final ShowBagCommand showBagCommand;
 
     @Autowired
-    public CommandFactory(GameController gameControllerParam, AddCommand addCommandParam, DropCommand dropCommandParam, GoCommand goCommandParam,
+    private CommandFactory(GameController gameControllerParam, AddCommand addCommandParam, DropCommand dropCommandParam, GoCommand goCommandParam,
                           HelpCommand helpCommandParam, LookCommand lookCommandParam, QuitCommand quitCommandParam, ShowBagCommand showBagCommandParam) {
         gameController = gameControllerParam;
         addCommand = addCommandParam;

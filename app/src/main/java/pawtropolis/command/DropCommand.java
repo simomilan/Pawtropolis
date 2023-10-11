@@ -14,7 +14,7 @@ public class DropCommand implements GameCommand {
     private String itemName;
 
     @Autowired
-    public DropCommand(GameController gameController1) {
+    private DropCommand(GameController gameController1) {
         gameController = gameController1;
     }
 

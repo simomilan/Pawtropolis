@@ -17,7 +17,7 @@ public class Bag {
     private int availableSpace;
 
 
-    public Bag() {
+    private Bag() {
         this.items = new ArrayList<>(BAG_SPACE);
         this.availableSpace = BAG_SPACE;
     }

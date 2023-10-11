@@ -23,7 +23,7 @@ public class Player {
     private final Bag bag;
 
     @Autowired
-    public Player(Bag bag) {
+    private Player(Bag bag) {
         this.bag = bag;
     }
 

@@ -10,7 +10,7 @@ public class CommandController {
     private final CommandFactory commandFactory;
 
     @Autowired
-    public CommandController(CommandFactory commandParam) {
+    private CommandController(CommandFactory commandParam) {
         commandFactory = commandParam;
     }
 

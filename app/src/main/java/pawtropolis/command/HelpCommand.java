@@ -10,7 +10,7 @@ public class HelpCommand implements GameCommand {
     private final GameController gameController;
 
     @Autowired
-    public HelpCommand(GameController gameControllerParam) {
+    private HelpCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;
     }
 

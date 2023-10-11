@@ -12,7 +12,7 @@ public class BagView implements GameView {
     private final CustomLogger customLogger;
 
     @Autowired
-    public BagView(CustomLogger customLoggerParam) {
+    private BagView(CustomLogger customLoggerParam) {
         customLogger = customLoggerParam;
     }
 

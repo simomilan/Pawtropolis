@@ -15,7 +15,7 @@ public class GoCommand implements GameCommand {
     private String direction;
 
     @Autowired
-    public GoCommand(GameController gameControllerParam) {
+    private GoCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;
     }
 

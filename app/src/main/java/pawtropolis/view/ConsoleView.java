@@ -11,7 +11,7 @@ public class ConsoleView implements GameView {
     private final CustomLogger customLogger;
 
     @Autowired
-    public ConsoleView(CustomLogger customLoggerParam) {
+    private ConsoleView(CustomLogger customLoggerParam) {
         customLogger = customLoggerParam;
     }
 

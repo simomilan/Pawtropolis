@@ -10,7 +10,7 @@ public class QuitCommand implements GameCommand {
 
     private final GameController gameController;
     @Autowired
-    public QuitCommand(GameController gameControllerParam) {
+    private QuitCommand(GameController gameControllerParam) {
         gameController = gameControllerParam;
     }
 

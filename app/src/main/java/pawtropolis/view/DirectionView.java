@@ -10,7 +10,7 @@ public class DirectionView implements GameView {
     private final CustomLogger customLogger;
 
     @Autowired
-    public DirectionView(CustomLogger customLoggerParam) {
+    private DirectionView(CustomLogger customLoggerParam) {
         customLogger = customLoggerParam;
     }
 

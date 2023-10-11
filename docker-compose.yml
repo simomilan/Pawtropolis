@@ -1,0 +1,12 @@
+version: '1'
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pawtropolisUser
+      POSTGRES_PASSWORD: pawtropolis
+      POSTGRES_DB: pawtropolisDB
+    volumes:
+      - ./script/schema.sql:/docker-entrypoint-initdb.d/1.sql

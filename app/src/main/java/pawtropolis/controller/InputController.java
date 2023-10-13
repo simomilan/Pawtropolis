@@ -26,12 +26,7 @@ public class InputController {
             return "";
         }
     }
-
-    public static String cleanerInputSingleWord(String input) {
-        return input.trim().replaceAll(" +", "");
-    }
-
-    public static String cleanerInputMultipleWord(String input) {
+    public static String cleanInput(String input) {
         return input.trim().toLowerCase();
     }
 

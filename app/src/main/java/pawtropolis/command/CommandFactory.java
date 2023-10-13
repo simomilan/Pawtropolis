@@ -50,33 +50,36 @@ public class CommandFactory {
     }
 
     public void createGoCommand(String secondPart) {
-        try {
-            String direction = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
+        String[] parts = secondPart.split(" +");
+        if (parts.length == 2) {
+            String direction = InputController.cleanInput(parts[1]);
             goCommand.setDirection(direction);
             goCommand.execute();
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } else {
             gameController.getViewFactory().getConsoleView().displayInvalidDirection();
         }
     }
 
     public void createAddCommand(String secondPart) {
-        try {
-            String item = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
+        String[] parts = secondPart.split(" +");
+        if (parts.length == 2) {
+            String item = InputController.cleanInput(parts[1]);
             addCommand.setItemName(item);
             addCommand.execute();
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } else {
             gameController.getViewFactory().getConsoleView().displayInvalidNameItemToGet();
         }
     }
 
     public void createDropCommand(String secondPart) {
-        try {
-            String item = InputController.cleanerInputMultipleWord(secondPart.split(" +")[1]);
+        String[] parts = secondPart.split(" +");
+        if (parts.length == 2) {
+            String item = InputController.cleanInput(parts[1]);
             dropCommand.setItemName(item);
             dropCommand.execute();
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } else {
             gameController.getViewFactory().getConsoleView().displayInvalidNameItemToDrop();
         }
     }
-}
 
+}

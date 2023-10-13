@@ -15,22 +15,21 @@ public class CommandController {
     }
 
     public void executeCommandFromInput(String input) {
-        String cleanedInputSingleWord = InputController.cleanerInputSingleWord(input);
-        String cleanedMultipleWords = InputController.cleanerInputMultipleWord(input);
+        String cleanedInput = InputController.cleanInput(input);
 
-        if (cleanedInputSingleWord.equalsIgnoreCase("help")) {
+        if (cleanedInput.equalsIgnoreCase("help")) {
             commandFactory.createHelpCommand();
-        } else if (cleanedInputSingleWord.equalsIgnoreCase("look")) {
+        } else if (cleanedInput.equalsIgnoreCase("look")) {
             commandFactory.createLookCommand();
-        } else if (cleanedMultipleWords.startsWith("go")) {
+        } else if (cleanedInput.startsWith("go")) {
             commandFactory.createGoCommand(input);
-        } else if (cleanedMultipleWords.startsWith("get")) {
+        } else if (cleanedInput.startsWith("get")) {
             commandFactory.createAddCommand(input);
-        } else if (cleanedMultipleWords.startsWith("drop")) {
+        } else if (cleanedInput.startsWith("drop")) {
             commandFactory.createDropCommand(input);
-        } else if (cleanedInputSingleWord.equalsIgnoreCase("showBag")) {
+        } else if (cleanedInput.equalsIgnoreCase("showBag")) {
             commandFactory.createShowBagCommand();
-        } else if (cleanedInputSingleWord.equalsIgnoreCase("quit")) {
+        } else if (cleanedInput.equalsIgnoreCase("quit")) {
             commandFactory.createQuitCommand();
         } else {
             commandFactory.getGameController().getViewFactory().getConsoleView().displayInvalidCommand();

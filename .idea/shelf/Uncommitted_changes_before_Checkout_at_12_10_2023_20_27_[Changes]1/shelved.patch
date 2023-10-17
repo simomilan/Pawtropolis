@@ -1,0 +1,582 @@
+Index: app/src/main/java/pawtropolis/controller/MapController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pawtropolis.controller;\r\n\r\nimport lombok.Getter;\r\nimport lombok.Setter;\r\nimport org.springframework.stereotype.Component;\r\nimport pawtropolis.model.Direction;\r\nimport pawtropolis.model.Item;\r\nimport pawtropolis.model.Room;\r\nimport pawtropolis.zoo.*;\r\n\r\n\r\nimport java.time.LocalDate;\r\n\r\n@Getter\r\n@Setter\r\n@Component\r\npublic class MapController {\r\n\r\n    private Room currentRoom;\r\n\r\n    public MapController() {\r\n        this.currentRoom = createMap();\r\n    }\r\n\r\n    private static Room createMap() {\r\n        Room room1 = new Room(\"Entrance\");\r\n        Room room2 = new Room(\"Lion's enclosure\");\r\n        Room room3 = new Room(\"Eagle's cage\");\r\n        Room room4 = new Room(\"Garden\");\r\n        Room room5 = new Room(\"Tiger jungle\");\r\n        Room room6 = new Room(\"Rest room\");\r\n        Room room7 = new Room(\"Bathroom\");\r\n\r\n\r\n        room1.addAdjoiningRoom(Direction.NORTH, room2);\r\n        room1.addAdjoiningRoom(Direction.SOUTH, room3);\r\n        room1.addAdjoiningRoom(Direction.EAST, room6);\r\n        room3.addAdjoiningRoom(Direction.WEST, room4);\r\n        room3.addAdjoiningRoom(Direction.EAST, room5);\r\n        room5.addAdjoiningRoom(Direction.NORTH, room6);\r\n        room6.addAdjoiningRoom(Direction.NORTH, room7);\r\n\r\n\r\n        Item item1 = new Item(\"collar\", \"studded collar\", 1);\r\n        Item item2 = new Item(\"bone\", \"a human femur\", 3);\r\n        Item item3 = new Item(\"whip\", \"leather whip\", 1);\r\n        Item item4 = new Item(\"meat\", \"sheep\", 4);\r\n        Item item5 = new Item(\"flashlight\", \"can be helpfully\", 2);\r\n        Item item6 = new Item(\"muzzle\", \"anti-bark\", 1);\r\n\r\n\r\n        Animal animal1 = new Lion(\"Simba\", \"Meat\", 4, LocalDate.of(2020, 1, 1), 320.00, 120.00, 90.00);\r\n        Animal animal2 = new Eagle(\"Gatto\", \"Meat\", 3, LocalDate.of(2021, 4, 2), 288.00, 116.00, 100.00);\r\n        Animal animal3 = new Lion(\"Gio\", \"Meat\", 7, LocalDate.of(2017, 3, 3), 325.00, 122.00, 94.00);\r\n        Animal animal4 = new Tiger(\"Gino\", \"Meat\", 6, LocalDate.of(2019, 9, 10), 301.00, 123.00, 102.00);\r\n        Animal animal5 = new Eagle(\"Titti\", \"Meat\", 5, LocalDate.of(2018, 3, 12), 75.00, 90.00, 191.00);\r\n\r\n        Animal animal6 = Lion.lionBuilder()\r\n                .nickname(\"cazzo\")\r\n                .favoriteFood(\"fregna\")\r\n                .age(10)\r\n                .entryDate(LocalDate.of(2020, 1, 1))\r\n                .weight(400)\r\n                .height(110)\r\n                .tailLength(105)\r\n                .build();\r\n\r\n        Animal animal7 = Eagle.eagleBuilder()\r\n                .nickname(\"Alato\")\r\n                .favoriteFood(\"Insetti\")\r\n                .age(5)\r\n                .entryDate(LocalDate.now())\r\n                .weight(2.5)\r\n                .height(30.0)\r\n                .wingspan(50.0)\r\n                .build();\r\n\r\n\r\n        room1.addItem(item1);\r\n        room2.addAnimal(animal1);\r\n        room2.addItem(item3);\r\n        room2.addAnimal(animal3);\r\n        room3.addAnimal(animal2);\r\n        room3.addAnimal(animal5);\r\n        room4.addItem(item4);\r\n        room5.addItem(item2);\r\n        room5.addAnimal(animal4);\r\n        room6.addItem(item5);\r\n        room6.addItem(item6);\r\n        room1.addAnimal(animal6);\r\n        room1.addAnimal(animal7);\r\n\r\n\r\n        return room1;\r\n    }\r\n\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/pawtropolis/controller/MapController.java b/app/src/main/java/pawtropolis/controller/MapController.java
+--- a/app/src/main/java/pawtropolis/controller/MapController.java	
++++ b/app/src/main/java/pawtropolis/controller/MapController.java	
+@@ -45,7 +45,7 @@
+         Item item2 = new Item("bone", "a human femur", 3);
+         Item item3 = new Item("whip", "leather whip", 1);
+         Item item4 = new Item("meat", "sheep", 4);
+-        Item item5 = new Item("flashlight", "can be helpfully", 2);
++        Item item5 = new Item("flashlight", "can be helpful", 2);
+         Item item6 = new Item("muzzle", "anti-bark", 1);
+ 
+ 
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	
++++ /dev/null	
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10__Changes_.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]" date="1693300210476" recycled="false" toDelete="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 29/08/2023 11:10 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]/shelved.patch	
++++ /dev/null	
+@@ -1,76 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"eb8257f4-8acb-4e55-a922-6cd7c9e84f4b\" name=\"Changes\" comment=\"A new condition (fullness of the bag) in execute method in AddCommand\">\r\n      <changelist_data name=\"mcilli\" email=\"marianna.cilli@gmail.com\" date=\"1688397496000\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/command/AddCommand.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/command/AddCommand.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"4f111d21-a6b4-49fb-924d-74f507a33d16\" />\r\n        <option name=\"url\" value=\"https://github.com/simomilan/Pawtropolis.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2S70VWBD7wRSisQ7QPxCh06mwfW\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SONARLINT_PRECOMMIT_ANALYSIS\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"settings.editor.selected.configurable\": \"configurable.group.build.android\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"eb8257f4-8acb-4e55-a922-6cd7c9e84f4b\" name=\"Changes\" comment=\"\" />\r\n      <created>1688482336019</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1688482336019</updated>\r\n      <workItem from=\"1688482337459\" duration=\"35234000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object\">\r\n      <created>1688549222707</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688549222707</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object\">\r\n      <created>1688549350660</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688549350660</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Escape (\\n) has been added to the messages in BagView, ConsoleView and RoomView\">\r\n      <created>1688554152253</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688554152253</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"A new condition (fullness of the bag) in execute method in AddCommand\">\r\n      <created>1688720785568</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688720785568</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"main\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"origin/main\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"HEAD\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n        <entry key=\"User\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"*\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"COLUMN_ID_WIDTH\">\r\n                <map>\r\n                  <entry key=\"Table.Default.Date.ColumnIdWidth\" value=\"15\" />\r\n                  <entry key=\"Table.Space.CommitStatus.ColumnIdWidth\" value=\"87\" />\r\n                </map>\r\n              </option>\r\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\r\n                <map>\r\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\r\n                </map>\r\n              </option>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"develop\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"date\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"1688654373538\" />\r\n                        <option value=\"\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object\" />\r\n    <MESSAGE value=\"Escape (\\n) has been added to the messages in BagView, ConsoleView and RoomView\" />\r\n    <MESSAGE value=\"A new condition (fullness of the bag) in execute method in AddCommand\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"A new condition (fullness of the bag) in execute method in AddCommand\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	
+-+++ b/.idea/workspace.xml	
+-@@ -4,10 +4,8 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="A new condition (fullness of the bag) in execute method in AddCommand">
+-+    <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="Committing untracked file due to previous committing error">
+-       <changelist_data name="mcilli" email="marianna.cilli@gmail.com" date="1688397496000" />
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/command/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/AddCommand.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -17,11 +15,11 @@
+-   <component name="Git.Settings">
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-   </component>
+--  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+--  "lastFilter": {
+--    "state": "OPEN"
+-+  <component name="GitHubPullRequestSearchHistory">{
+-+  &quot;lastFilter&quot;: {
+-+    &quot;state&quot;: &quot;OPEN&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="GithubPullRequestsUISettings">
+-     <option name="selectedUrlAndAccountId">
+-       <UrlAndAccount>
+-@@ -35,23 +33,23 @@
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="PropertiesComponent"><![CDATA[{
+--  "keyToString": {
+--    "RunOnceActivity.OpenProjectViewOnStart": "true",
+--    "RunOnceActivity.ShowReadmeOnStart": "true",
+--    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+--    "WebServerToolWindowFactoryState": "false",
+--    "node.js.detected.package.eslint": "true",
+--    "node.js.detected.package.tslint": "true",
+--    "node.js.selected.package.eslint": "(autodetect)",
+--    "node.js.selected.package.tslint": "(autodetect)",
+--    "project.structure.last.edited": "Project",
+--    "project.structure.proportion": "0.0",
+--    "project.structure.side.proportion": "0.0",
+--    "settings.editor.selected.configurable": "configurable.group.build.android",
+--    "vue.rearranger.settings.migration": "true"
+-+  <component name="PropertiesComponent">{
+-+  &quot;keyToString&quot;: {
+-+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+-+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+-+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build.android&quot;,
+-+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-   <component name="TaskManager">
+-     <task active="true" id="Default" summary="Default task">
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]/shelved.patch	
++++ /dev/null	
+@@ -1,73 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"eb8257f4-8acb-4e55-a922-6cd7c9e84f4b\" name=\"Changes\" comment=\"A new condition (fullness of the bag) in execute method in AddCommand\">\r\n      <changelist_data name=\"mcilli\" email=\"marianna.cilli@gmail.com\" date=\"1688397496000\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/command/AddCommand.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/command/AddCommand.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"4f111d21-a6b4-49fb-924d-74f507a33d16\" />\r\n        <option name=\"url\" value=\"https://github.com/simomilan/Pawtropolis.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2S70VWBD7wRSisQ7QPxCh06mwfW\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SONARLINT_PRECOMMIT_ANALYSIS\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"settings.editor.selected.configurable\": \"configurable.group.build.android\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"eb8257f4-8acb-4e55-a922-6cd7c9e84f4b\" name=\"Changes\" comment=\"\" />\r\n      <created>1688482336019</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1688482336019</updated>\r\n      <workItem from=\"1688482337459\" duration=\"35234000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object\">\r\n      <created>1688549222707</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688549222707</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object\">\r\n      <created>1688549350660</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688549350660</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Escape (\\n) has been added to the messages in BagView, ConsoleView and RoomView\">\r\n      <created>1688554152253</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688554152253</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"A new condition (fullness of the bag) in execute method in AddCommand\">\r\n      <created>1688720785568</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688720785568</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"main\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"origin/main\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"HEAD\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n        <entry key=\"User\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"*\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"COLUMN_ID_WIDTH\">\r\n                <map>\r\n                  <entry key=\"Table.Default.Date.ColumnIdWidth\" value=\"15\" />\r\n                  <entry key=\"Table.Space.CommitStatus.ColumnIdWidth\" value=\"87\" />\r\n                </map>\r\n              </option>\r\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\r\n                <map>\r\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\r\n                </map>\r\n              </option>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"develop\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"date\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"1688654373538\" />\r\n                        <option value=\"\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object\" />\r\n    <MESSAGE value=\"Escape (\\n) has been added to the messages in BagView, ConsoleView and RoomView\" />\r\n    <MESSAGE value=\"A new condition (fullness of the bag) in execute method in AddCommand\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"A new condition (fullness of the bag) in execute method in AddCommand\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	
+-+++ b/.idea/workspace.xml	
+-@@ -6,8 +6,6 @@
+-   <component name="ChangeListManager">
+-     <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="A new condition (fullness of the bag) in execute method in AddCommand">
+-       <changelist_data name="mcilli" email="marianna.cilli@gmail.com" date="1688397496000" />
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/command/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/AddCommand.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -17,11 +15,11 @@
+-   <component name="Git.Settings">
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-   </component>
+--  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+--  "lastFilter": {
+--    "state": "OPEN"
+-+  <component name="GitHubPullRequestSearchHistory">{
+-+  &quot;lastFilter&quot;: {
+-+    &quot;state&quot;: &quot;OPEN&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="GithubPullRequestsUISettings">
+-     <option name="selectedUrlAndAccountId">
+-       <UrlAndAccount>
+-@@ -35,23 +33,23 @@
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="PropertiesComponent"><![CDATA[{
+--  "keyToString": {
+--    "RunOnceActivity.OpenProjectViewOnStart": "true",
+--    "RunOnceActivity.ShowReadmeOnStart": "true",
+--    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+--    "WebServerToolWindowFactoryState": "false",
+--    "node.js.detected.package.eslint": "true",
+--    "node.js.detected.package.tslint": "true",
+--    "node.js.selected.package.eslint": "(autodetect)",
+--    "node.js.selected.package.tslint": "(autodetect)",
+--    "project.structure.last.edited": "Project",
+--    "project.structure.proportion": "0.0",
+--    "project.structure.side.proportion": "0.0",
+--    "settings.editor.selected.configurable": "configurable.group.build.android",
+--    "vue.rearranger.settings.migration": "true"
+-+  <component name="PropertiesComponent">{
+-+  &quot;keyToString&quot;: {
+-+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+-+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+-+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build.android&quot;,
+-+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-   <component name="TaskManager">
+-     <task active="true" id="Default" summary="Default task">
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+deleted file mode 100644
+--- a/.idea/misc.xml	
++++ /dev/null	
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="temurin-17" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	
++++ /dev/null	
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/Pawtropolis.iml" filepath="$PROJECT_DIR$/Pawtropolis.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28__Changes_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28__Changes_.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]" date="1693301285680" recycled="false" toDelete="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 29/08/2023 11:28 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+deleted file mode 100644
+--- a/.idea/workspace.xml	
++++ /dev/null	
+@@ -1,241 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AutoImportSettings">
+-    <option name="autoReloadType" value="SELECTIVE" />
+-  </component>
+-  <component name="ChangeListManager">
+-    <list default="true" id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="">
+-      <changelist_data name="mcilli" email="marianna.cilli@gmail.com" date="1688397496000" />
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]/shelved.patch" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10_[Changes]1/shelved.patch" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_10__Changes_.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]/shelved.patch" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]1/shelved.patch" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28__Changes_.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Pawtropolis.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/command/AddCommand.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/command/DropCommand.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/command/GameCommand.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/command/GoCommand.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/command/HelpCommand.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/command/LookCommand.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/command/QuitCommand.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/command/ShowBagCommand.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controller/CommandController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controller/InputController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controller/MapController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/controller/TextGame.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Bag.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Direction.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Item.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/model/Room.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/BagView.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/ConsoleView.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/DirectionView.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/GameView.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/Main.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/RoomView.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/utility/CustomFormatter.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/view/utility/CustomLogger.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/zoo/Animal.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/zoo/Eagle.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/zoo/Lion.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/zoo/Main.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/zoo/Tailed.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/zoo/Tiger.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/zoo/Winged.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/zoo/Zoo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-    </list>
+-    <option name="SHOW_DIALOG" value="false" />
+-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-    <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="Git.Merge.Settings">
+-    <option name="BRANCH" value="main" />
+-  </component>
+-  <component name="Git.Settings">
+-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-  </component>
+-  <component name="GitHubPullRequestSearchHistory">{
+-  &quot;lastFilter&quot;: {
+-    &quot;state&quot;: &quot;OPEN&quot;
+-  }
+-}</component>
+-  <component name="GithubPullRequestsUISettings">
+-    <option name="selectedUrlAndAccountId">
+-      <UrlAndAccount>
+-        <option name="accountId" value="2238fb74-ff62-42f8-9992-c5231cb94280" />
+-        <option name="url" value="https://github.com/simomilan/Pawtropolis.git" />
+-      </UrlAndAccount>
+-    </option>
+-  </component>
+-  <component name="HighlightingSettingsPerFile">
+-    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
+-  </component>
+-  <component name="ProjectId" id="2S70VWBD7wRSisQ7QPxCh06mwfW" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/smilan/IdeaProjects/Pawtropolis&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build.android&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+-  }
+-}</component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-  <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="eb8257f4-8acb-4e55-a922-6cd7c9e84f4b" name="Changes" comment="" />
+-      <created>1688482336019</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1688482336019</updated>
+-      <workItem from="1688482337459" duration="35234000" />
+-      <workItem from="1693302198569" duration="1199000" />
+-    </task>
+-    <task id="LOCAL-00001" summary="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object">
+-      <created>1688549222707</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1688549222707</updated>
+-    </task>
+-    <task id="LOCAL-00002" summary="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object">
+-      <created>1688549350660</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1688549350660</updated>
+-    </task>
+-    <task id="LOCAL-00003" summary="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView">
+-      <created>1688554152253</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1688554152253</updated>
+-    </task>
+-    <task id="LOCAL-00004" summary="A new condition (fullness of the bag) in execute method in AddCommand">
+-      <created>1688720785568</created>
+-      <option name="number" value="00004" />
+-      <option name="presentableId" value="LOCAL-00004" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1688720785568</updated>
+-    </task>
+-    <option name="localTasksCounter" value="5" />
+-    <servers />
+-  </component>
+-  <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
+-  </component>
+-  <component name="Vcs.Log.Tabs.Properties">
+-    <option name="RECENT_FILTERS">
+-      <map>
+-        <entry key="Branch">
+-          <value>
+-            <list>
+-              <RecentGroup>
+-                <option name="FILTER_VALUES">
+-                  <option value="main" />
+-                </option>
+-              </RecentGroup>
+-              <RecentGroup>
+-                <option name="FILTER_VALUES">
+-                  <option value="origin/main" />
+-                </option>
+-              </RecentGroup>
+-              <RecentGroup>
+-                <option name="FILTER_VALUES">
+-                  <option value="HEAD" />
+-                </option>
+-              </RecentGroup>
+-            </list>
+-          </value>
+-        </entry>
+-        <entry key="User">
+-          <value>
+-            <list>
+-              <RecentGroup>
+-                <option name="FILTER_VALUES">
+-                  <option value="*" />
+-                </option>
+-              </RecentGroup>
+-            </list>
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-    <option name="TAB_STATES">
+-      <map>
+-        <entry key="MAIN">
+-          <value>
+-            <State>
+-              <option name="COLUMN_ID_WIDTH">
+-                <map>
+-                  <entry key="Table.Default.Date.ColumnIdWidth" value="15" />
+-                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="87" />
+-                </map>
+-              </option>
+-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+-                <map>
+-                  <entry key="Show.Git.Branches" value="true" />
+-                </map>
+-              </option>
+-              <option name="FILTERS">
+-                <map>
+-                  <entry key="branch">
+-                    <value>
+-                      <list>
+-                        <option value="develop" />
+-                      </list>
+-                    </value>
+-                  </entry>
+-                  <entry key="date">
+-                    <value>
+-                      <list>
+-                        <option value="1688654373538" />
+-                        <option value="" />
+-                      </list>
+-                    </value>
+-                  </entry>
+-                </map>
+-              </option>
+-            </State>
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Class CommandController: new method's name: from processInput to executeCommandFromInput;&#10;Class CustumLogger: new for the Logger object" />
+-    <MESSAGE value="Escape (\n) has been added to the messages in BagView, ConsoleView and RoomView" />
+-    <MESSAGE value="A new condition (fullness of the bag) in execute method in AddCommand" />
+-    <option name="LAST_COMMIT_MESSAGE" value="" />
+-  </component>
+-  <component name="XSLT-Support.FileAssociations.UIState">
+-    <expand />
+-    <select />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: Pawtropolis.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module external.linked.project.id=\"Pawtropolis\" external.linked.project.path=\"$MODULE_DIR$\" external.root.project.path=\"$MODULE_DIR$\" external.system.id=\"GRADLE\" external.system.module.group=\"\" external.system.module.version=\"unspecified\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/.gradle\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/build\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n  <component name=\"SonarLintModuleSettings\">\r\n    <option name=\"uniqueId\" value=\"de708b0b-998c-4174-bf7f-3678e95e6327\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Pawtropolis.iml b/Pawtropolis.iml
+--- a/Pawtropolis.iml	
++++ b/Pawtropolis.iml	
+@@ -1,14 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<module external.linked.project.id="Pawtropolis" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
+-      <excludeFolder url="file://$MODULE_DIR$/build" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
++<module version="4">
+   <component name="SonarLintModuleSettings">
+     <option name="uniqueId" value="de708b0b-998c-4174-bf7f-3678e95e6327" />
+   </component>
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>### IntelliJ IDEA ###\r\nout/\r\n!**/src/main/**/out/\r\n!**/src/test/**/out/\r\n\r\n### Eclipse ###\r\n.apt_generated\r\n.classpath\r\n.factorypath\r\n.project\r\n.settings\r\n.springBeans\r\n.sts4-cache\r\nbin/\r\n!**/src/main/**/bin/\r\n!**/src/test/**/bin/\r\n\r\n### NetBeans ###\r\n/nbproject/private/\r\n/nbbuild/\r\n/dist/\r\n/nbdist/\r\n/.nb-gradle/\r\n\r\n### VS Code ###\r\n.vscode/\r\n\r\n### Mac OS ###\r\n.DS_Store
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	
++++ b/.gitignore	
+@@ -26,4 +26,5 @@
+ .vscode/
+ 
+ ### Mac OS ###
+-.DS_Store
+\ No newline at end of file
++.DS_Store
++/.idea/
+diff --git a/.idea/sonarlint/issuestore/index.pb b/.idea/sonarlint/issuestore/index.pb
+deleted file mode 100644
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_08_2023_11_28_[Changes]1/shelved.patch
+deleted file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/index.pb b/.idea/sonarlint/securityhotspotstore/index.pb
+deleted file mode 100644

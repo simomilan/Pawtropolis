@@ -11,12 +11,13 @@ import java.util.Arrays;
 @ToString
 public enum Direction {
 
-    NORTH("north"),
-    EAST("east"),
-    SOUTH("south"),
-    WEST("west");
+    NORTH("north", 1),
+    EAST("east", 2),
+    SOUTH("south", 3),
+    WEST("west",4);
 
     private final String directionString;
+    private final int id;
 
 
     public static Direction getDirectionFromString(String directionString) {

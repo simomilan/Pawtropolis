@@ -7,8 +7,6 @@ import pawtropolis.model.Direction;
 import pawtropolis.model.Item;
 import pawtropolis.model.Room;
 import pawtropolis.zoo.*;
-
-
 import java.time.LocalDate;
 
 @Getter
@@ -47,6 +45,7 @@ public class MapController {
         Item item4 = new Item("meat", "sheep", 4);
         Item item5 = new Item("flashlight", "can be helpfully", 2);
         Item item6 = new Item("muzzle", "anti-bark", 1);
+
 
 
         Animal animal1 = new Lion("Simba", "Meat", 4, LocalDate.of(2020, 1, 1), 320.00, 120.00, 90.00);

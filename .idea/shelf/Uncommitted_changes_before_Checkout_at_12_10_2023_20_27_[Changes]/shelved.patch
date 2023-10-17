@@ -1,0 +1,13 @@
+Index: docker-compose.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>version: '1'\r\nservices:\r\n  db:\r\n    image: postgres:latest\r\n    ports:\r\n      - \"5432:5432\"\r\n    environment:\r\n      POSTGRES_USER: pawtropolisUser\r\n      POSTGRES_PASSWORD: pawtropolis\r\n      POSTGRES_DB: pawtropolisDB\r\n    volumes:\r\n      - ./script/schema.sql:/docker-entrypoint-initdb.d/1.sql\r\n
+===================================================================
+diff --git a/docker-compose.yml b/docker-compose.yml
+--- a/docker-compose.yml	
++++ b/docker-compose.yml	
+@@ -10,3 +10,4 @@
+       POSTGRES_DB: pawtropolisDB
+     volumes:
+       - ./script/schema.sql:/docker-entrypoint-initdb.d/1.sql
++      - ./script/insertItem.sql:/docker-entrypoint-initdb.d/2.sql

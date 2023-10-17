@@ -20,6 +20,7 @@ repositories {
 }
 
 dependencies {
+
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13.2'
 
@@ -44,11 +45,11 @@ dependencies {
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
-java {
+/*java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
-}
+}*/
 
 application {
     // Define the main class for the application.

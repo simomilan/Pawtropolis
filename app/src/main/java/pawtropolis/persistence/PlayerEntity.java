@@ -9,7 +9,9 @@ import lombok.*;
 @Table(name = "player")
 public class PlayerEntity implements EntityDB{
 
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "player_id")
     private Long playerID;
 
     @Column(name = "name")
@@ -18,7 +20,7 @@ public class PlayerEntity implements EntityDB{
     @Column(name = "lifepoints")
     private int lifepoints;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "bagID")
-    private BagEntity bag;
+    /*@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bag_id")
+    private BagEntity bag;*/
 }

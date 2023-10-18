@@ -14,12 +14,14 @@ public class AnimalEntity implements EntityDB{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "animal_id")
     private Long animalId;
 
     @Column(name = "nickname")
     private String nickname;
 
     @Column(name = "species")
+    @Enumerated(EnumType.STRING)
     private Species species;
 
     @Column(name = "favorite_food")
@@ -42,4 +44,8 @@ public class AnimalEntity implements EntityDB{
 
     @Column(name = "tail_length")
     private double tailLenght;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_id")
+    private RoomEntity roomEntity;
 }

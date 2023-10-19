@@ -41,3 +41,12 @@ CREATE TABLE animal (
                       room_id INT,
                       FOREIGN KEY (room_id) references room(id)
 );
+
+CREATE TABLE direction (
+                           direction_id SERIAL PRIMARY KEY,
+                           direction VARCHAR(255),
+                           from_room_id INT,
+                           to_room_id INT,
+                           FOREIGN KEY (from_room_id) REFERENCES room(id),
+                           FOREIGN KEY (to_room_id) REFERENCES room(id)
+);

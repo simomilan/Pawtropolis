@@ -1,5 +1,6 @@
 package pawtropolis.persistence;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Arrays;
@@ -9,19 +10,16 @@ import java.util.Arrays;
 
 public enum Species {
 
-    TIGER("tiger", 1),
-    LION("lion", 2),
-    EAGLE("eagle", 3);
+    TIGER("tiger"),
+    LION("lion"),
+    EAGLE("eagle");
 
-    private final String name;
+    private String species;
 
-    private final int id;
 
-    public static Species fromString(String name) {
-        return Arrays.stream(Species.values())
-                .filter(type -> type.getName().equals(name.toLowerCase())).findFirst()
-                .orElse(null);
-    }
+
+
+
 }
 
 

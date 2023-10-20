@@ -22,6 +22,11 @@ public class DirectionEntity implements EntityDB{
     private Direction direction;
 
     @ManyToOne
+    @JoinColumn(name = "from_room_id")
+    private RoomEntity fromRoom;
+
+
+    @ManyToOne
     @JoinColumn(name = "to_room_id")
     private RoomEntity toRoom;
 }

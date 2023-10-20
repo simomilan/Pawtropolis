@@ -12,18 +12,12 @@ import java.util.List;
 public class RoomEntity implements EntityDB{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "room_id")
     private Long roomID;
 
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name= "item_id")
-    private List<ItemEntity> items;
 
-    /*@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "animal_id")
-    private List<AnimalEntity> animals;*/
 }

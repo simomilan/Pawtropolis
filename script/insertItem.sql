@@ -1,7 +1,7 @@
-INSERT INTO item(name, description,requiredSpace) VALUES
-('collar','studded collar', 1),
-('bone','a human femur', 3),
-('whip','leather whip', 1),
-('meat','sheep', 4),
-('flashlight', 'can be helpful', 2),
-('muzzle', 'anti-bark', 1);
+INSERT INTO item(name, description,requiredSpace,bag_id, room_id) VALUES
+('collar','studded collar', 1,null, 2),
+('bone','a human femur', 3,null, 2),
+('whip','leather whip', 1,null, 2),
+('meat','sheep', 4,null, 4),
+('flashlight', 'can be helpful', 2,null, 4),
+('muzzle', 'anti-bark', 1,null, 6);

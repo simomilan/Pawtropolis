@@ -11,8 +11,8 @@ public class PlayerEntity implements EntityDB{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "player_id")
-    private Long playerID;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "name")
     private String name;

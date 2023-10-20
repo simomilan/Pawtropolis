@@ -14,7 +14,7 @@ import pawtropolis.model.Direction;
 public class DirectionEntity implements EntityDB{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "direction_id")
     private Long directionID;
 

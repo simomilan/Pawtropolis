@@ -1,4 +1,4 @@
-INSERT INTO item(name, description,requiredSpace,bag_id, room_id) VALUES
+INSERT INTO item(name, description,required_space,bag_id, room_id) VALUES
 ('collar','studded collar', 1,null, 2),
 ('bone','a human femur', 3,null, 2),
 ('whip','leather whip', 1,null, 2),

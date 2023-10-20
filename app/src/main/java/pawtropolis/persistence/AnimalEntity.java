@@ -13,18 +13,18 @@ import java.time.LocalDate;
 public class AnimalEntity implements EntityDB{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "animal_id")
-    private Long animalId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "nickname")
     private String nickname;
 
-    @Column(name = "species")
+    @Column(name = "species_type_id")
     @Enumerated(EnumType.STRING)
     private Species species;
 
-    @Column(name = "favorite_food")
+    @Column(name = "favourite_food")
     private String favoriteFood;
 
     @Column(name = "age")
@@ -43,7 +43,7 @@ public class AnimalEntity implements EntityDB{
     private double wingspan;
 
     @Column(name = "tail_length")
-    private double tailLenght;
+    private double tailLength;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")

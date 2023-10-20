@@ -11,7 +11,7 @@ public class SpeciesEntity implements EntityDB{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_species_type")
+    @Column(name = "species_type_id")
     private Long id;
 
     @Enumerated(EnumType.STRING)

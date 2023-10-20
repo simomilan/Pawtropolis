@@ -12,9 +12,9 @@ public class ItemEntity implements EntityDB{
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //o identity????!!
-    @Column(name = "item_id")
-    private Long itemID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "name")
     private String name;

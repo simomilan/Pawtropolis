@@ -3,6 +3,8 @@ package pawtropolis.persistence;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -17,9 +19,6 @@ public class BagEntity implements EntityDB{
     @Column(name = "bag_space")
     private int BAG_SPACE = 4;    //errori non  e da però bho
 
-    /*@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item_id")
-    private List<ItemEntity> item;*///da vede bene sta cosa
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "player_id")

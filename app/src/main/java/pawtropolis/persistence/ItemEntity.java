@@ -29,7 +29,7 @@ public class ItemEntity implements EntityDB{
     @JoinColumn(name = "bag_id")
     private BagEntity bagEntity;
 
-    /*@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
-    private RoomEntity roomEntity;*/
+    private RoomEntity roomEntity;
 }

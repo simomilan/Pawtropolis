@@ -7,7 +7,7 @@ CREATE TABLE player (
 CREATE TABLE bag (
                      id BIGSERIAL PRIMARY KEY,
                      BAG_SPACE INT DEFAULT 4,
-                     id_player INT,
+                     id_player BIGINT,
                      FOREIGN KEY (id_player) references player(id)
 );
 
@@ -20,9 +20,9 @@ CREATE TABLE item (
                       id BIGSERIAL PRIMARY KEY,
                       name VARCHAR(255) NOT NULL,
                       description TEXT,
-                      requiredSpace INT,
-                      bag_id INT,
-                      room_id INT,
+                      required_space INT,
+                      bag_id BIGINT,
+                      room_id BIGINT,
                       FOREIGN KEY (bag_id) references bag(id),
                       FOREIGN KEY (room_id) references room(id)
 );
@@ -35,7 +35,7 @@ CREATE TABLE species_type (
 CREATE TABLE animal (
                         id BIGSERIAL PRIMARY KEY,
                         nickname VARCHAR(255) NOT NULL,
-                        species_type_id INT,
+                        species_type_id BIGINT,
                         favourite_food VARCHAR(255) NOT NULL,
                         age INT,
                         entry_date DATE,
@@ -43,7 +43,7 @@ CREATE TABLE animal (
                         height FLOAT,
                         wingspan FLOAT,
                         tail_length FLOAT,
-                        room_id INT,
+                        room_id BIGINT,
                         FOREIGN KEY (room_id) references room(id),
                         FOREIGN KEY (species_type_id) references species_type(species_type_id)
 );
@@ -51,8 +51,8 @@ CREATE TABLE animal (
 CREATE TABLE direction (
                            direction_id BIGSERIAL PRIMARY KEY,
                            direction VARCHAR(255),
-                           from_room_id INT,
-                           to_room_id INT,
+                           from_room_id BIGINT,
+                           to_room_id BIGINT,
                            FOREIGN KEY (from_room_id) REFERENCES room(id),
                            FOREIGN KEY (to_room_id) REFERENCES room(id)
 );

@@ -21,8 +21,7 @@ public class AnimalEntity implements EntityDB{
     private String nickname;
 
     @Column(name = "species_type_id")
-    @Enumerated(EnumType.STRING)
-    private Species species;
+    private Long species;
 
     @Column(name = "favourite_food")
     private String favoriteFood;

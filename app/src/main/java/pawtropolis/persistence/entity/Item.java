@@ -1,4 +1,4 @@
-package pawtropolis.persistence;
+package pawtropolis.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Entity
 @Table(name = "item")
-public class ItemEntity implements EntityDB{
+public class Item implements EntityDB {
 
 
     @Id
@@ -27,9 +27,9 @@ public class ItemEntity implements EntityDB{
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "bag_id")
-    private BagEntity bagEntity;
+    private Bag bagEntity;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
-    private RoomEntity roomEntity;
+    private Room roomEntity;
 }

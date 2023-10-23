@@ -1,4 +1,4 @@
-package pawtropolis.persistence;
+package pawtropolis.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Entity
 @Table(name = "bag")
-public class BagEntity implements EntityDB{
+public class Bag implements EntityDB {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +20,5 @@ public class BagEntity implements EntityDB{
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_player")
-    private PlayerEntity playerEntity;
+    private Player playerEntity;
 }

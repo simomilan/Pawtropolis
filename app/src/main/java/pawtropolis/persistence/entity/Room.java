@@ -1,4 +1,4 @@
-package pawtropolis.persistence;
+package pawtropolis.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Entity
 @Table(name = "room")
-public class RoomEntity implements EntityDB{
+public class Room implements EntityDB {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

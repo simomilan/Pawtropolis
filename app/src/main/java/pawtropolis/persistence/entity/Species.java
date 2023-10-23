@@ -1,4 +1,4 @@
-package pawtropolis.persistence;
+package pawtropolis.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Entity
 @Table(name= "species_type")
-public class SpeciesEntity implements EntityDB{
+public class Species implements EntityDB {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +15,6 @@ public class SpeciesEntity implements EntityDB{
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private Species species;
+    private pawtropolis.persistence.Species species;
 
 }

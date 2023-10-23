@@ -1,4 +1,4 @@
-package pawtropolis.persistence;
+package pawtropolis.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name ="animal")
-public class AnimalEntity implements EntityDB{
+public class Animal implements EntityDB {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,5 +46,5 @@ public class AnimalEntity implements EntityDB{
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
-    private RoomEntity roomEntity;
+    private Room roomEntity;
 }

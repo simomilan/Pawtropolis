@@ -1,23 +1,23 @@
 CREATE TABLE player (
-                        id SERIAL PRIMARY KEY,
+                        id BIGSERIAL PRIMARY KEY,
                         name VARCHAR(255) UNIQUE,
                         lifePoints INT
 );
 
 CREATE TABLE bag (
-                     id SERIAL PRIMARY KEY,
+                     id BIGSERIAL PRIMARY KEY,
                      BAG_SPACE INT DEFAULT 4,
                      id_player INT,
                      FOREIGN KEY (id_player) references player(id)
 );
 
 CREATE TABLE room (
-                      id SERIAL PRIMARY KEY,
+                      id BIGSERIAL PRIMARY KEY,
                       name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE item (
-                      id SERIAL PRIMARY KEY,
+                      id BIGSERIAL PRIMARY KEY,
                       name VARCHAR(255) NOT NULL,
                       description TEXT,
                       requiredSpace INT,
@@ -28,12 +28,12 @@ CREATE TABLE item (
 );
 
 CREATE TABLE species_type (
-                          species_type_id SERIAL PRIMARY KEY,
+                          species_type_id BIGSERIAL PRIMARY KEY,
                           species VARCHAR(255)
 
 );
 CREATE TABLE animal (
-                        id SERIAL PRIMARY KEY,
+                        id BIGSERIAL PRIMARY KEY,
                         nickname VARCHAR(255) NOT NULL,
                         species_type_id INT,
                         favourite_food VARCHAR(255) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE animal (
 );
 
 CREATE TABLE direction (
-                           direction_id SERIAL PRIMARY KEY,
+                           direction_id BIGSERIAL PRIMARY KEY,
                            direction VARCHAR(255),
                            from_room_id INT,
                            to_room_id INT,

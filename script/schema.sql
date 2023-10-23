@@ -56,3 +56,19 @@ CREATE TABLE direction (
                            FOREIGN KEY (from_room_id) REFERENCES room(id),
                            FOREIGN KEY (to_room_id) REFERENCES room(id)
 );
+
+CREATE OR REPLACE FUNCTION check_item_foreignKey()
+    RETURNS TRIGGER AS $$
+BEGIN
+    IF (NEW.bag_id IS NOT NULL AND NEW.room_id IS NOT NULL) OR (NEW.bag_id IS NULL AND NEW.room_id IS NULL) THEN
+        RAISE EXCEPTION 'An item might be in a room or in the bag.';
+END IF;
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER check_item_foreignKey_trigger
+    BEFORE INSERT OR UPDATE
+                         ON item
+                         FOR EACH ROW
+                         EXECUTE FUNCTION check_item_foreignKey();

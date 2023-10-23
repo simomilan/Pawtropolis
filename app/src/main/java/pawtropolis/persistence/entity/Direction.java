@@ -1,17 +1,16 @@
-package pawtropolis.persistence;
+package pawtropolis.persistence.entity;
 
 
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import pawtropolis.model.Direction;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "direction")
-public class DirectionEntity implements EntityDB{
+public class Direction implements EntityDB {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,14 +18,14 @@ public class DirectionEntity implements EntityDB{
     private Long directionID;
 
     @Enumerated(EnumType.STRING)
-    private Direction direction;
+    private pawtropolis.model.Direction direction;
 
     @ManyToOne
     @JoinColumn(name = "from_room_id")
-    private RoomEntity fromRoom;
+    private Room fromRoom;
 
 
     @ManyToOne
     @JoinColumn(name = "to_room_id")
-    private RoomEntity toRoom;
+    private Room toRoom;
 }

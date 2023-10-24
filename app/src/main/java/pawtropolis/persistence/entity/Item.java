@@ -27,9 +27,9 @@ public class Item implements EntityDB {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "bag_id")
-    private Bag bagEntity;
+    private Bag bag;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
-    private Room roomEntity;
+    private Room room;
 }

@@ -18,9 +18,9 @@ public class Player implements EntityDB {
     private String name;
 
     @Column(name = "lifepoints")
-    private int lifepoints;
+    private int lifePoints;
 
-    /*@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "bag_id")
-    private BagEntity bag;*/
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private Bag bag;
 }

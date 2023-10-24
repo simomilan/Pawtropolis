@@ -15,10 +15,6 @@ public class Bag implements EntityDB {
     private Long id;
 
     @Column(name = "bag_space")
-    private int BAG_SPACE = 4;    //errori non  e da però bho
+    private int bagSpace = 4;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_player")
-    private Player playerEntity;
 }

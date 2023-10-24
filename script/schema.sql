@@ -1,15 +1,16 @@
+CREATE TABLE bag (
+                     id BIGSERIAL PRIMARY KEY,
+                     BAG_SPACE INT DEFAULT 4
+);
+
 CREATE TABLE player (
                         id BIGSERIAL PRIMARY KEY,
                         name VARCHAR(255) UNIQUE,
-                        lifePoints INT
+                        lifePoints INT,
+                        bag_id BIGINT,
+                        FOREIGN KEY (bag_id) references bag(id)
 );
 
-CREATE TABLE bag (
-                     id BIGSERIAL PRIMARY KEY,
-                     BAG_SPACE INT DEFAULT 4,
-                     id_player BIGINT,
-                     FOREIGN KEY (id_player) references player(id)
-);
 
 CREATE TABLE room (
                       id BIGSERIAL PRIMARY KEY,

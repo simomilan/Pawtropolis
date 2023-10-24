@@ -2,6 +2,7 @@ package pawtropolis.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import pawtropolis.persistence.SpeciesType;
 
 @Getter
 @Setter
@@ -15,6 +16,6 @@ public class Species implements EntityDB {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private pawtropolis.persistence.Species species;
+    private SpeciesType species;
 
 }

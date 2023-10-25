@@ -16,6 +16,6 @@ public class Species implements EntityDB {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private SpeciesType species;
+    private SpeciesType speciesType;
 
 }

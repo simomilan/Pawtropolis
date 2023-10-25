@@ -10,8 +10,8 @@ services:
       POSTGRES_DB: pawtropolis
     volumes:
       - ./script/schema.sql:/docker-entrypoint-initdb.d/1.sql
-      - ./script/insertPlayer.sql:/docker-entrypoint-initdb.d/2.sql
-      - ./script/insertBag.sql:/docker-entrypoint-initdb.d/3.sql
+      - ./script/insertBag.sql:/docker-entrypoint-initdb.d/2.sql
+      - ./script/insertPlayer.sql:/docker-entrypoint-initdb.d/3.sql
       - ./script/insertRoom.sql:/docker-entrypoint-initdb.d/4.sql
       - ./script/insertItem.sql:/docker-entrypoint-initdb.d/5.sql
       - ./script/insertSpecies.sql:/docker-entrypoint-initdb.d/6.sql

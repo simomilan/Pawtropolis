@@ -47,4 +47,5 @@ public class Animal implements EntityDB {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
     private Room roomEntity;
+
 }

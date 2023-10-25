@@ -7,7 +7,7 @@ import pawtropolis.persistence.SpeciesType;
 @Getter
 @Setter
 @Entity
-@Table(name= "species_type")
+@Table(name = "species_type")
 public class Species implements EntityDB {
 
     @Id

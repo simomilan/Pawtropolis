@@ -17,7 +17,7 @@ public class Direction implements EntityDB {
     private Long directionID;
 
     @Enumerated(EnumType.STRING)
-    private pawtropolis.model.Direction direction;
+    private pawtropolis.model.Direction cardinalPoint;
 
     @ManyToOne
     @JoinColumn(name = "from_room_id")
